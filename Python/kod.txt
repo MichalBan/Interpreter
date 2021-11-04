@@ -1,0 +1,15 @@
+setup:
+    Par.P = 10
+    Arg.x = 1
+    max_loops = 10
+    iter = 0
+    history[10] = 0
+
+loop:
+    run_experiment()
+    Par.P = Par.P + 1
+    iter = iter + 1
+    history[iter] = Par.P
+
+finish:
+    Par.P = 0

@@ -54,13 +54,15 @@ char Source::receive_code_char()
     tx_buf = 'c';
 	HAL_UART_Transmit(huart, &tx_buf, 1, 100);
 	HAL_UART_Receive(huart, &rx_buffer, 1, -1);
+	if(rx_buffer == 255)
+    {
+		++line;
+    }
 #else
 	rx_buffer = (uint8_t)indata.get();
     std::cout << rx_buffer << '\n';
-	if((rx_buffer < 30 || rx_buffer > 126) && rx_buffer != '\n')
-    {
-        std::cout << rx_buffer << '\n';
-    }
+    if(rx_buffer == 255)
+        rx_buffer = '\0';
 #endif
 	update_position(rx_buffer);
 
