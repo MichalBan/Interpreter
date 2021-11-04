@@ -66,7 +66,7 @@ static const std::map<char, token_type> token_chars
 	{'%', TOKEN_MODULO},
 	{'(', TOKEN_LEFT_BRACKET},
 	{')', TOKEN_RIGHT_BRACKET},
-	{'\0', TOKEN_END_OF_FILE},
+	{255, TOKEN_END_OF_FILE},
 };
 
 static const std::map<std::string, token_type> token_strings

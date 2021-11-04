@@ -56,6 +56,11 @@ char Source::receive_code_char()
 	HAL_UART_Receive(huart, &rx_buffer, 1, -1);
 #else
 	rx_buffer = (uint8_t)indata.get();
+    std::cout << rx_buffer << '\n';
+	if((rx_buffer < 30 || rx_buffer > 126) && rx_buffer != '\n')
+    {
+        std::cout << rx_buffer << '\n';
+    }
 #endif
 	update_position(rx_buffer);
 

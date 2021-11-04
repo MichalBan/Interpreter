@@ -23,15 +23,16 @@ public:
 class While_statement
 {
 public:
-	Expression condition;
-	Body while_body;
+	~While_statement();
+	Expression* condition;
+	Body* while_body;
 };
 
 class Assignment
 {
 public:
 	~Assignment();
-	Variable var;
+	Variable* var;
 	Expression* value;
 };
 
@@ -43,11 +44,12 @@ typedef enum
 	STATEMENT_IF
 }statement_type;
 
-typedef std::variant<Assignment, Function_call, While_statement, If_statement> statement_content;
+typedef std::variant<Assignment*, Function_call*, While_statement*, If_statement*> statement_content;
 
 class Statement
 {
 public:
+	~Statement();
 	statement_type type;
 	statement_content content;
 };

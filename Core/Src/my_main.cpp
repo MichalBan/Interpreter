@@ -8,7 +8,8 @@ void my_main_run(UART_HandleTypeDef* huart)
 	Lexer Lex(&Com);
 	Parser Par(&Lex, &Trans);
 
-	Program P = Par.parse_program();
+	Program* P = Par.parse_program();
+	delete P;
 
 	for(;;)
 	{

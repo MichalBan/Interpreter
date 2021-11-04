@@ -17,41 +17,43 @@ variant:577:12:std::__detail::__variant::_Copy_assign_base<false, std::__cxx11::
 variant:636:12:std::__detail::__variant::_Move_assign_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Move_assign_base()	16	static
 variant:681:12:std::__detail::__variant::_Variant_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Variant_base()	16	static
 variant:1292:7:std::variant<_Types>::~variant() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
-expression_parse.cpp:3:6:void Parser::parse_variable_or_function_call(Primal_expression&)	88	static
+expression_parse.cpp:3:6:void Parser::parse_variable_or_function_call(Primal_expression*)	80	static
 variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
 Expression.h:18:7:Primal_expression::Primal_expression()	16	static
-expression_parse.cpp:19:19:Primal_expression Parser::parse_primal_expression()	160	static
-expression_parse.cpp:53:6:void Parser::parse_nested_expression(Priority_expression&)	56	static
-expression_parse.cpp:61:21:Priority_expression Parser::parse_priority_expression()	32	static
-expression_parse.cpp:75:6:bool Parser::match_unary_operator(Unary_expression&)	16	static
-expression_parse.cpp:91:18:Unary_expression Parser::parse_unary_expression()	24	static
-expression_parse.cpp:102:18:Power_expression Parser::parse_power_expression()	24	static
-expression_parse.cpp:118:6:bool Parser::match_multiply_operator(Multiply_expression&)	24	static
+expression_parse.cpp:19:20:Primal_expression* Parser::parse_primal_expression()	168	static
+expression_parse.cpp:58:13:Expression* Parser::parse_nested_expression()	48	static
+variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {Primal_expression*, Expression*}]	16	static
+Expression.h:28:7:constexpr Priority_expression::Priority_expression()	16	static
+expression_parse.cpp:66:22:Priority_expression* Parser::parse_priority_expression()	40	static
+expression_parse.cpp:81:6:bool Parser::match_unary_operator(Unary_expression*)	16	static
+expression_parse.cpp:97:19:Unary_expression* Parser::parse_unary_expression()	24	static
+expression_parse.cpp:108:19:Power_expression* Parser::parse_power_expression()	24	static
+expression_parse.cpp:124:6:bool Parser::match_multiply_operator(Multiply_expression*)	24	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
 Expression.h:66:7:Multiply_expression::Multiply_expression()	16	static
-expression_parse.cpp:137:21:Multiply_expression Parser::parse_multiply_expression()	32	static
-expression_parse.cpp:149:6:bool Parser::match_sum_operator(Sum_expression&)	24	static
+expression_parse.cpp:143:22:Multiply_expression* Parser::parse_multiply_expression()	40	static
+expression_parse.cpp:155:6:bool Parser::match_sum_operator(Sum_expression*)	24	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
 Expression.h:81:7:Sum_expression::Sum_expression()	16	static
-expression_parse.cpp:165:16:Sum_expression Parser::parse_sum_expression()	32	static
-expression_parse.cpp:177:6:bool Parser::match_relation_operator(Relation_expression&)	16	static
-expression_parse.cpp:200:21:Relation_expression Parser::parse_relation_expression()	24	static
-expression_parse.cpp:212:6:bool Parser::match_compare_operator(Compare_expression&)	16	static
-expression_parse.cpp:229:20:Compare_expression Parser::parse_compare_expression()	24	static
+expression_parse.cpp:171:17:Sum_expression* Parser::parse_sum_expression()	40	static
+expression_parse.cpp:183:6:bool Parser::match_relation_operator(Relation_expression*)	16	static
+expression_parse.cpp:206:22:Relation_expression* Parser::parse_relation_expression()	24	static
+expression_parse.cpp:218:6:bool Parser::match_compare_operator(Compare_expression*)	16	static
+expression_parse.cpp:235:21:Compare_expression* Parser::parse_compare_expression()	24	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 Expression.h:123:7:And_expression::And_expression()	16	static
-expression_parse.cpp:241:16:And_expression Parser::parse_and_expression()	32	static
+expression_parse.cpp:247:17:And_expression* Parser::parse_and_expression()	40	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 Expression.h:130:7:Expression::Expression()	16	static
-expression_parse.cpp:253:12:Expression Parser::parse_expression()	32	static
+expression_parse.cpp:259:13:Expression* Parser::parse_expression()	40	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -86,6 +88,12 @@ variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepte
 variant:1065:21:>&&) [with _Tp = float; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = float; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	32	static
+variant:509:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Primal_expression*, Expression*>]	16	static
+variant:553:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Primal_expression*, Expression*>]	16	static
+variant:628:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Primal_expression*, Expression*>]	16	static
+variant:673:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Primal_expression*, Expression*>]	16	static
+variant:692:2:) [with unsigned int _Np = 0; _Args = {}; _Types = {Primal_expression*, Expression*}]	16	static
+variant:686:7:constexpr std::__detail::__variant::_Variant_base<_Types>::_Variant_base() [with _Types = {Primal_expression*, Expression*}]	16	static
 variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {Primal_expression*, Expression*}]	16	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Expression*; _Types = {Primal_expression*, Expression*}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Primal_expression*; _Types = {Primal_expression*, Expression*}]	32	static
@@ -193,6 +201,9 @@ variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&
 variant:1583:5:>&) [with unsigned int _Np = 3; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__cxx11::basic_string<char>]	16	static
 variant:1395:2:) [with unsigned int _Np = 3; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >}; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:202:2:) [with _Args = {}; _Type = Primal_expression*]	16	static
+variant:322:12:) [with _Args = {}; _First = Primal_expression*; _Rest = {Expression*}]	16	static
+variant:430:12:) [with unsigned int _Np = 0; _Args = {}; _Types = {Primal_expression*, Expression*}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Expression*>&]	16	static
 variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Primal_expression*, Expression*>&]	24	static
 variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Primal_expression*, Expression*>&]	24	static
@@ -216,10 +227,6 @@ stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vect
 stl_vector.h:273:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = Power_expression*&]	16	static
 vector.tcc:109:7:) [with _Args = {Power_expression*}; _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	24	static
-stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
-stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
-stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
-stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = sum_operator&]	16	static
 vector.tcc:109:7:) [with _Args = {sum_operator}; _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = Multiply_expression*]	16	static
@@ -232,26 +239,18 @@ stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vect
 stl_vector.h:273:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = Multiply_expression*&]	16	static
 vector.tcc:109:7:) [with _Args = {Multiply_expression*}; _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	24	static
-stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
-stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
-stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
-stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = Compare_expression*]	16	static
 stl_vector.h:94:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl_data::_Vector_impl_data() [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	24	static
 stl_vector.h:273:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = Compare_expression*&]	16	static
 vector.tcc:109:7:) [with _Args = {Compare_expression*}; _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	24	static
-stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
-stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = And_expression*]	16	static
 stl_vector.h:94:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl_data::_Vector_impl_data() [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	24	static
 stl_vector.h:273:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = And_expression*&]	16	static
 vector.tcc:109:7:) [with _Args = {And_expression*}; _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	24	static
-stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
-stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const char, token_type>]	16	static
 allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Up>&) [with _Tp1 = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -636,22 +635,28 @@ move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = std::__cxx11::basi
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Expression*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Primal_expression*]	16	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
+stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
 stl_algobase.h:222:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = unsigned int]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = mult_operator]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	24	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
+stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Power_expression*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	24	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
+stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = sum_operator]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	24	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
+stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Multiply_expression*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	24	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
+stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Compare_expression*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	24	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
+stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = And_expression*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	24	static
 stl_tree.h:566:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_Node_allocator() [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
@@ -694,21 +699,27 @@ variant:385:13:>::_M_reset_impl() [with _Types = {bool, int, float, std::__cxx11
 variant:385:13:>::_M_reset_impl() [with _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]::<lambda(auto:1&&)> mutable [with auto:1 = Variable*&]	24	static
 variant:385:13:>::_M_reset_impl() [with _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]::<lambda(auto:1&&)> mutable [with auto:1 = Function_call*&]	24	static
 stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	24	static
+stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = mult_operator; _Alloc = std::allocator<mult_operator>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = mult_operator]	24	static
 stl_uninitialized.h:958:5:_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = mult_operator*; _ForwardIterator = mult_operator*; _Allocator = std::allocator<mult_operator>]	32	static
 stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	24	static
+stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = Power_expression*; _Alloc = std::allocator<Power_expression*>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = Power_expression*]	24	static
 stl_uninitialized.h:958:5:_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = Power_expression**; _ForwardIterator = Power_expression**; _Allocator = std::allocator<Power_expression*>]	32	static
 stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	24	static
+stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = sum_operator; _Alloc = std::allocator<sum_operator>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = sum_operator]	24	static
 stl_uninitialized.h:958:5:_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = sum_operator*; _ForwardIterator = sum_operator*; _Allocator = std::allocator<sum_operator>]	32	static
 stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	24	static
+stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = Multiply_expression*; _Alloc = std::allocator<Multiply_expression*>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = Multiply_expression*]	24	static
 stl_uninitialized.h:958:5:_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = Multiply_expression**; _ForwardIterator = Multiply_expression**; _Allocator = std::allocator<Multiply_expression*>]	32	static
 stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	24	static
+stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = Compare_expression*; _Alloc = std::allocator<Compare_expression*>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = Compare_expression*]	24	static
 stl_uninitialized.h:958:5:_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = Compare_expression**; _ForwardIterator = Compare_expression**; _Allocator = std::allocator<Compare_expression*>]	32	static
 stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	24	static
+stl_vector.h:277:7:const _Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() const [with _Tp = And_expression*; _Alloc = std::allocator<And_expression*>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = And_expression*]	24	static
 stl_uninitialized.h:958:5:_ForwardIterator std::__relocate_a(_InputIterator, _InputIterator, _ForwardIterator, _Allocator&) [with _InputIterator = And_expression**; _ForwardIterator = And_expression**; _Allocator = std::allocator<And_expression*>]	32	static
 aligned_buffer.h:72:7:_Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -791,6 +802,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-expression_parse.cpp:263:1:void __static_initialization_and_destruction_0(int, int)	424	static
-expression_parse.cpp:263:1:cpp)	8	static
-expression_parse.cpp:263:1:cpp)	8	static
+expression_parse.cpp:269:1:void __static_initialization_and_destruction_0(int, int)	424	static
+expression_parse.cpp:269:1:cpp)	8	static
+expression_parse.cpp:269:1:cpp)	8	static

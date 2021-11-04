@@ -6,51 +6,53 @@ Parser::Parser(Lexer *Lex, Transmitter *Trans)
 	this->Trans = Trans;
 }
 
-While_statement Parser::parse_while()
+Program::~Program()
 {
-	While_statement st;
-	st.condition = parse_expression();
+	delete setup;
+	delete loop;
+	delete finish;
+}
+
+While_statement* Parser::parse_while()
+{
+	auto st = new While_statement();
+	st->condition = parse_expression();
 	assert_token(TOKEN_COLON, "colon after condition expression");
 	get_next_token();
-	st.while_body = parse_body();
+	st->while_body = parse_body();
 	assert_token(TOKEN_END, "\"end\" after if body");
 	get_next_token();
 	return st;
 }
 
-void Parser::parse_elseif_content(If_statement &st)
+void Parser::parse_elseif_content(If_statement *st)
 {
 	get_next_token();
-	Expression *condition = new Expression(parse_expression());
+	st->conditions.push_back(parse_expression());
 	assert_token(TOKEN_COLON, "colon after condition expression");
 	get_next_token();
-	Body *if_body = new Body(parse_body());
-	st.conditions.push_back(condition);
-	st.if_bodies.push_back(if_body);
+	st->if_bodies.push_back(parse_body());
 }
 
-void Parser::parse_else_content(If_statement &st)
+void Parser::parse_else_content(If_statement *st)
 {
 	get_next_token();
 	assert_token(TOKEN_COLON, "colon after \"else\"");
 	get_next_token();
-	Body *if_body = new Body(parse_body());
-	st.if_bodies.push_back(if_body);
+	st->if_bodies.push_back(parse_body());
 }
 
-void Parser::parse_if_content(If_statement &st)
+void Parser::parse_if_content(If_statement *st)
 {
-	Expression *condition = new Expression(parse_expression());
+	st->conditions.push_back(parse_expression());
 	assert_token(TOKEN_COLON, "colon after condition expression");
 	get_next_token();
-	Body *if_body = new Body(parse_body());
-	st.conditions.push_back(condition);
-	st.if_bodies.push_back(if_body);
+	st->if_bodies.push_back(parse_body());
 }
 
-If_statement Parser::parse_if()
+If_statement* Parser::parse_if()
 {
-	If_statement st;
+	auto st = new If_statement();
 
 	parse_if_content(st);
 	while (token_buffer.get_type() == TOKEN_ELSEIF)
@@ -67,18 +69,18 @@ If_statement Parser::parse_if()
 	return st;
 }
 
-void Parser::parse_variable_index(Variable &var)
+void Parser::parse_variable_index(Variable *var)
 {
 	if (token_buffer.get_type() == TOKEN_LEFT_SQUARE)
 	{
 		get_next_token();
-		var.index = new Expression(parse_expression());
+		var->index = parse_expression();
 		assert_token(TOKEN_RIGHT_SQUARE, "closing square bracket");
 		get_next_token();
 	}
 	else
 	{
-		var.index = nullptr;
+		var->index = nullptr;
 	}
 }
 
@@ -91,41 +93,41 @@ void Parser::parse_member_selection_id(std::string &id)
 	get_next_token();
 }
 
-void Parser::parse_variable_id(std::string& id, Variable &var)
+void Parser::parse_variable_id(std::string &id, Variable *var)
 {
 	if (id == "Arg")
 	{
-		var.type = ASSIGNMENT_ARG;
+		var->type = ASSIGNMENT_ARG;
 		parse_member_selection_id(id);
 	}
 	else if (id == "Par")
 	{
-		var.type = ASSIGNMENT_PAR;
+		var->type = ASSIGNMENT_PAR;
 		parse_member_selection_id(id);
 	}
 	else
 	{
-		var.type = ASSIGNMENT_LOCAL;
+		var->type = ASSIGNMENT_LOCAL;
 	}
 
-	var.id = std::string(id);
+	var->id = std::string(id);
 }
 
-Variable Parser::parse_variable(std::string& id)
+Variable* Parser::parse_variable(std::string &id)
 {
-	Variable var;
+	auto var = new Variable();
 	parse_variable_id(id, var);
 	parse_variable_index(var);
 	return var;
 }
 
-Assignment Parser::parse_assignment(std::string& id)
+Assignment* Parser::parse_assignment(std::string &id)
 {
-	Assignment st;
-	st.var = parse_variable(id);
+	auto st = new Assignment();
+	st->var = parse_variable(id);
 	assert_token(TOKEN_ASSIGN, "assignment operator \"=\"");
 	get_next_token();
-	st.value = new Expression(parse_expression());
+	st->value = parse_expression();
 	return st;
 }
 
@@ -144,65 +146,63 @@ void Parser::assert_token(token_type type, const std::string message)
 	}
 }
 
-void Parser::parse_function_arguments(Function_call &f)
+void Parser::parse_function_arguments(Function_call *f)
 {
 	if (token_buffer.get_type() != TOKEN_RIGHT_BRACKET)
 	{
-		f.arguments.push_back(new Expression(parse_expression()));
+		f->arguments.push_back(parse_expression());
 		while (token_buffer.get_type() == TOKEN_COMA)
 		{
 			get_next_token();
-			f.arguments.push_back(new Expression(parse_expression()));
+			f->arguments.push_back(parse_expression());
 		}
 	}
 }
 
-Function_call Parser::parse_function_call(std::string& id)
+Function_call* Parser::parse_function_call(std::string &id)
 {
-	Function_call f;
-	f.id = std::string(id);
+	auto f = new Function_call();
+	f->id = std::string(id);
 	get_next_token();
 	parse_function_arguments(f);
 	assert_token(TOKEN_RIGHT_BRACKET, "closing bracket");
 	get_next_token();
-	assert_token(TOKEN_NEWLINE, "new line");
-	get_next_token();
 	return f;
 }
 
-void Parser::parse_assignment_or_function_call(Statement &s)
+void Parser::parse_assignment_or_function_call(Statement *s)
 {
 	std::string id = std::get<std::string>(token_buffer.get_value());
 	get_next_token();
 	if (token_buffer.get_type() == TOKEN_LEFT_BRACKET)
 	{
-		s.type = STATEMENT_FUNCTION_CALL;
-		s.content = parse_function_call(id);
+		s->type = STATEMENT_FUNCTION_CALL;
+		s->content = parse_function_call(id);
 	}
 	else
 	{
-	    s.type = STATEMENT_ASSIGNMENT;
-		s.content = parse_assignment(id);
+		s->type = STATEMENT_ASSIGNMENT;
+		s->content = parse_assignment(id);
 	}
 }
 
-Statement Parser::parse_statement() //todo refactor
+Statement* Parser::parse_statement() //todo refactor
 {
-	Statement s{};
+	auto s = new Statement();
 	switch (token_buffer.get_type())
 	{
 	case TOKEN_IDENTIFIER:
 		parse_assignment_or_function_call(s);
 		break;
 	case TOKEN_WHILE:
-		s.type = STATEMENT_WHILE;
+		s->type = STATEMENT_WHILE;
 		get_next_token();
-		s.content = parse_while();
+		s->content = parse_while();
 		break;
 	case TOKEN_IF:
-		s.type = STATEMENT_IF;
+		s->type = STATEMENT_IF;
 		get_next_token();
-		s.content = parse_if();
+		s->content = parse_if();
 		break;
 	default:
 		report_error("expected statement:\nidentifier, if, while\n");
@@ -226,13 +226,12 @@ void Parser::skip_newlines()
 	}
 }
 
-Body Parser::parse_body()
+Body* Parser::parse_body()
 {
-	Body bod;
+	auto bod = new Body();
 	while (is_token_statement_first())
 	{
-		Statement *st = new Statement(parse_statement());
-		bod.statements.push_back(st);
+		bod->statements.push_back(parse_statement());
 		skip_newlines();
 	}
 	return bod;
@@ -248,40 +247,40 @@ void Parser::get_next_token()
 	}
 }
 
-void Parser::parse_setup(Program& Prog)
+void Parser::parse_setup(Program *Prog)
 {
 	get_next_token();
 	assert_token(TOKEN_SETUP, "\"setup\" keyword");
 	get_next_token();
 	assert_token(TOKEN_COLON, "colon after setup");
 	get_next_token();
-    skip_newlines();
-	Prog.setup = parse_body();
+	skip_newlines();
+	Prog->setup = parse_body();
 }
 
-void Parser::parse_loop(Program& Prog)
+void Parser::parse_loop(Program *Prog)
 {
 	assert_token(TOKEN_LOOP, "\"loop\" keyword");
 	get_next_token();
 	assert_token(TOKEN_COLON, "colon after loop");
 	get_next_token();
-    skip_newlines();
-	Prog.loop = parse_body();
+	skip_newlines();
+	Prog->loop = parse_body();
 }
 
-void Parser::parse_finish(Program& Prog)
+void Parser::parse_finish(Program *Prog)
 {
 	assert_token(TOKEN_FINISH, "\"finish\" keyword");
 	get_next_token();
 	assert_token(TOKEN_COLON, "colon after finish");
 	get_next_token();
-    skip_newlines();
-	Prog.finish = parse_body();
+	skip_newlines();
+	Prog->finish = parse_body();
 }
 
-Program Parser::parse_program()
+Program* Parser::parse_program()
 {
-	Program Prog;
+	auto Prog = new Program();
 	parse_setup(Prog);
 	parse_loop(Prog);
 	parse_finish(Prog);
