@@ -30,4 +30,13 @@ public:
 	std::vector<Expression*> arguments;
 };
 
+class Method_call
+{
+public:
+	~Method_call();
+	std::string vector_id;
+	Function_call* call;
+};
+
+
 #endif /* INC_IDENTIFIER_CLASSES_H_ */

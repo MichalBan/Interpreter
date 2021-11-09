@@ -18,6 +18,9 @@ Statement::~Statement()
 	case STATEMENT_FUNCTION_CALL:
 		delete std::get<Function_call*>(content);
 		break;
+	case STATEMENT_METHOD_CALL:
+		delete std::get<Method_call*>(content);
+		break;
 	case STATEMENT_WHILE:
 		delete std::get<While_statement*>(content);
 		break;
@@ -52,6 +55,11 @@ Function_call::~Function_call()
 	{
 		delete e;
 	}
+}
+
+Method_call::~Method_call()
+{
+	delete call;
 }
 
 Assignment::~Assignment()

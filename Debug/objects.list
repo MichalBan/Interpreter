@@ -1,3 +1,4 @@
+"./Core/Src/Executor.o"
 "./Core/Src/Expression.o"
 "./Core/Src/Lexer.o"
 "./Core/Src/Parser.o"

@@ -12,6 +12,7 @@ C_SRCS += \
 ../Core/Src/system_stm32f7xx.c 
 
 CPP_SRCS += \
+../Core/Src/Executor.cpp \
 ../Core/Src/Expression.cpp \
 ../Core/Src/Lexer.cpp \
 ../Core/Src/Parser.cpp \
@@ -31,6 +32,7 @@ C_DEPS += \
 ./Core/Src/system_stm32f7xx.d 
 
 OBJS += \
+./Core/Src/Executor.o \
 ./Core/Src/Expression.o \
 ./Core/Src/Lexer.o \
 ./Core/Src/Parser.o \
@@ -48,6 +50,7 @@ OBJS += \
 ./Core/Src/system_stm32f7xx.o 
 
 CPP_DEPS += \
+./Core/Src/Executor.d \
 ./Core/Src/Expression.d \
 ./Core/Src/Lexer.d \
 ./Core/Src/Parser.d \

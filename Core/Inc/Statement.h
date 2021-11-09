@@ -40,11 +40,12 @@ typedef enum
 {
 	STATEMENT_ASSIGNMENT,
 	STATEMENT_FUNCTION_CALL,
+	STATEMENT_METHOD_CALL,
 	STATEMENT_WHILE,
 	STATEMENT_IF
 }statement_type;
 
-typedef std::variant<Assignment*, Function_call*, While_statement*, If_statement*> statement_content;
+typedef std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*> statement_content;
 
 class Statement
 {

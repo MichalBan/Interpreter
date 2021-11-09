@@ -5,7 +5,7 @@
 
 typedef enum
 {
-	TOKEN_NO_TOKEN, 	 	// wartość domyślna, zwrócenie jej przez lekser oznacza błąd
+	TOKEN_ERROR, 	 		// wartość domyślna, zwrócenie jej przez lekser oznacza błąd
 	TOKEN_COLON, 		 	// dwukropek po “setup”, “loop”, “finish”, alternatywach i pętlach np. while i > 1:
 	TOKEN_IDENTIFIER,  		// identyfikator
 	TOKEN_INT,  			// liczba całkowita
@@ -45,7 +45,6 @@ typedef enum
 	TOKEN_END_OF_FILE, 		// znak końca pliku
 	TOKEN_LEFT_BRACKET, 	// znak specjalny początku grupowania “(”
 	TOKEN_RIGHT_BRACKET, 	// znak specjalny końca grupowania “)”
-	TOKEN_ERROR 			// oznacza rozpoznanie błędu
 }token_type;
 
 static const std::map<char, token_type> token_chars

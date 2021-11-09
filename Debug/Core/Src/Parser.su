@@ -42,25 +42,27 @@ Parser.cpp:140:6:void Parser::assert_token(token_type, std::string)	96	static
 Parser.cpp:149:6:void Parser::parse_function_arguments(Function_call*)	32	static
 identifier_classes.h:25:7:Function_call::Function_call()	16	static
 Parser.cpp:162:16:Function_call* Parser::parse_function_call(std::string&)	80	static
-Parser.cpp:173:6:void Parser::parse_assignment_or_function_call(Statement*)	80	static
-variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
-Statement.h:49:7:Statement::Statement()	16	static
-Parser.cpp:189:12:Statement* Parser::parse_statement()	64	static
-Parser.cpp:214:6:bool Parser::is_token_statement_first()	16	static
-Parser.cpp:221:6:void Parser::skip_newlines()	16	static
+identifier_classes.h:33:7:Method_call::Method_call()	16	static
+Parser.cpp:173:14:Method_call* Parser::parse_method_call(std::string&)	136	static
+Parser.cpp:186:6:void Parser::parse_identifier_statement(Statement*)	80	static
+variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+Statement.h:50:7:Statement::Statement()	16	static
+Parser.cpp:207:12:Statement* Parser::parse_statement()	64	static
+Parser.cpp:232:6:bool Parser::is_token_statement_first()	16	static
+Parser.cpp:239:6:void Parser::skip_newlines()	16	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 Statement.h:8:7:Body::Body()	16	static
-Parser.cpp:229:7:Body* Parser::parse_body()	32	static
+Parser.cpp:247:7:Body* Parser::parse_body()	32	static
 variant:636:12:std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>& std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:681:12:std::__detail::__variant::_Variant_base<_Types>& std::__detail::__variant::_Variant_base<_Types>::operator=(const std::__detail::__variant::_Variant_base<_Types>&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:1219:11:std::variant<_Types>& std::variant<_Types>::operator=(const std::variant<_Types>&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 Token.h:10:7:Token& Token::operator=(const Token&)	16	static
-Parser.cpp:240:6:void Parser::get_next_token()	120	static
-Parser.cpp:250:6:void Parser::parse_setup(Program*)	72	static
-Parser.cpp:261:6:void Parser::parse_loop(Program*)	72	static
-Parser.cpp:271:6:void Parser::parse_finish(Program*)	72	static
-Parser.cpp:281:10:Program* Parser::parse_program()	24	static
+Parser.cpp:258:6:void Parser::get_next_token()	120	static
+Parser.cpp:268:6:void Parser::parse_setup(Program*)	72	static
+Parser.cpp:279:6:void Parser::parse_loop(Program*)	72	static
+Parser.cpp:289:6:void Parser::parse_finish(Program*)	72	static
+Parser.cpp:299:10:Program* Parser::parse_program()	48	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -93,17 +95,18 @@ variant:1065:21:>&&) [with _Tp = std::__cxx11::basic_string<char>; _Types = {std
 basic_string.h:6175:5:bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	16	static
 basic_string.tcc:1158:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 basic_string.h:6121:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
-variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
-variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Function_call*; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	32	static
-variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Assignment*; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	32	static
-variant:509:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, While_statement*, If_statement*>]	16	static
-variant:553:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, While_statement*, If_statement*>]	16	static
-variant:628:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, While_statement*, If_statement*>]	16	static
-variant:673:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, While_statement*, If_statement*>]	16	static
-variant:692:2:) [with unsigned int _Np = 0; _Args = {}; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
-variant:686:7:constexpr std::__detail::__variant::_Variant_base<_Types>::_Variant_base() [with _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
-variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = While_statement*; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	32	static
-variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = If_statement*; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	32	static
+variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Function_call*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Method_call*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Assignment*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
+variant:509:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
+variant:553:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
+variant:628:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
+variant:673:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
+variant:692:2:) [with unsigned int _Np = 0; _Args = {}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:686:7:constexpr std::__detail::__variant::_Variant_base<_Types>::_Variant_base() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = While_statement*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = If_statement*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
 stl_vector.h:128:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl::_Vector_impl() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:1200:7:void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 variant:149:5:decltype(auto) std::__variant_cast(_Tp&&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}; _Tp = const std::__detail::__variant::_Copy_assign_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	16	static
@@ -190,35 +193,44 @@ variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_p
 variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>]	24	static
 variant:1594:5:>&&) [with unsigned int _Np = 0; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>&]	16	static
-variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Function_call*, While_statement*, If_statement*>&]	16	static
-variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Function_call*]	16	static
-variant:1395:2:) [with unsigned int _Np = 1; _Args = {Function_call*}; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
-variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, While_statement*, If_statement*>&]	16	static
-variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:1395:2:) [with unsigned int _Np = 1; _Args = {Function_call*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Method_call*, While_statement*, If_statement*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 2; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 2; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Method_call*]	16	static
+variant:1395:2:) [with unsigned int _Np = 2; _Args = {Method_call*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Assignment*]	16	static
-variant:1395:2:) [with unsigned int _Np = 0; _Args = {Assignment*}; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:1395:2:) [with unsigned int _Np = 0; _Args = {Assignment*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:202:2:) [with _Args = {}; _Type = Assignment*]	16	static
-variant:322:12:) [with _Args = {}; _First = Assignment*; _Rest = {Function_call*, While_statement*, If_statement*}]	16	static
-variant:430:12:) [with unsigned int _Np = 0; _Args = {}; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:322:12:) [with _Args = {}; _First = Assignment*; _Rest = {Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:430:12:) [with unsigned int _Np = 0; _Args = {}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<While_statement*, If_statement*>&]	16	static
-variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Function_call*, While_statement*, If_statement*>&]	24	static
-variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 2; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:1583:5:>&) [with unsigned int _Np = 2; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Method_call*, While_statement*, If_statement*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 3; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 3; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 3; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = While_statement*]	16	static
-variant:1395:2:) [with unsigned int _Np = 2; _Args = {While_statement*}; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:1395:2:) [with unsigned int _Np = 3; _Args = {While_statement*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<If_statement*>&]	16	static
 variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<While_statement*, If_statement*>&]	24	static
-variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<Function_call*, While_statement*, If_statement*>&]	24	static
-variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 3; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 3; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>&]	24	static
-variant:1583:5:>&) [with unsigned int _Np = 3; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<Method_call*, While_statement*, If_statement*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 3; _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 4; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 4; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 4; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = If_statement*]	16	static
-variant:1395:2:) [with unsigned int _Np = 3; _Args = {If_statement*}; _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
+variant:1395:2:) [with unsigned int _Np = 4; _Args = {If_statement*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = Statement*]	16	static
 stl_vector.h:94:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl_data::_Vector_impl_data() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	24	static
@@ -327,20 +339,23 @@ alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::de
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>]	16	static
 variant:241:15:_Type&& std::__detail::__variant::_Uninitialized<_Type, false>::_M_get() && [with _Type = std::__cxx11::basic_string<char>]	16	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>&]	16	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, While_statement*, If_statement*>&]	16	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Function_call*, While_statement*, If_statement*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Function_call*]	16	static
-variant:435:12:>::_M_reset() [with _Types = {Assignment*, Function_call*, While_statement*, If_statement*}]	16	static
-variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>; _Args = {Function_call*}]	32	static
+variant:435:12:>::_M_reset() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Function_call*}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Method_call*, While_statement*, If_statement*>&]	16	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Method_call*]	16	static
+variant:1037:10:) [with unsigned int _Np = 2; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Method_call*}]	32	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Assignment*]	16	static
-variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>; _Args = {Assignment*}]	32	static
+variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Assignment*}]	32	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<While_statement*, If_statement*>&]	16	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = While_statement*]	16	static
-variant:1037:10:) [with unsigned int _Np = 2; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>; _Args = {While_statement*}]	32	static
+variant:1037:10:) [with unsigned int _Np = 3; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {While_statement*}]	32	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<If_statement*>&]	16	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = If_statement*]	16	static
-variant:1037:10:) [with unsigned int _Np = 3; _Variant = std::variant<Assignment*, Function_call*, While_statement*, If_statement*>; _Args = {If_statement*}]	32	static
+variant:1037:10:) [with unsigned int _Np = 4; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {If_statement*}]	32	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = Statement*]	16	static
 alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Statement*]	24	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Statement*]	16	static
@@ -442,6 +457,7 @@ new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::
 new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = Body*]	24	static
 aligned_buffer.h:72:7:_Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() [with _Tp = std::__cxx11::basic_string<char>]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Function_call*]	16	static
+move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Method_call*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Assignment*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = While_statement*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = If_statement*]	16	static
@@ -538,6 +554,7 @@ alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::al
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Body*; _Alloc = std::allocator<Body*>]	24	static
 aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = std::__cxx11::basic_string<char>]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Function_call*]	16	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Method_call*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Assignment*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = While_statement*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = If_statement*]	16	static
@@ -743,6 +760,6 @@ move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = bool]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Parser.cpp:288:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Parser.cpp:288:1:cpp)	8	static
-Parser.cpp:288:1:cpp)	8	static
+Parser.cpp:307:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Parser.cpp:307:1:cpp)	8	static
+Parser.cpp:307:1:cpp)	8	static

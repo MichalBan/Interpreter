@@ -32,6 +32,7 @@ public:
 	If_statement* parse_if();
 	Assignment* parse_assignment(std::string &id);
 	Function_call* parse_function_call(std::string &id);
+	Method_call* parse_method_call(std::string &id);
 	Variable* parse_variable(std::string &id);
 	void get_next_token();
 	void report_error(const std::string message);
@@ -59,7 +60,7 @@ public:
 	bool match_unary_operator(Unary_expression *exp);
 	Expression* parse_nested_expression();
 	void parse_function_arguments(Function_call *f);
-	void parse_assignment_or_function_call(Statement *s);
+	void parse_identifier_statement(Statement *s);
 	void parse_variable_or_function_call(Primal_expression *exp);
 	void parse_setup(Program *Prog);
 	void parse_loop(Program *Prog);

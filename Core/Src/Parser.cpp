@@ -86,7 +86,7 @@ void Parser::parse_variable_index(Variable *var)
 
 void Parser::parse_member_selection_id(std::string &id)
 {
-	assert_token(TOKEN_DOT, "dot operator \".\"");
+	assert_token(TOKEN_COLON, "colon operator \":\"");
 	get_next_token();
 	assert_token(TOKEN_IDENTIFIER, "identifier");
 	id = std::string(std::get<std::string>(token_buffer.get_value()));
@@ -170,7 +170,20 @@ Function_call* Parser::parse_function_call(std::string &id)
 	return f;
 }
 
-void Parser::parse_assignment_or_function_call(Statement *s)
+Method_call* Parser::parse_method_call(std::string &id)
+{
+	auto m = new Method_call();
+	m->vector_id = std::string(id);
+	get_next_token();
+	assert_token(TOKEN_IDENTIFIER, "method identifier");
+	id = std::get<std::string>(token_buffer.get_value());
+	get_next_token();
+	assert_token(TOKEN_LEFT_BRACKET, "opening bracket");
+	m->call = parse_function_call(id);
+	return m;
+}
+
+void Parser::parse_identifier_statement(Statement *s)
 {
 	std::string id = std::get<std::string>(token_buffer.get_value());
 	get_next_token();
@@ -178,6 +191,11 @@ void Parser::parse_assignment_or_function_call(Statement *s)
 	{
 		s->type = STATEMENT_FUNCTION_CALL;
 		s->content = parse_function_call(id);
+	}
+	else if(token_buffer.get_type() == TOKEN_DOT)
+	{
+		s->type = STATEMENT_METHOD_CALL;
+		s->content = parse_method_call(id);
 	}
 	else
 	{
@@ -192,7 +210,7 @@ Statement* Parser::parse_statement() //todo refactor
 	switch (token_buffer.get_type())
 	{
 	case TOKEN_IDENTIFIER:
-		parse_assignment_or_function_call(s);
+		parse_identifier_statement(s);
 		break;
 	case TOKEN_WHILE:
 		s->type = STATEMENT_WHILE;
@@ -284,5 +302,6 @@ Program* Parser::parse_program()
 	parse_setup(Prog);
 	parse_loop(Prog);
 	parse_finish(Prog);
+	assert_token(TOKEN_END_OF_FILE, "end of file");
 	return Prog;
 }

@@ -1,6 +1,6 @@
 #include <Lexer.h>
 
-Lexer::Lexer(Source* Code)
+Lexer::Lexer(Source *Code)
 {
 	this->Code = Code;
 	char_buffer = ' ';
@@ -44,11 +44,10 @@ void Lexer::build_word(std::string &word)
 	{
 		word.push_back(char_buffer);
 		char_buffer = Code->receive_code_char();
-	}
-	while (isalnum(char_buffer) || char_buffer == '_');
+	} while (isalnum(char_buffer) || char_buffer == '_');
 }
 
-void Lexer::match_keyword_or_id(std::string& word)
+void Lexer::match_keyword_or_id(std::string &word)
 {
 	auto result = token_strings.find(word);
 	if (result != token_strings.end())
@@ -80,11 +79,10 @@ void Lexer::build_int(std::string &word)
 	{
 		word.push_back(char_buffer);
 		char_buffer = Code->receive_code_char();
-	}
-	while (isdigit(char_buffer));
+	} while (isdigit(char_buffer));
 }
 
-void Lexer::match_int_or_float(std::string& word)
+void Lexer::match_int_or_float(std::string &word)
 {
 	if (char_buffer != '.')
 	{
@@ -101,7 +99,7 @@ void Lexer::match_int_or_float(std::string& word)
 
 bool Lexer::build_int_or_float()
 {
-	if(isdigit(char_buffer) && char_buffer != '0')
+	if (isdigit(char_buffer) && char_buffer != '0')
 	{
 		std::string word;
 		build_int(word);
@@ -113,10 +111,10 @@ bool Lexer::build_int_or_float()
 
 bool Lexer::build_0_int_or_float()
 {
-	if(char_buffer == '0')
+	if (char_buffer == '0')
 	{
 		char_buffer = Code->receive_code_char();
-		if(char_buffer == '.')
+		if (char_buffer == '.')
 		{
 			std::string word;
 			build_int(word);
@@ -135,7 +133,7 @@ bool Lexer::build_0_int_or_float()
 
 void Lexer::match_escape_char(std::string &word)
 {
-	char true_char = '\0';
+	char true_char;
 	switch (char_buffer)
 	{
 	case 'n':
@@ -166,8 +164,7 @@ void Lexer::match_escape_char(std::string &word)
 		true_char = '\v';
 		break;
 	default:
-		// xxx błąd
-		break;
+		return;
 	}
 	word.pop_back();
 	word.push_back(true_char);
@@ -198,7 +195,7 @@ void Lexer::build_string_content(std::string &word)
 
 bool Lexer::build_string()
 {
-	if(char_buffer == '\"')
+	if (char_buffer == '\"')
 	{
 		std::string word;
 		build_string_content(word);
@@ -209,45 +206,22 @@ bool Lexer::build_string()
 	return false;
 }
 
+bool Lexer::build_token_value()
+{
+	return match_single_char() || match_double_char() || build_keyword_or_id()
+			|| build_int_or_float() || build_0_int_or_float() || build_string();
+}
+
 Token Lexer::build_token()
 {
 	get_working_char();
 	Product.set_line(Code->get_line());
 	Product.set_position(Code->get_position());
 
-	// todo refactor
-	if(match_single_char())
+	if (build_token_value())
 	{
 		return Product;
 	}
-
-	if(match_double_char())
-	{
-		return Product;
-	}
-
-	if(build_keyword_or_id())
-	{
-		return Product;
-	}
-
-	if(build_int_or_float())
-	{
-		return Product;
-	}
-
-	if(build_0_int_or_float())
-	{
-		return Product;
-	}
-
-	if(build_string())
-	{
-		return Product;
-	}
-
-	Product.set_type(TOKEN_ERROR);
-	Product.set_value("unrecognized token");
 
 	return Product;
 }
@@ -280,8 +254,8 @@ bool Lexer::is_invalid_char()
 void Lexer::get_working_char()
 {
 	while (is_invalid_char())
-    {
+	{
 		skip_comment();
 		skip_whitespace();
-    }
+	}
 }

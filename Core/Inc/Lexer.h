@@ -30,6 +30,7 @@ public:
 	void match_escape_char(std::string &word);
 	void build_string_content(std::string &word);
 	void add_string_char(std::string &word);
+	bool build_token_value();
 };
 
 #endif /* INC_LEXER_H_ */
