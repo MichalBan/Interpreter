@@ -1,12 +1,11 @@
 #ifndef INC_EXECUTOR_H_
 #define INC_EXECUTOR_H_
 
+#include <Function_handler.h>
 #include "Parser.h"
 
-typedef std::variant< int, float, bool, std::string, std::vector<std::string>,
+typedef std::variant<int, float, bool, std::string, std::vector<std::string>,
 		std::vector<int>, std::vector<float>, std::vector<bool>> symbol_value;
-
-typedef void (*function_pointer)(void); // todo argumenty funkcji
 
 typedef enum
 {
@@ -31,10 +30,12 @@ public:
 class Executor
 {
 	std::vector<Symbol*> variables;
-	std::map<std::string, function_pointer> functions;
-
+	Function_handler *Fun;
+	Transmitter *Trans;
 public:
-	Executor();
+	Executor(Transmitter *Trans);
+	void add_function(std::string id, function_pointer p);
+	void run_function(Statement *st);
 	void execute(Program p);
 	virtual ~Executor();
 };

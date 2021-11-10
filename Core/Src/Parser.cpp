@@ -207,6 +207,8 @@ void Parser::parse_identifier_statement(Statement *s)
 Statement* Parser::parse_statement() //todo refactor
 {
 	auto s = new Statement();
+	s->line = token_buffer.get_line();
+	s->position = token_buffer.get_position();
 	switch (token_buffer.get_type())
 	{
 	case TOKEN_IDENTIFIER:

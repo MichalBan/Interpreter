@@ -34,35 +34,35 @@ Parser.cpp:53:15:If_statement* Parser::parse_if()	56	static
 Parser.cpp:72:6:void Parser::parse_variable_index(Variable*)	48	static
 Parser.cpp:87:6:void Parser::parse_member_selection_id(std::string&)	128	static
 Parser.cpp:96:6:void Parser::parse_variable_id(std::string&, Variable*)	48	static
-identifier_classes.h:16:7:Variable::Variable()	16	static
+identifier_classes.h:18:7:Variable::Variable()	16	static
 Parser.cpp:116:11:Variable* Parser::parse_variable(std::string&)	32	static
 Parser.cpp:124:13:Assignment* Parser::parse_assignment(std::string&)	48	static
 Parser.cpp:134:6:void Parser::report_error(std::string)	48	static
 Parser.cpp:140:6:void Parser::assert_token(token_type, std::string)	96	static
 Parser.cpp:149:6:void Parser::parse_function_arguments(Function_call*)	32	static
-identifier_classes.h:25:7:Function_call::Function_call()	16	static
+identifier_classes.h:27:7:Function_call::Function_call()	16	static
 Parser.cpp:162:16:Function_call* Parser::parse_function_call(std::string&)	80	static
-identifier_classes.h:33:7:Method_call::Method_call()	16	static
+identifier_classes.h:35:7:Method_call::Method_call()	16	static
 Parser.cpp:173:14:Method_call* Parser::parse_method_call(std::string&)	136	static
 Parser.cpp:186:6:void Parser::parse_identifier_statement(Statement*)	80	static
 variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 Statement.h:50:7:Statement::Statement()	16	static
 Parser.cpp:207:12:Statement* Parser::parse_statement()	64	static
-Parser.cpp:232:6:bool Parser::is_token_statement_first()	16	static
-Parser.cpp:239:6:void Parser::skip_newlines()	16	static
+Parser.cpp:234:6:bool Parser::is_token_statement_first()	16	static
+Parser.cpp:241:6:void Parser::skip_newlines()	16	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 Statement.h:8:7:Body::Body()	16	static
-Parser.cpp:247:7:Body* Parser::parse_body()	32	static
+Parser.cpp:249:7:Body* Parser::parse_body()	32	static
 variant:636:12:std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>& std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:681:12:std::__detail::__variant::_Variant_base<_Types>& std::__detail::__variant::_Variant_base<_Types>::operator=(const std::__detail::__variant::_Variant_base<_Types>&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:1219:11:std::variant<_Types>& std::variant<_Types>::operator=(const std::variant<_Types>&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 Token.h:10:7:Token& Token::operator=(const Token&)	16	static
-Parser.cpp:258:6:void Parser::get_next_token()	120	static
-Parser.cpp:268:6:void Parser::parse_setup(Program*)	72	static
-Parser.cpp:279:6:void Parser::parse_loop(Program*)	72	static
-Parser.cpp:289:6:void Parser::parse_finish(Program*)	72	static
-Parser.cpp:299:10:Program* Parser::parse_program()	48	static
+Parser.cpp:260:6:void Parser::get_next_token()	120	static
+Parser.cpp:270:6:void Parser::parse_setup(Program*)	72	static
+Parser.cpp:281:6:void Parser::parse_loop(Program*)	72	static
+Parser.cpp:291:6:void Parser::parse_finish(Program*)	72	static
+Parser.cpp:301:10:Program* Parser::parse_program()	48	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -760,6 +760,6 @@ move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = bool]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Parser.cpp:307:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Parser.cpp:307:1:cpp)	8	static
-Parser.cpp:307:1:cpp)	8	static
+Parser.cpp:309:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Parser.cpp:309:1:cpp)	8	static
+Parser.cpp:309:1:cpp)	8	static

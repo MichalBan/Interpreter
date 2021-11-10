@@ -6,6 +6,8 @@
 
 class Expression;
 
+typedef std::vector<Expression*> arglist;
+
 typedef enum
 {
 	ASSIGNMENT_LOCAL,
@@ -27,7 +29,7 @@ class Function_call
 public:
 	~Function_call();
 	std::string id;
-	std::vector<Expression*> arguments;
+	arglist arguments;
 };
 
 class Method_call

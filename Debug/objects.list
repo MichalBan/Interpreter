@@ -1,5 +1,7 @@
 "./Core/Src/Executor.o"
 "./Core/Src/Expression.o"
+"./Core/Src/Expression_calculator.o"
+"./Core/Src/Function_handler.o"
 "./Core/Src/Lexer.o"
 "./Core/Src/Parser.o"
 "./Core/Src/Source.o"

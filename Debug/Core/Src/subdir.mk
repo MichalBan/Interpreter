@@ -14,6 +14,8 @@ C_SRCS += \
 CPP_SRCS += \
 ../Core/Src/Executor.cpp \
 ../Core/Src/Expression.cpp \
+../Core/Src/Expression_calculator.cpp \
+../Core/Src/Function_handler.cpp \
 ../Core/Src/Lexer.cpp \
 ../Core/Src/Parser.cpp \
 ../Core/Src/Source.cpp \
@@ -34,6 +36,8 @@ C_DEPS += \
 OBJS += \
 ./Core/Src/Executor.o \
 ./Core/Src/Expression.o \
+./Core/Src/Expression_calculator.o \
+./Core/Src/Function_handler.o \
 ./Core/Src/Lexer.o \
 ./Core/Src/Parser.o \
 ./Core/Src/Source.o \
@@ -52,6 +56,8 @@ OBJS += \
 CPP_DEPS += \
 ./Core/Src/Executor.d \
 ./Core/Src/Expression.d \
+./Core/Src/Expression_calculator.d \
+./Core/Src/Function_handler.d \
 ./Core/Src/Lexer.d \
 ./Core/Src/Parser.d \
 ./Core/Src/Source.d \
