@@ -2,9 +2,9 @@
 
 void Parser::parse_variable_or_function_call(Primal_expression *exp)
 {
-	std::string id(std::get<std::string>(token_buffer.get_value()));
+	std::string id(std::get<std::string>(token_buffer.value));
 	get_next_token();
-	if (token_buffer.get_type() == TOKEN_LEFT_BRACKET)
+	if (token_buffer.type == TOKEN_LEFT_BRACKET)
 	{
 		exp->type = PRIMAL_FUNCTION_CALL;
 		exp->content = parse_function_call(id);
@@ -19,7 +19,7 @@ void Parser::parse_variable_or_function_call(Primal_expression *exp)
 Primal_expression* Parser::parse_primal_expression()
 {
 	auto exp = new Primal_expression();
-	switch(token_buffer.get_type())
+	switch(token_buffer.type)
 	{
 	case TOKEN_TRUE:
 		exp->type = PRIMAL_BOOL;
@@ -32,17 +32,17 @@ Primal_expression* Parser::parse_primal_expression()
 		get_next_token();
 	case TOKEN_INT:
 		exp->type = PRIMAL_INT;
-		exp->content = std::get<int>(token_buffer.get_value());
+		exp->content = std::get<int>(token_buffer.value);
 		get_next_token();
 		break;
 	case TOKEN_FLOAT:
 		exp->type = PRIMAL_FLOAT;
-		exp->content = std::get<float>(token_buffer.get_value());
+		exp->content = std::get<float>(token_buffer.value);
 		get_next_token();
 		break;
 	case TOKEN_STRING:
 		exp->type = PRIMAL_STRING;
-		exp->content = std::string(std::get<std::string>(token_buffer.get_value()));
+		exp->content = std::string(std::get<std::string>(token_buffer.value));
 		get_next_token();
 		break;
 	case TOKEN_IDENTIFIER:
@@ -66,7 +66,7 @@ Expression* Parser::parse_nested_expression()
 Priority_expression* Parser::parse_priority_expression()
 {
 	auto exp = new Priority_expression();
-	if(token_buffer.get_type() == TOKEN_LEFT_BRACKET)
+	if(token_buffer.type == TOKEN_LEFT_BRACKET)
 	{
 		get_next_token();
 		exp->exp = parse_nested_expression();
@@ -80,7 +80,7 @@ Priority_expression* Parser::parse_priority_expression()
 
 bool Parser::match_unary_operator(Unary_expression* exp)
 {
-	switch(token_buffer.get_type())
+	switch(token_buffer.type)
 	{
 	case TOKEN_MINUS:
 		exp->op = UN_OP_MINUS;
@@ -109,7 +109,7 @@ Power_expression* Parser::parse_power_expression()
 {
 	auto exp = new Power_expression();
 	exp->left_un_exp = parse_unary_expression();
-	if(token_buffer.get_type() == TOKEN_POWER)
+	if(token_buffer.type == TOKEN_POWER)
 	{
 		get_next_token();
 		exp->right_un_exp = parse_unary_expression();
@@ -123,7 +123,7 @@ Power_expression* Parser::parse_power_expression()
 
 bool Parser::match_multiply_operator(Multiply_expression* exp)
 {
-	switch(token_buffer.get_type())
+	switch(token_buffer.type)
 	{
 	case TOKEN_MULTIPLY:
 		exp->ops.push_back(MULT_OP_MULTIPLY);
@@ -154,7 +154,7 @@ Multiply_expression* Parser::parse_multiply_expression()
 
 bool Parser::match_sum_operator(Sum_expression* exp)
 {
-	switch(token_buffer.get_type())
+	switch(token_buffer.type)
 	{
 	case TOKEN_PLUS:
 		exp->ops.push_back(SUM_OP_PLUS);
@@ -182,7 +182,7 @@ Sum_expression* Parser::parse_sum_expression()
 
 bool Parser::match_relation_operator(Relation_expression* exp)
 {
-	switch (token_buffer.get_type())
+	switch (token_buffer.type)
 	{
 	case TOKEN_SMALLER_THAN:
 		exp->op = REL_OP_SMALLER;
@@ -217,7 +217,7 @@ Relation_expression* Parser::parse_relation_expression()
 
 bool Parser::match_compare_operator(Compare_expression *exp)
 {
-	switch (token_buffer.get_type())
+	switch (token_buffer.type)
 	{
 	case TOKEN_EQUALS:
 		exp->op = COMP_OP_EQUAL;
@@ -248,7 +248,7 @@ And_expression* Parser::parse_and_expression()
 {
 	auto exp = new And_expression();
 	exp->comp_exps.push_back(parse_compare_expression());
-	while(token_buffer.get_type() == TOKEN_AND)
+	while(token_buffer.type == TOKEN_AND)
 	{
 		get_next_token();
 		exp->comp_exps.push_back(parse_compare_expression());
@@ -259,8 +259,10 @@ And_expression* Parser::parse_and_expression()
 Expression* Parser::parse_expression()
 {
 	auto exp = new Expression();
+	exp->line = token_buffer.line;
+	exp->position = token_buffer.position;
 	exp->and_exps.push_back(parse_and_expression());
-	while(token_buffer.get_type() == TOKEN_OR)
+	while(token_buffer.type == TOKEN_OR)
 	{
 		get_next_token();
 		exp->and_exps.push_back(parse_and_expression());

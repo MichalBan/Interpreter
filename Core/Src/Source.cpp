@@ -4,11 +4,12 @@
 static std::ifstream indata{};
 #endif
 
-Source::Source(UART_HandleTypeDef* huart)
+extern UART_HandleTypeDef huart1;
+
+Source::Source()
 {
 	line = 1;
 	position = 0;
-	this->huart = huart;
 #ifdef TESTS
     indata.open("code.txt");
 #endif
@@ -52,8 +53,8 @@ char Source::receive_code_char()
 #ifndef TESTS
     static uint8_t tx_buf;
     tx_buf = 'c';
-	HAL_UART_Transmit(huart, &tx_buf, 1, 100);
-	HAL_UART_Receive(huart, &rx_buffer, 1, -1);
+	HAL_UART_Transmit(&huart1, &tx_buf, 1, 100);
+	HAL_UART_Receive(&huart1, &rx_buffer, 1, -1);
 #else
 	rx_buffer = (uint8_t)indata.get();
     std::cout << rx_buffer << '\n';

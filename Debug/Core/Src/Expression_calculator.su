@@ -1,4 +1,5 @@
 new:173:33:void* operator new(std::size_t, void*)	16	static
+variant:1215:3:void std::__throw_bad_variant_access(const char*)	16	static
 char_traits.h:329:7:static constexpr std::size_t std::char_traits<char>::length(const char_type*)	24	static
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
 stl_tree.h:173:5:std::_Rb_tree_header::_Rb_tree_header()	16	static
@@ -10,19 +11,26 @@ stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = 
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[7]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[3]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[4]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
-Expression_calculator.cpp:3:1:Expression_calculator::Expression_calculator()	16	static
-Expression_calculator.cpp:9:1:Expression_calculator::~Expression_calculator()	16	static
-Expression_calculator.cpp:9:1:virtual Expression_calculator::~Expression_calculator()	16	static
-Expression_calculator.cpp:14:6:static bool Expression_calculator::get_int(int*, Expression*)	32	static
-Expression_calculator.cpp:43:6:static bool Expression_calculator::get_int(int*, Sum_expression*)	40	static
-Expression_calculator.cpp:61:6:static bool Expression_calculator::get_int(int*, Multiply_expression*)	40	static
-Expression_calculator.cpp:80:6:static bool Expression_calculator::get_int(int*, Power_expression*)	24	static
-Expression_calculator.cpp:99:6:static bool Expression_calculator::get_int(int*, Unary_expression*)	16	static
-Expression_calculator.cpp:114:6:static bool Expression_calculator::get_int(int*, Priority_expression*)	16	static
-Expression_calculator.cpp:120:6:static bool Expression_calculator::get_int(int*, Primal_expression*)	16	static
-Expression_calculator.cpp:126:6:static bool Expression_calculator::get_float(float*, Expression*)	16	static
-Expression_calculator.cpp:131:6:static bool Expression_calculator::get_bool(bool*, Expression*)	16	static
-Expression_calculator.cpp:136:6:static bool Expression_calculator::get_string(std::string*, Expression*)	16	static
+Expression_calculator.cpp:6:5:static int Expression_calculator::get_int(Expression*)	144	static
+Expression_calculator.cpp:34:5:static int Expression_calculator::get_int(Sum_expression*)	40	static
+Expression_calculator.cpp:44:5:static int Expression_calculator::get_int(Multiply_expression*)	40	static
+Expression_calculator.cpp:54:5:static int Expression_calculator::get_int(Power_expression*)	24	static
+Expression_calculator.cpp:67:5:static int Expression_calculator::get_int(Unary_expression*)	48	static
+variant:1056:20:>&) [with _Tp = Expression*; _Types = {Primal_expression*, Expression*}]	16	static
+variant:1056:20:>&) [with _Tp = Primal_expression*; _Types = {Primal_expression*, Expression*}]	16	static
+Expression_calculator.cpp:84:5:static int Expression_calculator::get_int(Priority_expression*)	24	static
+Expression_calculator.cpp:98:5:static int Expression_calculator::get_int(Primal_expression*)	48	static
+variant:1056:20:>&) [with _Tp = Function_call*; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:489:12:std::__detail::__variant::_Copy_ctor_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Copy_ctor_base()	16	static
+variant:517:12:std::__detail::__variant::_Move_ctor_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Move_ctor_base()	16	static
+variant:577:12:std::__detail::__variant::_Copy_assign_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Copy_assign_base()	16	static
+variant:636:12:std::__detail::__variant::_Move_assign_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Move_assign_base()	16	static
+variant:681:12:std::__detail::__variant::_Variant_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Variant_base()	16	static
+variant:1292:7:std::variant<_Types>::~variant() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
+Expression_calculator.cpp:116:5:static int Expression_calculator::get_function_int(Primal_expression*)	56	static
+Expression_calculator.cpp:123:7:static float Expression_calculator::get_float(Expression*)	16	static
+Expression_calculator.cpp:128:6:static bool Expression_calculator::get_bool(Expression*)	16	static
+Expression_calculator.cpp:133:13:static std::string Expression_calculator::get_string(Expression*)	24	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -55,6 +63,28 @@ stl_iterator.h:907:5:bool __gnu_cxx::operator!=(const __gnu_cxx::__normal_iterat
 stl_iterator.h:827:7:__gnu_cxx::__normal_iterator<_Iterator, _Container>& __gnu_cxx::__normal_iterator<_Iterator, _Container>::operator++() [with _Iterator = Power_expression**; _Container = std::vector<Power_expression*>]	16	static
 stl_iterator.h:819:7:__gnu_cxx::__normal_iterator<_Iterator, _Container>::reference __gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*() const [with _Iterator = Power_expression**; _Container = std::vector<Power_expression*>]	16	static
 cmath:415:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::pow(_Tp, _Up) [with _Tp = int; _Up = int]	24	static
+variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {Primal_expression*, Expression*}]	16	static
+variant:1048:5:>&) [with _Tp = Expression*; _Types = {Primal_expression*, Expression*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Expression*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Primal_expression*, Expression*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Primal_expression*, Expression*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {Primal_expression*, Expression*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Primal_expression*, Expression*>&]	16	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<Primal_expression*, Expression*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {Primal_expression*, Expression*}]	16	static
+variant:1056:20:>&) [with _Tp = int; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:1056:20:>&) [with _Tp = float; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Function_call*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Variable*, Function_call*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 3; _Union = std::__detail::__variant::_Variadic_union<float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 4; _Union = std::__detail::__variant::_Variadic_union<int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 5; _Union = std::__detail::__variant::_Variadic_union<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 5; _Variant = std::variant<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 5; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:401:7:>::~_Variant_storage() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
+variant:1056:20:>&) [with _Tp = int; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 basic_string.h:263:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::pair<const char, token_type>]	16	static
 new_allocator.h:89:7:__gnu_cxx::new_allocator<_Tp>::~new_allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -87,6 +117,34 @@ stl_iterator.h:806:7:__gnu_cxx::__normal_iterator<_Iterator, _Container>::__norm
 stl_iterator.h:871:7:const _Iterator& __gnu_cxx::__normal_iterator<_Iterator, _Container>::base() const [with _Iterator = Multiply_expression**; _Container = std::vector<Multiply_expression*>]	16	static
 stl_iterator.h:806:7:__gnu_cxx::__normal_iterator<_Iterator, _Container>::__normal_iterator(const _Iterator&) [with _Iterator = Power_expression**; _Container = std::vector<Power_expression*>]	16	static
 stl_iterator.h:871:7:const _Iterator& __gnu_cxx::__normal_iterator<_Iterator, _Container>::base() const [with _Iterator = Power_expression**; _Container = std::vector<Power_expression*>]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<Primal_expression*, Expression*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Primal_expression*, Expression*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Expression*>&]	16	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Expression*]	16	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Primal_expression*]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 2; _Variant = std::variant<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 2; _Types = {bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*}]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<bool, int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<int, float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<float, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Variable*, Function_call*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Variable*, Function_call*>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Function_call*>&]	16	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Function_call*]	16	static
+variant:395:12:>::_M_reset() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
+variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<int, float, bool>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const char, token_type>]	16	static
 allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Up>&) [with _Tp1 = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -121,6 +179,42 @@ stl_tree.h:538:2:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Allo
 stl_tree.h:1014:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::end() [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
 stl_tree.h:348:7:std::_Rb_tree_const_iterator<_Tp>::_Rb_tree_const_iterator(const iterator&) [with _Tp = std::pair<const char, double_token>]	16	static
 stl_tree.h:2248:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::const_iterator, _Arg&&, _NodeGen&) [with _Arg = const std::pair<const char, double_token>&; _NodeGen = std::_Rb_tree<char, std::pair<const char, double_token>, std::_Select1st<std::pair<const char, double_token> >, std::less<char>, std::allocator<std::pair<const char, double_token> > >::_Alloc_node; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	56	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = int]	16	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = float]	16	static
+variant:149:5:decltype(auto) std::__variant_cast(_Tp&&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}; _Tp = std::__detail::__variant::_Variant_storage<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	16	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:948:2:__indices = {0}]	16	static
+variant:957:7:__indices = {0}]	24	static
+variant:978:7:__indices = {0}]	24	static
+variant:993:7:__indices = {0}]	24	static
+variant:948:2:__indices = {1}]	16	static
+variant:957:7:__indices = {1}]	24	static
+variant:978:7:__indices = {1}]	24	static
+variant:993:7:__indices = {1}]	24	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<float, bool>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<int, float, bool>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 2; _Variant = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:948:2:__indices = {2}]	16	static
+variant:957:7:__indices = {2}]	24	static
+variant:978:7:__indices = {2}]	24	static
+variant:993:7:__indices = {2}]	24	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<bool>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<float, bool>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<int, float, bool>&]	24	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 3; _Union = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 3; _Variant = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	24	static
+variant:948:2:__indices = {3}]	16	static
+variant:957:7:__indices = {3}]	24	static
+variant:978:7:__indices = {3}]	24	static
+variant:993:7:__indices = {3}]	24	static
+variant:815:2:__rest = {}]	16	static
+variant:1629:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Variants = {std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&}]	40	static
+variant:383:22:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	24	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<int, float, bool>&]	16	static
 stl_iterator_base_funcs.h:138:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char*]	24	static
 basic_string.tcc:206:7:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator, std::forward_iterator_tag) [with _FwdIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -161,6 +255,17 @@ stl_tree.h:2187:5:std::pair<std::_Rb_tree_node_base*, std::_Rb_tree_node_base*> 
 stl_function.h:1155:7:const typename _Pair::first_type& std::_Select1st<_Pair>::operator()(const _Pair&) const [with _Pair = std::pair<const char, double_token>]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = const std::pair<const char, double_token>&]	16	static
 stl_tree.h:1797:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr, std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr, _Arg&&, _NodeGen&) [with _Arg = const std::pair<const char, double_token>&; _NodeGen = std::_Rb_tree<char, std::pair<const char, double_token>, std::_Select1st<std::pair<const char, double_token> >, std::less<char>, std::allocator<std::pair<const char, double_token> > >::_Alloc_node; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	48	static
+move.h:74:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>&&]	16	static
+variant:235:14:_Type& std::__detail::__variant::_Uninitialized<_Type, false>::_M_get() & [with _Type = std::__cxx11::basic_string<char>]	16	static
+invoke.h:89:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}]	32	static
+invoke.h:89:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {int&}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<float, bool>&]	16	static
+invoke.h:89:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {float&}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<bool>&]	16	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = bool]	16	static
+invoke.h:89:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {bool&}]	32	static
+variant:790:7:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>&&, std::variant<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&)]	16	static
+move.h:74:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>]	16	static
 type_traits.h:152:5:bool __gnu_cxx::__is_null_pointer(_Type*) [with _Type = const char]	16	static
 stl_iterator_base_types.h:205:5:constexpr typename std::iterator_traits<_Iterator>::iterator_category std::__iterator_category(const _Iter&) [with _Iter = const char*]	16	static
 stl_iterator_base_funcs.h:98:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::__distance(_RandomAccessIterator, _RandomAccessIterator, std::random_access_iterator_tag) [with _RandomAccessIterator = const char*]	24	static
@@ -208,6 +313,15 @@ stl_tree.h:728:7:std::_Rb_tree_node_base*& std::_Rb_tree<_Key, _Val, _KeyOfValue
 stl_tree.h:300:7:std::_Rb_tree_iterator<_Tp>::_Self& std::_Rb_tree_iterator<_Tp>::operator--() [with _Tp = std::pair<const char, double_token>]	16	static
 stl_tree.h:285:7:std::_Rb_tree_iterator<_Tp>::_Self& std::_Rb_tree_iterator<_Tp>::operator++() [with _Tp = std::pair<const char, double_token>]	16	static
 stl_tree.h:546:4:std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const char, double_token>&; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
+aligned_buffer.h:72:7:_Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() [with _Tp = std::__cxx11::basic_string<char>]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__cxx11::basic_string<char>&]	16	static
+invoke.h:59:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = int&]	16	static
+invoke.h:59:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {int&}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = float&]	16	static
+invoke.h:59:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {float&}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = bool&]	16	static
+invoke.h:59:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {bool&}]	32	static
 stl_tree.h:566:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_Node_allocator() [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
 stl_tree.h:234:7:_Val* std::_Rb_tree_node<_Val>::_M_valptr() [with _Val = std::pair<const char, token_type>]	16	static
 alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_Tp> >::destroy(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, _Up*) [with _Up = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -237,6 +351,11 @@ stl_tree.h:1006:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iter
 stl_tree.h:315:7:bool std::operator==(const _Self&, const _Self&)	16	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = std::_Rb_tree_node<std::pair<const char, double_token> >*&; _U2 = std::_Rb_tree_node_base*&; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = std::_Rb_tree_node_base*; _T2 = std::_Rb_tree_node_base*]	24	static
 stl_tree.h:628:2:) [with _Args = {const std::pair<const char, double_token>&}; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
+aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = std::__cxx11::basic_string<char>]	16	static
+variant:385:13:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)> mutable [with auto:1 = std::__cxx11::basic_string<char>&]	24	static
+variant:385:13:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)> mutable [with auto:1 = int&]	24	static
+variant:385:13:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)> mutable [with auto:1 = float&]	24	static
+variant:385:13:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)> mutable [with auto:1 = bool&]	24	static
 aligned_buffer.h:72:7:_Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() [with _Tp = std::pair<const char, token_type>]	16	static
 new_allocator.h:151:2:void __gnu_cxx::new_allocator<_Tp>::destroy(_Up*) [with _Up = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
 new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	24	static
@@ -258,6 +377,14 @@ stl_tree.h:238:7:const _Val* std::_Rb_tree_node<_Val>::_M_valptr() const [with _
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >*&]	16	static
 stl_tree.h:579:7:std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_node() [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_tree.h:609:2:) [with _Args = {const std::pair<const char, double_token>&}; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	32	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = std::__cxx11::basic_string<char>]	16	static
+stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = std::__cxx11::basic_string<char>]	16	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = int]	16	static
+stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = int]	16	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = float]	16	static
+stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = float]	16	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = bool]	16	static
+stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = bool]	16	static
 aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = std::pair<const char, token_type>]	16	static
 aligned_buffer.h:76:7:const _Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() const [with _Tp = std::pair<const char, token_type>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -286,6 +413,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Expression_calculator.cpp:139:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Expression_calculator.cpp:139:1:cpp)	8	static
-Expression_calculator.cpp:139:1:cpp)	8	static
+Expression_calculator.cpp:136:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Expression_calculator.cpp:136:1:cpp)	8	static
+Expression_calculator.cpp:136:1:cpp)	8	static

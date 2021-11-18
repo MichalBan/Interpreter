@@ -130,8 +130,10 @@ public:
 class Expression
 {
 public:
-	~Expression();
+    int line;
+    int position;
 	std::vector<And_expression*> and_exps;
+	~Expression();
 };
 
 #endif /* EXPRESSION_CLASSES_H_ */

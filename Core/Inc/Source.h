@@ -8,16 +8,15 @@ class Source
 {
     int line;
     int position;
-    UART_HandleTypeDef* huart;
+
+	void update_position(uint8_t rx_buffer);
 public:
-    Source(UART_HandleTypeDef* huart);
-	virtual ~Source();
+    Source();
+	~Source();
 
 	int get_line();
 	int get_position();
-
 	char receive_code_char();
-	void update_position(uint8_t rx_buffer);
 };
 
 

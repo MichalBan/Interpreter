@@ -20,11 +20,12 @@ CPP_SRCS += \
 ../Core/Src/Parser.cpp \
 ../Core/Src/Source.cpp \
 ../Core/Src/Statement.cpp \
-../Core/Src/Token.cpp \
 ../Core/Src/Transmitter.cpp \
+../Core/Src/Variable_handler.cpp \
 ../Core/Src/expression_parse.cpp \
 ../Core/Src/main.cpp \
-../Core/Src/my_main.cpp 
+../Core/Src/my_main.cpp \
+../Core/Src/user_functions.cpp 
 
 C_DEPS += \
 ./Core/Src/stm32f7xx_hal_msp.d \
@@ -42,8 +43,8 @@ OBJS += \
 ./Core/Src/Parser.o \
 ./Core/Src/Source.o \
 ./Core/Src/Statement.o \
-./Core/Src/Token.o \
 ./Core/Src/Transmitter.o \
+./Core/Src/Variable_handler.o \
 ./Core/Src/expression_parse.o \
 ./Core/Src/main.o \
 ./Core/Src/my_main.o \
@@ -51,7 +52,8 @@ OBJS += \
 ./Core/Src/stm32f7xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
-./Core/Src/system_stm32f7xx.o 
+./Core/Src/system_stm32f7xx.o \
+./Core/Src/user_functions.o 
 
 CPP_DEPS += \
 ./Core/Src/Executor.d \
@@ -62,11 +64,12 @@ CPP_DEPS += \
 ./Core/Src/Parser.d \
 ./Core/Src/Source.d \
 ./Core/Src/Statement.d \
-./Core/Src/Token.d \
 ./Core/Src/Transmitter.d \
+./Core/Src/Variable_handler.d \
 ./Core/Src/expression_parse.d \
 ./Core/Src/main.d \
-./Core/Src/my_main.d 
+./Core/Src/my_main.d \
+./Core/Src/user_functions.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

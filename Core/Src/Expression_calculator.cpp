@@ -1,139 +1,136 @@
 #include <Expression_calculator.h>
 
-Expression_calculator::Expression_calculator()
-{
-	// TODO Auto-generated constructor stub
+int Expression_calculator::line = 0;
+int Expression_calculator::position = 0;
 
-}
-
-Expression_calculator::~Expression_calculator()
+int Expression_calculator::get_int(Expression *exp)
 {
-	// TODO Auto-generated destructor stub
-}
-
-bool Expression_calculator::get_int(int *var, Expression *exp)
-{
+	line = exp->line;
+	position = exp->position;
 	if (exp->and_exps.size() != 1)
 	{
-		return false;
+		Transmitter::report_error("integer", line, position);
 	}
 	And_expression *and_exp = exp->and_exps[0];
 	if (and_exp->comp_exps.size() != 1)
 	{
-		return false;
+		Transmitter::report_error("integer", line, position);
 	}
 	Compare_expression *comp_exp = and_exp->comp_exps[0];
 	if (comp_exp->op != COMP_OP_NONE)
 	{
-		return false;
+		Transmitter::report_error("integer", line, position);
 	}
 	Relation_expression *rel_exp = comp_exp->left_rel_exp;
 	if (rel_exp->op != REL_OP_NONE)
 	{
-		return false;
+		Transmitter::report_error("integer", line, position);
 	}
 	Sum_expression *sum_exp = rel_exp->left_sum_exp;
-	if (!get_int(var, sum_exp))
-	{
-		return false;
-	}
-	return true;
+
+	return get_int(sum_exp);
 }
 
-bool Expression_calculator::get_int(int *var, Sum_expression *sum_exp)
+int Expression_calculator::get_int(Sum_expression *sum_exp)
 {
-	*var = 0;
-	int temp = 0;
+	int var = 0;
 	for (Multiply_expression *mult_exp : sum_exp->mult_exps)
 	{
-		if (get_int(&temp, mult_exp))
-		{
-			*var += temp;
-		}
-		else
-		{
-			return false;
-		}
+		var += get_int(mult_exp);
 	}
-	return true;
+	return var;
 }
 
-bool Expression_calculator::get_int(int *var,
-		Multiply_expression *mult_exp)
+int Expression_calculator::get_int(Multiply_expression *mult_exp)
 {
-	*var = 1;
-	int temp = 0;
+	int var = 1;
 	for (Power_expression *pow_exp : mult_exp->pow_exps)
 	{
-		if (get_int(&temp, pow_exp))
-		{
-			*var *= temp;
-		}
-		else
-		{
-			return false;
-		}
+		var *= get_int(pow_exp);
 	}
-	return true;
+	return var;
 }
 
-bool Expression_calculator::get_int(int *var, Power_expression *pow_exp)
+int Expression_calculator::get_int(Power_expression *pow_exp)
 {
-	if (!get_int(var, pow_exp->left_un_exp))
-	{
-		return false;
-	}
+	int var = get_int(pow_exp->left_un_exp);
+
 	if (pow_exp->right_un_exp)
 	{
-		int temp = 0;
-		if (!get_int(&temp, pow_exp->right_un_exp))
-		{
-			return false;
-		}
-		*var = pow(*var, temp);
+		int temp = get_int(pow_exp->right_un_exp);
+		var = pow(var, temp);
 	}
 
-	return true;
+	return var;
 }
 
-bool Expression_calculator::get_int(int *var, Unary_expression *un_exp)
+int Expression_calculator::get_int(Unary_expression *un_exp)
 {
 	switch (un_exp->op)
 	{
 	case UN_OP_NONE:
+		return get_int(un_exp->prior_exp);
 		break;
 	case UN_OP_MINUS:
+		return -get_int(un_exp->prior_exp);
 		break;
 	default:
-		return false;
+		Transmitter::report_error("integer", line, position);
 		break;
 	}
-	return true;
+	return 0;
 }
 
-bool Expression_calculator::get_int(int *var,
-		Priority_expression *prior_exp)
+int Expression_calculator::get_int(Priority_expression *prior_exp)
 {
-	return true;
+	if(std::holds_alternative<Expression*>(prior_exp->exp))
+	{
+		Expression* exp = std::get<Expression*>(prior_exp->exp);
+		return get_int(exp);
+	}
+	else
+	{
+		Primal_expression* exp = std::get<Primal_expression*>(prior_exp->exp);
+		return get_int(exp);
+	}
 }
 
-bool Expression_calculator::get_int(int *var,
-		Primal_expression *primal_exp)
+int Expression_calculator::get_int(Primal_expression *primal_exp)
 {
-	return true;
+	switch(primal_exp->type)
+	{
+	case PRIMAL_INT:
+		return std::get<int>(primal_exp->content);
+	case PRIMAL_FLOAT:
+		return (int)(std::get<float>(primal_exp->content));
+	case PRIMAL_VARIABLE:
+		return 0; //todo
+	case PRIMAL_FUNCTION_CALL:
+		return get_function_int(primal_exp);
+	default:
+		Transmitter::report_error("integer", line, position);
+		return 0;
+	}
 }
 
-bool Expression_calculator::get_float(float *var, Expression *exp)
+int Expression_calculator::get_function_int(Primal_expression* exp)
 {
-	return true;
+	Function_call* function_call = std::get<Function_call*>(exp->content);
+	auto val = Function_handler::run_function(function_call);
+	return std::get<int>(val);
 }
 
-bool Expression_calculator::get_bool(bool *var, Expression *exp)
+float Expression_calculator::get_float(Expression *exp)
 {
-	return true;
+	return 0;
 }
 
-bool Expression_calculator::get_string(std::string *var, Expression *exp)
+bool Expression_calculator::get_bool(Expression *exp)
 {
-	return true;
+	return false;
+}
+
+std::string Expression_calculator::get_string(Expression *exp)
+{
+	return "";
 }

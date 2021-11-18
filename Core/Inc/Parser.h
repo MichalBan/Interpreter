@@ -17,13 +17,8 @@ public:
 
 class Parser
 {
-	Lexer *Lex;
-	Transmitter *Trans;
 	Token token_buffer;
-public:
-	Parser(Lexer *Lex, Transmitter *Trans);
 
-	Program* parse_program();
 	Body* parse_body();
 	bool is_token_statement_first();
 	void skip_newlines();
@@ -65,6 +60,8 @@ public:
 	void parse_setup(Program *Prog);
 	void parse_loop(Program *Prog);
 	void parse_finish(Program *Prog);
+public:
+	Program* parse_program();
 };
 
 #endif /* PARSER_H_ */

@@ -1,16 +1,19 @@
-#include <Function_handler.h>
+#include "Function_handler.h"
 
-namespace
+token_value Function_handler::run_function(Function_call *fcall)
 {
-	void run_single_experiment_iteration(arglist arguments = { })
+	static Function_handler instance;
+
+	auto search = instance.functions.find(fcall->id);
+	if (search != instance.functions.end())
 	{
-		int x = 2;
-		++x;
+		function_pointer fun = search->second;
+		return fun(fcall->arguments);
 	}
-
-}
-
-Function_handler::Function_handler()
-{
-	FUNCTION(run_single_experiment_iteration);
+	else
+	{
+		Transmitter::report_error(std::string("function " + fcall->id + " not found"),
+				fcall->line, fcall->position);
+		return 0;
+	}
 }

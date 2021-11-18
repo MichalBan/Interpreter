@@ -1,11 +1,5 @@
 #include "Parser.h"
 
-Parser::Parser(Lexer *Lex, Transmitter *Trans)
-{
-	this->Lex = Lex;
-	this->Trans = Trans;
-}
-
 Program::~Program()
 {
 	delete setup;
@@ -17,7 +11,7 @@ While_statement* Parser::parse_while()
 {
 	auto st = new While_statement();
 	st->condition = parse_expression();
-	assert_token(TOKEN_COLON, "colon after condition expression");
+	assert_token(TOKEN_NEWLINE, "line break after condition expression");
 	get_next_token();
 	st->while_body = parse_body();
 	assert_token(TOKEN_END, "\"end\" after if body");
@@ -29,7 +23,7 @@ void Parser::parse_elseif_content(If_statement *st)
 {
 	get_next_token();
 	st->conditions.push_back(parse_expression());
-	assert_token(TOKEN_COLON, "colon after condition expression");
+	assert_token(TOKEN_NEWLINE, "line break after condition expression");
 	get_next_token();
 	st->if_bodies.push_back(parse_body());
 }
@@ -37,7 +31,7 @@ void Parser::parse_elseif_content(If_statement *st)
 void Parser::parse_else_content(If_statement *st)
 {
 	get_next_token();
-	assert_token(TOKEN_COLON, "colon after \"else\"");
+	assert_token(TOKEN_NEWLINE, "line break after \"else\"");
 	get_next_token();
 	st->if_bodies.push_back(parse_body());
 }
@@ -45,7 +39,7 @@ void Parser::parse_else_content(If_statement *st)
 void Parser::parse_if_content(If_statement *st)
 {
 	st->conditions.push_back(parse_expression());
-	assert_token(TOKEN_COLON, "colon after condition expression");
+	assert_token(TOKEN_NEWLINE, "line break after condition expression");
 	get_next_token();
 	st->if_bodies.push_back(parse_body());
 }
@@ -55,11 +49,11 @@ If_statement* Parser::parse_if()
 	auto st = new If_statement();
 
 	parse_if_content(st);
-	while (token_buffer.get_type() == TOKEN_ELSEIF)
+	while (token_buffer.type == TOKEN_ELSEIF)
 	{
 		parse_elseif_content(st);
 	}
-	if (token_buffer.get_type() == TOKEN_ELSE)
+	if (token_buffer.type == TOKEN_ELSE)
 	{
 		parse_else_content(st);
 	}
@@ -71,7 +65,7 @@ If_statement* Parser::parse_if()
 
 void Parser::parse_variable_index(Variable *var)
 {
-	if (token_buffer.get_type() == TOKEN_LEFT_SQUARE)
+	if (token_buffer.type == TOKEN_LEFT_SQUARE)
 	{
 		get_next_token();
 		var->index = parse_expression();
@@ -89,7 +83,7 @@ void Parser::parse_member_selection_id(std::string &id)
 	assert_token(TOKEN_COLON, "colon operator \":\"");
 	get_next_token();
 	assert_token(TOKEN_IDENTIFIER, "identifier");
-	id = std::string(std::get<std::string>(token_buffer.get_value()));
+	id = std::string(std::get<std::string>(token_buffer.value));
 	get_next_token();
 }
 
@@ -133,13 +127,13 @@ Assignment* Parser::parse_assignment(std::string &id)
 
 void Parser::report_error(const std::string message)
 {
-	Trans->report_error(message, token_buffer.get_line(),
-			token_buffer.get_position());
+	Transmitter::report_error(message, token_buffer.line,
+			token_buffer.position);
 }
 
 void Parser::assert_token(token_type type, const std::string message)
 {
-	if (token_buffer.get_type() != type)
+	if (token_buffer.type != type)
 	{
 		std::string msg = "expected " + message + "\n";
 		report_error(msg);
@@ -148,10 +142,10 @@ void Parser::assert_token(token_type type, const std::string message)
 
 void Parser::parse_function_arguments(Function_call *f)
 {
-	if (token_buffer.get_type() != TOKEN_RIGHT_BRACKET)
+	if (token_buffer.type != TOKEN_RIGHT_BRACKET)
 	{
 		f->arguments.push_back(parse_expression());
-		while (token_buffer.get_type() == TOKEN_COMA)
+		while (token_buffer.type == TOKEN_COMA)
 		{
 			get_next_token();
 			f->arguments.push_back(parse_expression());
@@ -163,6 +157,8 @@ Function_call* Parser::parse_function_call(std::string &id)
 {
 	auto f = new Function_call();
 	f->id = std::string(id);
+	f->line = token_buffer.line;
+	f->position = token_buffer.position;
 	get_next_token();
 	parse_function_arguments(f);
 	assert_token(TOKEN_RIGHT_BRACKET, "closing bracket");
@@ -174,9 +170,11 @@ Method_call* Parser::parse_method_call(std::string &id)
 {
 	auto m = new Method_call();
 	m->vector_id = std::string(id);
+	m->line = token_buffer.line;
+	m->position = token_buffer.position;
 	get_next_token();
 	assert_token(TOKEN_IDENTIFIER, "method identifier");
-	id = std::get<std::string>(token_buffer.get_value());
+	id = std::get<std::string>(token_buffer.value);
 	get_next_token();
 	assert_token(TOKEN_LEFT_BRACKET, "opening bracket");
 	m->call = parse_function_call(id);
@@ -185,14 +183,14 @@ Method_call* Parser::parse_method_call(std::string &id)
 
 void Parser::parse_identifier_statement(Statement *s)
 {
-	std::string id = std::get<std::string>(token_buffer.get_value());
+	std::string id = std::get<std::string>(token_buffer.value);
 	get_next_token();
-	if (token_buffer.get_type() == TOKEN_LEFT_BRACKET)
+	if (token_buffer.type == TOKEN_LEFT_BRACKET)
 	{
 		s->type = STATEMENT_FUNCTION_CALL;
 		s->content = parse_function_call(id);
 	}
-	else if(token_buffer.get_type() == TOKEN_DOT)
+	else if(token_buffer.type == TOKEN_DOT)
 	{
 		s->type = STATEMENT_METHOD_CALL;
 		s->content = parse_method_call(id);
@@ -207,9 +205,7 @@ void Parser::parse_identifier_statement(Statement *s)
 Statement* Parser::parse_statement() //todo refactor
 {
 	auto s = new Statement();
-	s->line = token_buffer.get_line();
-	s->position = token_buffer.get_position();
-	switch (token_buffer.get_type())
+	switch (token_buffer.type)
 	{
 	case TOKEN_IDENTIFIER:
 		parse_identifier_statement(s);
@@ -233,14 +229,14 @@ Statement* Parser::parse_statement() //todo refactor
 
 bool Parser::is_token_statement_first()
 {
-	return token_buffer.get_type() == TOKEN_IDENTIFIER
-			|| token_buffer.get_type() == TOKEN_WHILE
-			|| token_buffer.get_type() == TOKEN_IF;
+	return token_buffer.type == TOKEN_IDENTIFIER
+			|| token_buffer.type == TOKEN_WHILE
+			|| token_buffer.type == TOKEN_IF;
 }
 
 void Parser::skip_newlines()
 {
-	while (token_buffer.get_type() == TOKEN_NEWLINE)
+	while (token_buffer.type == TOKEN_NEWLINE)
 	{
 		get_next_token();
 	}
@@ -259,11 +255,11 @@ Body* Parser::parse_body()
 
 void Parser::get_next_token()
 {
-	token_buffer = Lex->build_token();
-	if (token_buffer.get_type() == TOKEN_ERROR)
+	token_buffer = Lexer::build_token();
+	if (token_buffer.type == TOKEN_ERROR)
 	{
-		Trans->report_error(std::get<std::string>(token_buffer.get_value()),
-				token_buffer.get_line(), token_buffer.get_position());
+		Transmitter::report_error(std::get<std::string>(token_buffer.value),
+				token_buffer.line, token_buffer.position);
 	}
 }
 
@@ -272,7 +268,7 @@ void Parser::parse_setup(Program *Prog)
 	get_next_token();
 	assert_token(TOKEN_SETUP, "\"setup\" keyword");
 	get_next_token();
-	assert_token(TOKEN_COLON, "colon after setup");
+	assert_token(TOKEN_NEWLINE, "line break after setup");
 	get_next_token();
 	skip_newlines();
 	Prog->setup = parse_body();
@@ -282,7 +278,7 @@ void Parser::parse_loop(Program *Prog)
 {
 	assert_token(TOKEN_LOOP, "\"loop\" keyword");
 	get_next_token();
-	assert_token(TOKEN_COLON, "colon after loop");
+	assert_token(TOKEN_NEWLINE, "line break after loop");
 	get_next_token();
 	skip_newlines();
 	Prog->loop = parse_body();
@@ -292,7 +288,7 @@ void Parser::parse_finish(Program *Prog)
 {
 	assert_token(TOKEN_FINISH, "\"finish\" keyword");
 	get_next_token();
-	assert_token(TOKEN_COLON, "colon after finish");
+	assert_token(TOKEN_NEWLINE, "line break after finish");
 	get_next_token();
 	skip_newlines();
 	Prog->finish = parse_body();

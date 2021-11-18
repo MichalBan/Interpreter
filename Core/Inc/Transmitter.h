@@ -16,13 +16,11 @@ typedef int UART_HandleTypeDef;
 
 class Transmitter
 {
-    UART_HandleTypeDef* huart;
-    uint8_t rx_buffer;
+	static uint8_t rx_buffer;
 public:
-	Transmitter(UART_HandleTypeDef* huart);
-	virtual ~Transmitter();
-    void report_error(std::string message, int line, int position);
-    void start_listening();
+	static uint8_t get_rx_buffer();
+	static void report_error(std::string message, int line, int position);
+	static void start_listening();
 };
 
 #endif /* INC_TRANSMITTER_H_ */

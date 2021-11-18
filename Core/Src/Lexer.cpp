@@ -1,9 +1,15 @@
 #include <Lexer.h>
 
-Lexer::Lexer(Source *Code)
+Lexer::Lexer()
 {
-	this->Code = Code;
+	code = new Source();
+	// needs to start with whitespace in buffer
 	char_buffer = ' ';
+}
+
+Lexer::~Lexer()
+{
+	delete code;
 }
 
 bool Lexer::match_single_char()
@@ -11,8 +17,8 @@ bool Lexer::match_single_char()
 	auto result = token_chars.find(char_buffer);
 	if (result != token_chars.end())
 	{
-		Product.set_type(result->second);
-		char_buffer = Code->receive_code_char();
+		product.type = result->second;
+		char_buffer = code->receive_code_char();
 		return true;
 	}
 	return false;
@@ -23,15 +29,15 @@ bool Lexer::match_double_char()
 	auto result = token_double_chars.find(char_buffer);
 	if (result != token_double_chars.end())
 	{
-		char_buffer = Code->receive_code_char();
+		char_buffer = code->receive_code_char();
 		if (char_buffer == '=')
 		{
-			Product.set_type(result->second.double_char);
-			char_buffer = Code->receive_code_char();
+			product.type = result->second.double_char;
+			char_buffer = code->receive_code_char();
 		}
 		else
 		{
-			Product.set_type(result->second.single_char);
+			product.type = result->second.single_char;
 		}
 		return true;
 	}
@@ -43,7 +49,7 @@ void Lexer::build_word(std::string &word)
 	do
 	{
 		word.push_back(char_buffer);
-		char_buffer = Code->receive_code_char();
+		char_buffer = code->receive_code_char();
 	} while (isalnum(char_buffer) || char_buffer == '_');
 }
 
@@ -52,12 +58,12 @@ void Lexer::match_keyword_or_id(std::string &word)
 	auto result = token_strings.find(word);
 	if (result != token_strings.end())
 	{
-		Product.set_type(result->second);
+		product.type = result->second;
 	}
 	else
 	{
-		Product.set_type(TOKEN_IDENTIFIER);
-		Product.set_value(std::string(word));
+		product.type = TOKEN_IDENTIFIER;
+		product.value = std::string(word);
 	}
 }
 
@@ -78,7 +84,7 @@ void Lexer::build_int(std::string &word)
 	do
 	{
 		word.push_back(char_buffer);
-		char_buffer = Code->receive_code_char();
+		char_buffer = code->receive_code_char();
 	} while (isdigit(char_buffer));
 }
 
@@ -86,14 +92,14 @@ void Lexer::match_int_or_float(std::string &word)
 {
 	if (char_buffer != '.')
 	{
-		Product.set_type(TOKEN_INT);
-		Product.set_value(std::stoi(word));
+		product.type = TOKEN_INT;
+		product.value = std::stoi(word);
 	}
 	else
 	{
 		build_int(word);
-		Product.set_type(TOKEN_FLOAT);
-		Product.set_value(std::stof(word));
+		product.type = TOKEN_FLOAT;
+		product.value = std::stof(word);
 	}
 }
 
@@ -113,18 +119,18 @@ bool Lexer::build_0_int_or_float()
 {
 	if (char_buffer == '0')
 	{
-		char_buffer = Code->receive_code_char();
+		char_buffer = code->receive_code_char();
 		if (char_buffer == '.')
 		{
 			std::string word;
 			build_int(word);
-			Product.set_type(TOKEN_FLOAT);
-			Product.set_value(std::stof(word));
+			product.type = TOKEN_FLOAT;
+			product.value = std::stof(word);
 		}
 		else
 		{
-			Product.set_type(TOKEN_INT);
-			Product.set_value(0);
+			product.type = TOKEN_INT;
+			product.value = 0;
 		}
 		return true;
 	}
@@ -180,17 +186,17 @@ void Lexer::add_string_char(std::string &word)
 	{
 		word.push_back(char_buffer);
 	}
-	char_buffer = Code->receive_code_char();
+	char_buffer = code->receive_code_char();
 }
 
 void Lexer::build_string_content(std::string &word)
 {
-	char_buffer = Code->receive_code_char();
+	char_buffer = code->receive_code_char();
 	while (!(char_buffer == '\"' && word.back() != '\\'))
 	{
 		add_string_char(word);
 	}
-	char_buffer = Code->receive_code_char();
+	char_buffer = code->receive_code_char();
 }
 
 bool Lexer::build_string()
@@ -199,8 +205,8 @@ bool Lexer::build_string()
 	{
 		std::string word;
 		build_string_content(word);
-		Product.set_type(TOKEN_STRING);
-		Product.set_value(std::string(word));
+		product.type = TOKEN_STRING;
+		product.value = std::string(word);
 		return true;
 	}
 	return false;
@@ -214,16 +220,17 @@ bool Lexer::build_token_value()
 
 Token Lexer::build_token()
 {
-	get_working_char();
-	Product.set_line(Code->get_line());
-	Product.set_position(Code->get_position());
+	static Lexer lex;
+	lex.get_working_char();
+	lex.product.line = lex.code->get_line();
+	lex.product.position = lex.code->get_position();
 
-	if (build_token_value())
+	if (lex.build_token_value())
 	{
-		return Product;
+		return lex.product;
 	}
 
-	return Product;
+	return lex.product;
 }
 
 void Lexer::skip_comment()
@@ -232,9 +239,9 @@ void Lexer::skip_comment()
 	{
 		while (char_buffer != '\n')
 		{
-			char_buffer = Code->receive_code_char();
+			char_buffer = code->receive_code_char();
 		}
-		char_buffer = Code->receive_code_char();
+		char_buffer = code->receive_code_char();
 	}
 }
 
@@ -242,7 +249,7 @@ void Lexer::skip_whitespace()
 {
 	while (isspace(char_buffer) && char_buffer != '\n')
 	{
-		char_buffer = Code->receive_code_char();
+		char_buffer = code->receive_code_char();
 	}
 }
 

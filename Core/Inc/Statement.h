@@ -51,8 +51,6 @@ class Statement
 {
 public:
 	~Statement();
-    int line;
-    int position;
 	statement_type type;
 	statement_content content;
 };

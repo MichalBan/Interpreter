@@ -7,12 +7,13 @@
 class Lexer
 {
 	char char_buffer;
-	Token Product;
-	Source* Code;
-public:
-	Lexer(Source* Code);
+	Token product;
+	Source* code;
 
-	Token build_token();
+	Lexer();
+	Lexer(Lexer const&);
+	void operator=(Lexer const&);
+
 	void get_working_char();
 	bool match_single_char();
 	bool match_double_char();
@@ -31,6 +32,9 @@ public:
 	void build_string_content(std::string &word);
 	void add_string_char(std::string &word);
 	bool build_token_value();
+public:
+	~Lexer();
+	static Token build_token();
 };
 
 #endif /* INC_LEXER_H_ */

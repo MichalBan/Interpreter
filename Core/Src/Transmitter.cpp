@@ -1,21 +1,21 @@
 #include <Transmitter.h>
 
-Transmitter::Transmitter(UART_HandleTypeDef *huart)
-{
-	this->huart = huart;
-}
+extern UART_HandleTypeDef huart1;
 
-Transmitter::~Transmitter() = default;
+uint8_t Transmitter::get_rx_buffer()
+{
+	return rx_buffer;
+}
 
 void Transmitter::report_error(std::string message, int line, int position)
 {
 	std::string full_message = message + "\nin line: " + itoa(line, nullptr, 10)
 			+ " in position: " + itoa(position, nullptr, 10) + "\n";
 #ifndef TESTS
-	__disable_irq();
 	while (1)
 	{
-		HAL_UART_Transmit(huart, (uint8_t*)full_message.c_str(), full_message.length(), 100);
+		HAL_UART_Transmit(&huart1, (uint8_t*) full_message.c_str(),
+				full_message.length(), 100);
 		HAL_Delay(500);
 	}
 #else
@@ -26,12 +26,12 @@ void Transmitter::report_error(std::string message, int line, int position)
 #ifndef TESTS
 void Transmitter::start_listening()
 {
-	HAL_UART_Receive_IT(huart, &rx_buffer, 1);
+	HAL_UART_Receive_IT(&huart1, &rx_buffer, 1);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	switch(*(huart->pRxBuffPtr))
+	switch (Transmitter::get_rx_buffer())
 	{
 	case 'e':
 		break;
