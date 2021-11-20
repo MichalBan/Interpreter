@@ -12,8 +12,6 @@ class Token
 public:
 	token_type type;
 	token_value value;
-    int line;
-    int position;
 };
 
 #endif /* SRC_TOKEN_H_ */

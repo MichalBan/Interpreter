@@ -1,136 +1,198 @@
 #include <Expression_calculator.h>
 
-int Expression_calculator::line = 0;
-int Expression_calculator::position = 0;
-
-int Expression_calculator::get_int(Expression *exp)
+Expression_calculator& Expression_calculator::get_instance()
 {
-	line = exp->line;
-	position = exp->position;
-	if (exp->and_exps.size() != 1)
-	{
-		Transmitter::report_error("integer", line, position);
-	}
-	And_expression *and_exp = exp->and_exps[0];
-	if (and_exp->comp_exps.size() != 1)
-	{
-		Transmitter::report_error("integer", line, position);
-	}
-	Compare_expression *comp_exp = and_exp->comp_exps[0];
-	if (comp_exp->op != COMP_OP_NONE)
-	{
-		Transmitter::report_error("integer", line, position);
-	}
-	Relation_expression *rel_exp = comp_exp->left_rel_exp;
-	if (rel_exp->op != REL_OP_NONE)
-	{
-		Transmitter::report_error("integer", line, position);
-	}
-	Sum_expression *sum_exp = rel_exp->left_sum_exp;
-
-	return get_int(sum_exp);
+	static Expression_calculator instance;
+	return instance;
 }
 
-int Expression_calculator::get_int(Sum_expression *sum_exp)
+Symbol Expression_calculator::evaluate(Expression *exp)
 {
-	int var = 0;
-	for (Multiply_expression *mult_exp : sum_exp->mult_exps)
+	Position_counter::get_instance().line = exp->line;
+	Position_counter::get_instance().position = exp->position;
+
+	Symbol var = false;
+	for (And_expression *and_exp : exp->and_exps)
 	{
-		var += get_int(mult_exp);
+		var = var || evaluate(and_exp);
 	}
 	return var;
 }
 
-int Expression_calculator::get_int(Multiply_expression *mult_exp)
+Symbol Expression_calculator::evaluate(And_expression *and_exp)
 {
-	int var = 1;
-	for (Power_expression *pow_exp : mult_exp->pow_exps)
+	Symbol var = false;
+	for (Compare_expression *comp_exp : and_exp->comp_exps)
 	{
-		var *= get_int(pow_exp);
+		var = var && evaluate(comp_exp);
 	}
 	return var;
 }
 
-int Expression_calculator::get_int(Power_expression *pow_exp)
+Symbol Expression_calculator::evaluate(Compare_expression *comp_exp)
 {
-	int var = get_int(pow_exp->left_un_exp);
+	Symbol var = evaluate(comp_exp->left_rel_exp);
+	if (comp_exp->right_rel_exp)
+	{
+		switch (comp_exp->op)
+		{
+		case COMP_OP_EQUAL:
+			var = var == evaluate(comp_exp->right_rel_exp);
+			break;
+		case COMP_OP_NOT_EQUAL:
+			var = !(var == evaluate(comp_exp->right_rel_exp));
+			break;
+		default:
+			Transmitter::report_error("compare operator");
+		}
+	}
+
+	return var;
+}
+
+Symbol Expression_calculator::evaluate(Relation_expression *rel_exp)
+{
+	Symbol var = evaluate(rel_exp->left_sum_exp);
+	if (rel_exp->right_sum_exp)
+	{
+		switch (rel_exp->op)
+		{
+		case REL_OP_GREATER:
+			return var > evaluate(rel_exp->right_sum_exp);
+		case REL_OP_GREATER_EQUAL:
+			return var >= evaluate(rel_exp->right_sum_exp);
+		case REL_OP_SMALLER:
+			return var < evaluate(rel_exp->right_sum_exp);
+		case REL_OP_SMALLER_EQUAL:
+			return var <= evaluate(rel_exp->right_sum_exp);
+		default:
+			Transmitter::report_error("relation operator");
+		}
+	}
+
+	return var;
+}
+
+Symbol Expression_calculator::evaluate(Sum_expression *sum_exp)
+{
+	Symbol var = evaluate(sum_exp->mult_exps[0]);
+	for (unsigned int i = 0; i < sum_exp->ops.size(); ++i)
+	{
+		if (sum_exp->ops[i] == SUM_OP_PLUS)
+		{
+			var = var + evaluate(sum_exp->mult_exps[i + 1]);
+		}
+		else
+		{
+			var = var - evaluate(sum_exp->mult_exps[i + 1]);
+		}
+	}
+	return var;
+}
+
+Symbol Expression_calculator::evaluate(Multiply_expression *mult_exp)
+{
+	Symbol var = evaluate(mult_exp->pow_exps[0]);
+	for (unsigned int i = 0; i < mult_exp->ops.size(); ++i)
+	{
+		if (mult_exp->ops[i] == MULT_OP_MULTIPLY)
+		{
+			var = var * evaluate(mult_exp->pow_exps[i + 1]);
+		}
+		else if (mult_exp->ops[i] == MULT_OP_DIVIDE)
+		{
+			var = var / evaluate(mult_exp->pow_exps[i + 1]);
+		}
+		else
+		{
+			var = var % evaluate(mult_exp->pow_exps[i + 1]);
+		}
+	}
+	return var;
+}
+
+Symbol Expression_calculator::evaluate(Power_expression *pow_exp)
+{
+	Symbol var = evaluate(pow_exp->left_un_exp);
 
 	if (pow_exp->right_un_exp)
 	{
-		int temp = get_int(pow_exp->right_un_exp);
-		var = pow(var, temp);
+		Symbol temp = evaluate(pow_exp->right_un_exp);
+		var = var ^ temp;
 	}
 
 	return var;
 }
 
-int Expression_calculator::get_int(Unary_expression *un_exp)
+Symbol Expression_calculator::evaluate(Unary_expression *un_exp)
 {
 	switch (un_exp->op)
 	{
 	case UN_OP_NONE:
-		return get_int(un_exp->prior_exp);
-		break;
+		return evaluate(un_exp->prior_exp);
 	case UN_OP_MINUS:
-		return -get_int(un_exp->prior_exp);
-		break;
+		return -evaluate(un_exp->prior_exp);
 	default:
-		Transmitter::report_error("integer", line, position);
-		break;
+		return !evaluate(un_exp->prior_exp);
 	}
-	return 0;
 }
 
-int Expression_calculator::get_int(Priority_expression *prior_exp)
+Symbol Expression_calculator::evaluate(Priority_expression *prior_exp)
 {
-	if(std::holds_alternative<Expression*>(prior_exp->exp))
+	if (std::holds_alternative<Expression*>(prior_exp->exp))
 	{
-		Expression* exp = std::get<Expression*>(prior_exp->exp);
-		return get_int(exp);
+		Expression *exp = std::get<Expression*>(prior_exp->exp);
+		return evaluate(exp);
 	}
 	else
 	{
-		Primal_expression* exp = std::get<Primal_expression*>(prior_exp->exp);
-		return get_int(exp);
+		Primal_expression *exp = std::get<Primal_expression*>(prior_exp->exp);
+		return evaluate(exp);
 	}
 }
 
-int Expression_calculator::get_int(Primal_expression *primal_exp)
+Symbol Expression_calculator::evaluate(Primal_expression *primal_exp)
 {
-	switch(primal_exp->type)
+	switch (primal_exp->type)
 	{
 	case PRIMAL_INT:
 		return std::get<int>(primal_exp->content);
 	case PRIMAL_FLOAT:
-		return (int)(std::get<float>(primal_exp->content));
+		return std::get<float>(primal_exp->content);
+	case PRIMAL_STRING:
+		return std::get<std::string>(primal_exp->content);
+	case PRIMAL_BOOL:
+		return std::get<bool>(primal_exp->content);
 	case PRIMAL_VARIABLE:
-		return 0; //todo
+		return evaluate(std::get<Variable*>(primal_exp->content));
 	case PRIMAL_FUNCTION_CALL:
-		return get_function_int(primal_exp);
-	default:
-		Transmitter::report_error("integer", line, position);
-		return 0;
+		return Function_handler::run_function(
+				std::get<Function_call*>(primal_exp->content));
 	}
-}
-
-int Expression_calculator::get_function_int(Primal_expression* exp)
-{
-	Function_call* function_call = std::get<Function_call*>(exp->content);
-	auto val = Function_handler::run_function(function_call);
-	return std::get<int>(val);
-}
-
-float Expression_calculator::get_float(Expression *exp)
-{
 	return 0;
 }
 
-bool Expression_calculator::get_bool(Expression *exp)
+Symbol Expression_calculator::evaluate(Variable *var)
 {
-	return false;
-}
+	Symbol s;
 
-std::string Expression_calculator::get_string(Expression *exp)
-{
-	return "";
+	switch (var->type)
+	{
+	case ASSIGNMENT_LOCAL:
+		s = Variable_handler::get_instance().get_local(var->id);
+		break;
+	case ASSIGNMENT_PAR:
+		s = Variable_handler::get_instance().get_par(var->id);
+		break;
+	default:
+		s = Variable_handler::get_instance().get_arg(var->id);
+		break;
+	}
+
+	if (var->index)
+	{
+		return s[evaluate(var->index)];
+	}
+
+	return s;
 }

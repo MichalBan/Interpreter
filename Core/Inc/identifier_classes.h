@@ -38,8 +38,6 @@ class Method_call
 {
 public:
 	~Method_call();
-	int line;
-	int position;
 	std::string vector_id;
 	Function_call* call;
 };

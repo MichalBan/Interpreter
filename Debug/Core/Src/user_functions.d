@@ -2,6 +2,7 @@ Core/Src/user_functions.o: ../Core/Src/user_functions.cpp \
  ../Core/Inc/Expression_calculator.h ../Core/Inc/Expression.h \
  ../Core/Inc/identifier_classes.h ../Core/Inc/Token.h \
  ../Core/Inc/token_types.h ../Core/Inc/Transmitter.h \
+ ../Core/Inc/Position_counter.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -30,7 +31,8 @@ Core/Src/user_functions.o: ../Core/Src/user_functions.cpp \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
- ../Core/Inc/Function_handler.h ../Core/Inc/Variable_handler.h
+ ../Core/Inc/Function_handler.h ../Core/Inc/Symbol.h \
+ ../Core/Inc/Variable_handler.h ../Core/Inc/Variable_handler.h
 
 ../Core/Inc/Expression_calculator.h:
 
@@ -43,6 +45,8 @@ Core/Src/user_functions.o: ../Core/Src/user_functions.cpp \
 ../Core/Inc/token_types.h:
 
 ../Core/Inc/Transmitter.h:
+
+../Core/Inc/Position_counter.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 
@@ -101,5 +105,9 @@ Core/Src/user_functions.o: ../Core/Src/user_functions.cpp \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h:
 
 ../Core/Inc/Function_handler.h:
+
+../Core/Inc/Symbol.h:
+
+../Core/Inc/Variable_handler.h:
 
 ../Core/Inc/Variable_handler.h:

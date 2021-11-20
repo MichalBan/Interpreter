@@ -1,5 +1,5 @@
 Core/Src/Lexer.o: ../Core/Src/Lexer.cpp ../Core/Inc/Lexer.h \
- ../Core/Inc/Source.h ../Core/Inc/Transmitter.h \
+ ../Core/Inc/Transmitter.h ../Core/Inc/Position_counter.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -32,9 +32,9 @@ Core/Src/Lexer.o: ../Core/Src/Lexer.cpp ../Core/Inc/Lexer.h \
 
 ../Core/Inc/Lexer.h:
 
-../Core/Inc/Source.h:
-
 ../Core/Inc/Transmitter.h:
+
+../Core/Inc/Position_counter.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 

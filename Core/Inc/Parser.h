@@ -30,7 +30,6 @@ class Parser
 	Method_call* parse_method_call(std::string &id);
 	Variable* parse_variable(std::string &id);
 	void get_next_token();
-	void report_error(const std::string message);
 	void assert_token(token_type type, const std::string message);
 	void parse_variable_index(Variable *var);
 	Expression* parse_expression();

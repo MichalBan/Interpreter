@@ -1,7 +1,7 @@
-new:173:33:void* operator new(std::size_t, void*)	16	static
-variant:1215:3:void std::__throw_bad_variant_access(const char*)	16	static
 char_traits.h:329:7:static constexpr std::size_t std::char_traits<char>::length(const char_type*)	24	static
+new:173:33:void* operator new(std::size_t, void*)	16	static
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+variant:1215:3:void std::__throw_bad_variant_access(const char*)	16	static
 stl_tree.h:173:5:std::_Rb_tree_header::_Rb_tree_header()	16	static
 stl_tree.h:206:5:void std::_Rb_tree_header::_M_reset()	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = token_type]	16	static
@@ -28,23 +28,22 @@ Parser.cpp:90:6:void Parser::parse_variable_id(std::string&, Variable*)	48	stati
 identifier_classes.h:18:7:Variable::Variable()	16	static
 Parser.cpp:110:11:Variable* Parser::parse_variable(std::string&)	32	static
 Parser.cpp:118:13:Assignment* Parser::parse_assignment(std::string&)	48	static
-Parser.cpp:128:6:void Parser::report_error(std::string)	40	static
-Parser.cpp:134:6:void Parser::assert_token(token_type, std::string)	96	static
-Parser.cpp:143:6:void Parser::parse_function_arguments(Function_call*)	32	static
+Parser.cpp:128:6:void Parser::assert_token(token_type, std::string)	96	static
+Parser.cpp:137:6:void Parser::parse_function_arguments(Function_call*)	32	static
 identifier_classes.h:27:7:Function_call::Function_call()	16	static
-Parser.cpp:156:16:Function_call* Parser::parse_function_call(std::string&)	80	static
+Parser.cpp:150:16:Function_call* Parser::parse_function_call(std::string&)	80	static
 identifier_classes.h:37:7:Method_call::Method_call()	16	static
-Parser.cpp:169:14:Method_call* Parser::parse_method_call(std::string&)	112	static
-Parser.cpp:184:6:void Parser::parse_identifier_statement(Statement*)	56	static
+Parser.cpp:163:14:Method_call* Parser::parse_method_call(std::string&)	112	static
+Parser.cpp:176:6:void Parser::parse_identifier_statement(Statement*)	56	static
 variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 Statement.h:50:7:Statement::Statement()	16	static
-Parser.cpp:205:12:Statement* Parser::parse_statement()	64	static
-Parser.cpp:230:6:bool Parser::is_token_statement_first()	16	static
-Parser.cpp:237:6:void Parser::skip_newlines()	16	static
+Parser.cpp:197:12:Statement* Parser::parse_statement()	64	static
+Parser.cpp:222:6:bool Parser::is_token_statement_first()	16	static
+Parser.cpp:229:6:void Parser::skip_newlines()	16	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 Statement.h:8:7:Body::Body()	16	static
-Parser.cpp:245:7:Body* Parser::parse_body()	32	static
+Parser.cpp:237:7:Body* Parser::parse_body()	32	static
 variant:489:12:std::__detail::__variant::_Copy_ctor_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Copy_ctor_base()	16	static
 variant:517:12:std::__detail::__variant::_Move_ctor_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Move_ctor_base()	16	static
 variant:577:12:std::__detail::__variant::_Copy_assign_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>::~_Copy_assign_base()	16	static
@@ -55,11 +54,11 @@ Token.h:10:7:Token::~Token()	16	static
 variant:681:12:std::__detail::__variant::_Variant_base<_Types>& std::__detail::__variant::_Variant_base<_Types>::operator=(std::__detail::__variant::_Variant_base<_Types>&&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:1219:11:std::variant<_Types>& std::variant<_Types>::operator=(std::variant<_Types>&&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 Token.h:10:7:Token& Token::operator=(Token&&)	16	static
-Parser.cpp:256:6:void Parser::get_next_token()	80	static
-Parser.cpp:266:6:void Parser::parse_setup(Program*)	72	static
-Parser.cpp:277:6:void Parser::parse_loop(Program*)	72	static
-Parser.cpp:287:6:void Parser::parse_finish(Program*)	72	static
-Parser.cpp:297:10:Program* Parser::parse_program()	48	static
+Parser.cpp:248:6:void Parser::get_next_token()	72	static
+Parser.cpp:257:6:void Parser::parse_setup(Program*)	72	static
+Parser.cpp:268:6:void Parser::parse_loop(Program*)	72	static
+Parser.cpp:278:6:void Parser::parse_finish(Program*)	72	static
+Parser.cpp:288:10:Program* Parser::parse_program()	48	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -240,7 +239,7 @@ variant:790:7:constexpr const _Tp& std::__detail::__variant::_Multi_array<_Tp>::
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>::operator=(std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>&&) [with bool <anonymous> = false; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:5&&, auto:6)>]	16	static
 basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const char, token_type>]	16	static
-allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Up>&) [with _Tp1 = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
+allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Tp1>&) [with _Tp1 = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
 allocator.h:153:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
 stl_tree.h:710:4:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Rb_tree_impl<_Key_compare, <anonymous> >::_Rb_tree_impl(const _Key_compare&, std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator&&) [with _Key_compare = std::less<char>; bool <anonymous> = true; _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	24	static
 stl_tree.h:1907:5:void std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_erase(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type) [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	24	static
@@ -251,7 +250,7 @@ stl_tree.h:1014:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iter
 stl_tree.h:348:7:std::_Rb_tree_const_iterator<_Tp>::_Rb_tree_const_iterator(const iterator&) [with _Tp = std::pair<const char, token_type>]	16	static
 stl_tree.h:2248:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::const_iterator, _Arg&&, _NodeGen&) [with _Arg = const std::pair<const char, token_type>&; _NodeGen = std::_Rb_tree<char, std::pair<const char, token_type>, std::_Select1st<std::pair<const char, token_type> >, std::less<char>, std::allocator<std::pair<const char, token_type> > >::_Alloc_node; _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	56	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const std::__cxx11::basic_string<char>, token_type>]	16	static
-allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Up>&) [with _Tp1 = std::pair<const std::__cxx11::basic_string<char>, token_type>; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
+allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Tp1>&) [with _Tp1 = std::pair<const std::__cxx11::basic_string<char>, token_type>; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 allocator.h:153:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_tree.h:710:4:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Rb_tree_impl<_Key_compare, <anonymous> >::_Rb_tree_impl(const _Key_compare&, std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator&&) [with _Key_compare = std::less<std::__cxx11::basic_string<char> >; bool <anonymous> = true; _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
 stl_tree.h:1907:5:void std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_erase(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type) [with _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
@@ -262,7 +261,7 @@ stl_tree.h:1014:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iter
 stl_tree.h:348:7:std::_Rb_tree_const_iterator<_Tp>::_Rb_tree_const_iterator(const iterator&) [with _Tp = std::pair<const std::__cxx11::basic_string<char>, token_type>]	16	static
 stl_tree.h:2248:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::const_iterator, _Arg&&, _NodeGen&) [with _Arg = const std::pair<const std::__cxx11::basic_string<char>, token_type>&; _NodeGen = std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, token_type>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >, std::less<std::__cxx11::basic_string<char> >, std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> > >::_Alloc_node; _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	56	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const char, double_token>]	16	static
-allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Up>&) [with _Tp1 = std::pair<const char, double_token>; _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
+allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Tp1>&) [with _Tp1 = std::pair<const char, double_token>; _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
 allocator.h:153:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
 stl_tree.h:710:4:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Rb_tree_impl<_Key_compare, <anonymous> >::_Rb_tree_impl(const _Key_compare&, std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator&&) [with _Key_compare = std::less<char>; bool <anonymous> = true; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
 stl_tree.h:1907:5:void std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_erase(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Link_type) [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
@@ -283,9 +282,9 @@ stl_vector.h:826:7:std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::
 vector.tcc:426:7:) [with _Args = {Body*}; _Tp = Body*; _Alloc = std::allocator<Body*>]	64	static
 stl_vector.h:1140:7:std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::back() [with _Tp = Body*; _Alloc = std::allocator<Body*>]	24	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = Expression*]	16	static
-alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Expression*]	24	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Expression*]	24	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = Body*]	16	static
-alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Body*]	24	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Body*]	24	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
@@ -304,7 +303,7 @@ move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::ty
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = If_statement*]	16	static
 variant:1037:10:) [with unsigned int _Np = 4; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {If_statement*}]	32	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = Statement*]	16	static
-alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Statement*]	24	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Statement*]	24	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Statement*]	16	static
 alloc_traits.h:482:2:) [with _Up = Statement*; _Args = {Statement*}; _Tp = Statement*]	24	static
 stl_vector.h:826:7:std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::end() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	24	static
@@ -491,11 +490,11 @@ stl_tree.h:546:4:std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Expression*; _Alloc = std::allocator<Expression*>]	16	static
 stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Expression*; _Alloc = std::allocator<Expression*>]	16	static
 stl_algobase.h:222:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = unsigned int]	16	static
-alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Expression*]	16	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Expression*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Expression*; _Alloc = std::allocator<Expression*>]	24	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Body*; _Alloc = std::allocator<Body*>]	16	static
 stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Body*; _Alloc = std::allocator<Body*>]	16	static
-alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Body*]	16	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Body*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Body*; _Alloc = std::allocator<Body*>]	24	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Function_call*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Method_call*]	16	static
@@ -504,7 +503,7 @@ move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = While_statement*]	
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = If_statement*]	16	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
-alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = Statement*]	16	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Statement*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	24	static
 invoke.h:59:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&}]	32	static
 invoke.h:59:5:>::_M_reset_impl() [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]::<lambda(auto:1&&)>; _Args = {int&}]	32	static
@@ -520,8 +519,8 @@ move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&
 variant:1395:2:) [with unsigned int _Np = 3; _Args = {bool}; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 stl_tree.h:566:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_Node_allocator() [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
 stl_tree.h:234:7:_Val* std::_Rb_tree_node<_Val>::_M_valptr() [with _Val = std::pair<const char, token_type>]	16	static
-alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_Tp> >::destroy(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, _Up*) [with _Up = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
-alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	24	static
+alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_CharT> >::destroy(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*) [with _Up = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	24	static
 stl_tree.h:767:7:static const _Key& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_S_key(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Const_Link_type) [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	24	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::_Rb_tree_node_base*&]	16	static
 stl_tree.h:1006:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::begin() [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	24	static
@@ -530,8 +529,8 @@ stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = 
 stl_tree.h:628:2:) [with _Args = {const std::pair<const char, token_type>&}; _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	24	static
 stl_tree.h:566:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_Node_allocator() [with _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_tree.h:234:7:_Val* std::_Rb_tree_node<_Val>::_M_valptr() [with _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>]	16	static
-alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_Tp> >::destroy(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, _Up*) [with _Up = std::pair<const std::__cxx11::basic_string<char>, token_type>; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
-alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
+alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_CharT> >::destroy(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*) [with _Up = std::pair<const std::__cxx11::basic_string<char>, token_type>; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
 stl_tree.h:767:7:static const _Key& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_S_key(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Const_Link_type) [with _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
 basic_string.h:6226:5:bool std::operator<(const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	16	static
 stl_tree.h:1006:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::begin() [with _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
@@ -540,8 +539,8 @@ stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = 
 stl_tree.h:628:2:) [with _Args = {const std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, token_type>&}; _Key = std::__cxx11::basic_string<char>; _Val = std::pair<const std::__cxx11::basic_string<char>, token_type>; _KeyOfValue = std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, token_type> >; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
 stl_tree.h:566:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_Node_allocator() [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_tree.h:234:7:_Val* std::_Rb_tree_node<_Val>::_M_valptr() [with _Val = std::pair<const char, double_token>]	16	static
-alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_Tp> >::destroy(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, _Up*) [with _Up = std::pair<const char, double_token>; _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
-alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp> >::deallocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::pointer, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	24	static
+alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_CharT> >::destroy(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*) [with _Up = std::pair<const char, double_token>; _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
+alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	24	static
 stl_tree.h:767:7:static const _Key& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_S_key(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Const_Link_type) [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
 stl_tree.h:1006:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::begin() [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
 stl_tree.h:315:7:bool std::operator==(const _Self&, const _Self&)	16	static
@@ -596,18 +595,18 @@ stl_tree.h:238:7:const _Val* std::_Rb_tree_node<_Val>::_M_valptr() const [with _
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >*&]	16	static
 stl_tree.h:579:7:std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_node() [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_tree.h:609:2:) [with _Args = {const std::pair<const char, double_token>&}; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	32	static
-alloc_traits.h:505:7:static std::allocator_traits<std::allocator<_Tp> >::size_type std::allocator_traits<std::allocator<_Tp> >::max_size(const allocator_type&) [with _Tp = Expression*]	16	static
+alloc_traits.h:505:7:static std::allocator_traits<std::allocator<_CharT> >::size_type std::allocator_traits<std::allocator<_CharT> >::max_size(const allocator_type&) [with _Tp = Expression*]	16	static
 new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = Expression*]	16	static
 stl_algobase.h:280:5:_Iterator std::__niter_base(_Iterator) [with _Iterator = Expression**]	16	static
-stl_uninitialized.h:924:5:std::__enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, std::allocator<_Tp>&) [with _Tp = Expression*; _Up = Expression*]	32	static
-alloc_traits.h:505:7:static std::allocator_traits<std::allocator<_Tp> >::size_type std::allocator_traits<std::allocator<_Tp> >::max_size(const allocator_type&) [with _Tp = Body*]	16	static
+stl_uninitialized.h:924:5:std::__enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, std::allocator<_T2>&) [with _Tp = Expression*; _Up = Expression*]	32	static
+alloc_traits.h:505:7:static std::allocator_traits<std::allocator<_CharT> >::size_type std::allocator_traits<std::allocator<_CharT> >::max_size(const allocator_type&) [with _Tp = Body*]	16	static
 new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = Body*]	16	static
 stl_algobase.h:280:5:_Iterator std::__niter_base(_Iterator) [with _Iterator = Body**]	16	static
-stl_uninitialized.h:924:5:std::__enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, std::allocator<_Tp>&) [with _Tp = Body*; _Up = Body*]	32	static
-alloc_traits.h:505:7:static std::allocator_traits<std::allocator<_Tp> >::size_type std::allocator_traits<std::allocator<_Tp> >::max_size(const allocator_type&) [with _Tp = Statement*]	16	static
+stl_uninitialized.h:924:5:std::__enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, std::allocator<_T2>&) [with _Tp = Body*; _Up = Body*]	32	static
+alloc_traits.h:505:7:static std::allocator_traits<std::allocator<_CharT> >::size_type std::allocator_traits<std::allocator<_CharT> >::max_size(const allocator_type&) [with _Tp = Statement*]	16	static
 new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = Statement*]	16	static
 stl_algobase.h:280:5:_Iterator std::__niter_base(_Iterator) [with _Iterator = Statement**]	16	static
-stl_uninitialized.h:924:5:std::__enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, std::allocator<_Tp>&) [with _Tp = Statement*; _Up = Statement*]	32	static
+stl_uninitialized.h:924:5:std::__enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*> std::__relocate_a_1(_Tp*, _Tp*, _Tp*, std::allocator<_T2>&) [with _Tp = Statement*; _Up = Statement*]	32	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = std::__cxx11::basic_string<char>]	16	static
 stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = std::__cxx11::basic_string<char>]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = int]	16	static
@@ -622,15 +621,15 @@ move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = float]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = bool]	16	static
 aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = std::pair<const char, token_type>]	16	static
 aligned_buffer.h:76:7:const _Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() const [with _Tp = std::pair<const char, token_type>]	16	static
-alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
 alloc_traits.h:482:2:) [with _Up = std::pair<const char, token_type>; _Args = {const std::pair<const char, token_type>&}; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	24	static
 aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = std::pair<const std::__cxx11::basic_string<char>, token_type>]	16	static
 aligned_buffer.h:76:7:const _Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() const [with _Tp = std::pair<const std::__cxx11::basic_string<char>, token_type>]	16	static
-alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 alloc_traits.h:482:2:) [with _Up = std::pair<const std::__cxx11::basic_string<char>, token_type>; _Args = {const std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, token_type>&}; _Tp = std::_Rb_tree_node<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	24	static
 aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = std::pair<const char, double_token>]	16	static
 aligned_buffer.h:76:7:const _Tp* __gnu_cxx::__aligned_membuf<_Tp>::_M_ptr() const [with _Tp = std::pair<const char, double_token>]	16	static
-alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp> >::allocate(std::allocator_traits<std::allocator<_Tp> >::allocator_type&, std::allocator_traits<std::allocator<_Tp> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
+alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	16	static
 alloc_traits.h:482:2:) [with _Up = std::pair<const char, double_token>; _Args = {const std::pair<const char, double_token>&}; _Tp = std::_Rb_tree_node<std::pair<const char, double_token> >]	24	static
 aligned_buffer.h:68:7:const void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() const [with _Tp = std::pair<const char, token_type>]	16	static
 new_allocator.h:102:7:_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	24	static
@@ -648,6 +647,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Parser.cpp:305:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Parser.cpp:305:1:cpp)	8	static
-Parser.cpp:305:1:cpp)	8	static
+Parser.cpp:296:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Parser.cpp:296:1:cpp)	8	static
+Parser.cpp:296:1:cpp)	8	static

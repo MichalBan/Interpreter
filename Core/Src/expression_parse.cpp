@@ -49,7 +49,7 @@ Primal_expression* Parser::parse_primal_expression()
 		parse_variable_or_function_call(exp);
 		break;
 	default:
-		report_error("expression");
+		Transmitter::report_error("expression");
 		break;
 	}
 	return exp;
@@ -259,8 +259,8 @@ And_expression* Parser::parse_and_expression()
 Expression* Parser::parse_expression()
 {
 	auto exp = new Expression();
-	exp->line = token_buffer.line;
-	exp->position = token_buffer.position;
+	exp->line = Position_counter::get_instance().line;
+	exp->position = Position_counter::get_instance().position;
 	exp->and_exps.push_back(parse_and_expression());
 	while(token_buffer.type == TOKEN_OR)
 	{

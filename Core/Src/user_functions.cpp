@@ -3,23 +3,27 @@
 
 namespace
 {
-using namespace std;
 
-token_value run_single_experiment_iteration(arglist arguments = { })
+Symbol run_single_experiment_iteration(arglist arguments = { })
 {
-	int x = 5;
+	Symbol x = 5;
 
 	if (arguments.size() > 0)
 	{
-		x = Expression_calculator::get_int(arguments[0]);
+		x = EVALUATE(arguments[0]);
 	}
 
 	ARG(x) = 3;
-	x = get<int>(ARG(x));
+	x = ARG(x);
+	ARG(messages) = "hello";
+	x = ARG(messages);
+	ARG(messages) = 2.54f;
+	x = ARG(messages);
 
-	ARG(messages) = vector<string>{ "hello", "world" };
-	string h = get<vector<string>>(ARG(messages))[0];
-	string w = get<vector<string>>(ARG(messages))[1];
+	ARG(messages) = { "hello", "world" };
+	Symbol m = ARG(messages);
+	Symbol h = m[0];
+	Symbol w = m[1];
 	return x;
 }
 
@@ -32,6 +36,6 @@ Function_handler::Function_handler()
 
 Variable_handler::Variable_handler()
 {
-	ADD_ARG(x, INT);
-	ADD_ARG(messages, STRING_CONTAINER);
+	ADD_ARG(x);
+	ADD_ARG(messages);
 }

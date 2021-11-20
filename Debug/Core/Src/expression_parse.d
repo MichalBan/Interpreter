@@ -2,7 +2,7 @@ Core/Src/expression_parse.o: ../Core/Src/expression_parse.cpp \
  ../Core/Inc/Parser.h ../Core/Inc/Expression.h \
  ../Core/Inc/identifier_classes.h ../Core/Inc/Token.h \
  ../Core/Inc/token_types.h ../Core/Inc/Statement.h ../Core/Inc/Lexer.h \
- ../Core/Inc/Source.h ../Core/Inc/Transmitter.h \
+ ../Core/Inc/Transmitter.h ../Core/Inc/Position_counter.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -46,9 +46,9 @@ Core/Src/expression_parse.o: ../Core/Src/expression_parse.cpp \
 
 ../Core/Inc/Lexer.h:
 
-../Core/Inc/Source.h:
-
 ../Core/Inc/Transmitter.h:
+
+../Core/Inc/Position_counter.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 

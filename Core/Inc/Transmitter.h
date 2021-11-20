@@ -1,25 +1,15 @@
 #ifndef INC_TRANSMITTER_H_
 #define INC_TRANSMITTER_H_
 
-//#define TESTS
-
-#ifndef TESTS
-#include "stm32f7xx_hal.h"
-#else
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-typedef int UART_HandleTypeDef;
-#endif
-
+#include <Position_counter.h>
 #include <string>
 
 class Transmitter
 {
-	static uint8_t rx_buffer;
 public:
 	static uint8_t get_rx_buffer();
-	static void report_error(std::string message, int line, int position);
+	static char receive_code_char();
+	static void report_error(std::string message);
 	static void start_listening();
 };
 

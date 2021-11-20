@@ -1,7 +1,6 @@
 #ifndef EXPRESSION_CLASSES_H_
 #define EXPRESSION_CLASSES_H_
 
-#include <variant>
 #include "identifier_classes.h"
 #include "Token.h"
 
@@ -73,7 +72,6 @@ public:
 
 typedef enum
 {
-	SUM_OP_NONE,
 	SUM_OP_PLUS,
 	SUM_OP_MINUS
 }sum_operator;

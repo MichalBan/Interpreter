@@ -125,18 +125,12 @@ Assignment* Parser::parse_assignment(std::string &id)
 	return st;
 }
 
-void Parser::report_error(const std::string message)
-{
-	Transmitter::report_error(message, token_buffer.line,
-			token_buffer.position);
-}
-
 void Parser::assert_token(token_type type, const std::string message)
 {
 	if (token_buffer.type != type)
 	{
 		std::string msg = "expected " + message + "\n";
-		report_error(msg);
+		Transmitter::report_error(msg);
 	}
 }
 
@@ -157,8 +151,8 @@ Function_call* Parser::parse_function_call(std::string &id)
 {
 	auto f = new Function_call();
 	f->id = std::string(id);
-	f->line = token_buffer.line;
-	f->position = token_buffer.position;
+	f->line = Position_counter::get_instance().line;
+	f->position = Position_counter::get_instance().position;
 	get_next_token();
 	parse_function_arguments(f);
 	assert_token(TOKEN_RIGHT_BRACKET, "closing bracket");
@@ -170,8 +164,6 @@ Method_call* Parser::parse_method_call(std::string &id)
 {
 	auto m = new Method_call();
 	m->vector_id = std::string(id);
-	m->line = token_buffer.line;
-	m->position = token_buffer.position;
 	get_next_token();
 	assert_token(TOKEN_IDENTIFIER, "method identifier");
 	id = std::get<std::string>(token_buffer.value);
@@ -221,7 +213,7 @@ Statement* Parser::parse_statement() //todo refactor
 		s->content = parse_if();
 		break;
 	default:
-		report_error("expected statement:\nidentifier, if, while\n");
+		Transmitter::report_error("expected statement:\nidentifier, if, while\n");
 		break;
 	}
 	return s;
@@ -258,8 +250,7 @@ void Parser::get_next_token()
 	token_buffer = Lexer::build_token();
 	if (token_buffer.type == TOKEN_ERROR)
 	{
-		Transmitter::report_error(std::get<std::string>(token_buffer.value),
-				token_buffer.line, token_buffer.position);
+		Transmitter::report_error(std::get<std::string>(token_buffer.value));
 	}
 }
 

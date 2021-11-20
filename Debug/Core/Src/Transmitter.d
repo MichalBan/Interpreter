@@ -1,5 +1,5 @@
 Core/Src/Transmitter.o: ../Core/Src/Transmitter.cpp \
- ../Core/Inc/Transmitter.h \
+ ../Core/Inc/Transmitter.h ../Core/Inc/Position_counter.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -30,6 +30,8 @@ Core/Src/Transmitter.o: ../Core/Src/Transmitter.cpp \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
 
 ../Core/Inc/Transmitter.h:
+
+../Core/Inc/Position_counter.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 

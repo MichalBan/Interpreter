@@ -1,14 +1,13 @@
 #ifndef INC_LEXER_H_
 #define INC_LEXER_H_
 
-#include "Source.h"
+#include "Transmitter.h"
 #include "Token.h"
 
 class Lexer
 {
 	char char_buffer;
 	Token product;
-	Source* code;
 
 	Lexer();
 	Lexer(Lexer const&);
@@ -33,7 +32,6 @@ class Lexer
 	void add_string_char(std::string &word);
 	bool build_token_value();
 public:
-	~Lexer();
 	static Token build_token();
 };
 

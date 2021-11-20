@@ -1,6 +1,6 @@
 #include "Function_handler.h"
 
-token_value Function_handler::run_function(Function_call *fcall)
+Symbol Function_handler::run_function(Function_call *fcall)
 {
 	static Function_handler instance;
 
@@ -12,8 +12,7 @@ token_value Function_handler::run_function(Function_call *fcall)
 	}
 	else
 	{
-		Transmitter::report_error(std::string("function " + fcall->id + " not found"),
-				fcall->line, fcall->position);
-		return 0;
+		Transmitter::report_error(std::string("function " + fcall->id + " not found"));
+		return {};
 	}
 }

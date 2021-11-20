@@ -1,0 +1,3 @@
+Position_counter.cpp:3:1:Position_counter::Position_counter()	16	static
+Position_counter.cpp:9:19:static Position_counter& Position_counter::get_instance()	8	static
+Position_counter.cpp:15:6:void Position_counter::update_position(uint8_t)	16	static

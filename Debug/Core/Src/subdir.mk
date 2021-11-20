@@ -18,8 +18,9 @@ CPP_SRCS += \
 ../Core/Src/Function_handler.cpp \
 ../Core/Src/Lexer.cpp \
 ../Core/Src/Parser.cpp \
-../Core/Src/Source.cpp \
+../Core/Src/Position_counter.cpp \
 ../Core/Src/Statement.cpp \
+../Core/Src/Symbol.cpp \
 ../Core/Src/Transmitter.cpp \
 ../Core/Src/Variable_handler.cpp \
 ../Core/Src/expression_parse.cpp \
@@ -41,8 +42,9 @@ OBJS += \
 ./Core/Src/Function_handler.o \
 ./Core/Src/Lexer.o \
 ./Core/Src/Parser.o \
-./Core/Src/Source.o \
+./Core/Src/Position_counter.o \
 ./Core/Src/Statement.o \
+./Core/Src/Symbol.o \
 ./Core/Src/Transmitter.o \
 ./Core/Src/Variable_handler.o \
 ./Core/Src/expression_parse.o \
@@ -62,8 +64,9 @@ CPP_DEPS += \
 ./Core/Src/Function_handler.d \
 ./Core/Src/Lexer.d \
 ./Core/Src/Parser.d \
-./Core/Src/Source.d \
+./Core/Src/Position_counter.d \
 ./Core/Src/Statement.d \
+./Core/Src/Symbol.d \
 ./Core/Src/Transmitter.d \
 ./Core/Src/Variable_handler.d \
 ./Core/Src/expression_parse.d \

@@ -3,8 +3,9 @@
 
 #include "Expression.h"
 #include "Transmitter.h"
+#include "Symbol.h"
 
-typedef token_value (*function_pointer)(std::vector<Expression*>);
+typedef Symbol (*function_pointer)(std::vector<Expression*>);
 
 #define ADD_FUNCTION(x) functions.insert({#x, &x});
 
@@ -17,7 +18,7 @@ class Function_handler
 	std::map<std::string, function_pointer> functions;
 
 public:
-	static token_value run_function(Function_call *fcall);
+	static Symbol run_function(Function_call *fcall);
 };
 
 #endif /* INC_FUNCTION_HANDLER_H_ */

@@ -1,22 +1,27 @@
 #include <Variable_handler.h>
 
-Variable_handler* Variable_handler::get_instance()
+Variable_handler& Variable_handler::get_instance()
 {
 	static Variable_handler instance;
-	return &instance;
+	return instance;
 }
 
-symbol_value& Variable_handler::get_arg(std::string name)
+Symbol& Variable_handler::get_arg(std::string name)
 {
-	return Arg[name].value;
+	return Arg[name];
 }
 
-symbol_value& Variable_handler::get_par(std::string name)
+Symbol& Variable_handler::get_par(std::string name)
 {
-	return Par[name].value;
+	return Par[name];
 }
 
-symbol_value& Variable_handler::get_local(std::string name)
+Symbol& Variable_handler::get_local(std::string name)
 {
-	return local[name].value;
+	return local[name];
+}
+
+void Variable_handler::add_local(std::string name, Symbol)
+{
+	local.insert({name, {}});
 }
