@@ -10,9 +10,9 @@ typedef std::vector<Expression*> arglist;
 
 typedef enum
 {
-	ASSIGNMENT_LOCAL,
-	ASSIGNMENT_ARG,
-	ASSIGNMENT_PAR,
+	VARIABLE_LOCAL,
+	VARIABLE_ARG,
+	VARIABLE_PAR,
 }variable_type;
 
 class Variable
@@ -38,7 +38,7 @@ class Method_call
 {
 public:
 	~Method_call();
-	std::string vector_id;
+	Variable* vector;
 	Function_call* call;
 };
 

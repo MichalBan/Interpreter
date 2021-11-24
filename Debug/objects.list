@@ -3,6 +3,7 @@
 "./Core/Src/Expression_calculator.o"
 "./Core/Src/Function_handler.o"
 "./Core/Src/Lexer.o"
+"./Core/Src/Method_handler.o"
 "./Core/Src/Parser.o"
 "./Core/Src/Position_counter.o"
 "./Core/Src/Statement.o"

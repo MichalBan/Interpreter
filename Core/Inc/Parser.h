@@ -19,15 +19,17 @@ class Parser
 {
 	Token token_buffer;
 
+	SINGLETON(Parser)
+
 	Body* parse_body();
 	bool is_token_statement_first();
 	void skip_newlines();
 	Statement* parse_statement();
 	While_statement* parse_while();
 	If_statement* parse_if();
-	Assignment* parse_assignment(std::string &id);
+	Assignment* parse_assignment(Variable* var);
 	Function_call* parse_function_call(std::string &id);
-	Method_call* parse_method_call(std::string &id);
+	Method_call* parse_method_call(Variable* var);
 	Variable* parse_variable(std::string &id);
 	void get_next_token();
 	void assert_token(token_type type, const std::string message);
@@ -60,7 +62,7 @@ class Parser
 	void parse_loop(Program *Prog);
 	void parse_finish(Program *Prog);
 public:
-	Program* parse_program();
+	static Program* parse_program();
 };
 
 #endif /* PARSER_H_ */

@@ -15,16 +15,14 @@ class Variable_handler
 	std::map<std::string, Symbol> Par;
 	std::map<std::string, Symbol> Arg;
 
-	Variable_handler();
-	Variable_handler(Variable_handler const&);
-	void operator=(Variable_handler const&);
+	SINGLETON(Variable_handler)
 public:
 	static Variable_handler& get_instance();
 
 	Symbol& get_arg(std::string name);
 	Symbol& get_par(std::string name);
 	Symbol& get_local(std::string name);
-	void add_local(std::string name, Symbol);
+	Symbol& get_symbol(Variable var);
 };
 
 #endif /* INC_VARIABLE_HANDLER_H_ */

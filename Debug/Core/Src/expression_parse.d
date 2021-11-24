@@ -3,6 +3,7 @@ Core/Src/expression_parse.o: ../Core/Src/expression_parse.cpp \
  ../Core/Inc/identifier_classes.h ../Core/Inc/Token.h \
  ../Core/Inc/token_types.h ../Core/Inc/Statement.h ../Core/Inc/Lexer.h \
  ../Core/Inc/Transmitter.h ../Core/Inc/Position_counter.h \
+ ../Core/Inc/Singleton_starter_pack.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -49,6 +50,8 @@ Core/Src/expression_parse.o: ../Core/Src/expression_parse.cpp \
 ../Core/Inc/Transmitter.h:
 
 ../Core/Inc/Position_counter.h:
+
+../Core/Inc/Singleton_starter_pack.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 

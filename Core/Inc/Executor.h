@@ -1,20 +1,27 @@
 #ifndef INC_EXECUTOR_H_
 #define INC_EXECUTOR_H_
 
+#include "Expression_calculator.h"
+#include "Method_handler.h"
 #include "Function_handler.h"
 #include "Variable_handler.h"
 #include "Parser.h"
 
 class Executor
 {
-	void execute(If_statement s);
-	void execute(While_statement s);
-	void execute(Method_call mcall);
-	void execute(Function_call fcall);
-	void execute(Assignment assign);
-	void execute(Statement stat);
+	SINGLETON(Executor)
+
+	void execute(If_statement* ifst);
+	void execute(While_statement* whist);
+	void execute(Method_call* mcall);
+	void execute(Function_call* fcall);
+	void execute(Assignment* assign);
+	void execute(Statement* stat);
+	void execute(Body* bod);
+
+	int check_index(Expression* exp);
 public:
-	void execute(Program p);
+	static void execute(Program* p);
 };
 
 #endif /* INC_EXECUTOR_H_ */

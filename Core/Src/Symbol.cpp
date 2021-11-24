@@ -376,3 +376,19 @@ void Symbol::assert_types(const Symbol &other)
 	}
 }
 
+void Symbol::assert_type(symbol_type type)
+{
+	if(this->type != type)
+	{
+		Transmitter::report_error(std::string("")); //todo message
+	}
+}
+
+void Symbol::resize(int size)
+{
+	std::vector<Symbol> vec = std::get<std::vector<Symbol>>(value);
+	if(vec.size() < (unsigned int)size)
+	{
+		vec.reserve(size);
+	}
+}

@@ -28,12 +28,13 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
  ../Core/Inc/my_main.h ../Core/Inc/Executor.h \
- ../Core/Inc/Function_handler.h ../Core/Inc/Expression.h \
+ ../Core/Inc/Expression_calculator.h ../Core/Inc/Expression.h \
  ../Core/Inc/identifier_classes.h ../Core/Inc/Token.h \
  ../Core/Inc/token_types.h ../Core/Inc/Transmitter.h \
- ../Core/Inc/Position_counter.h ../Core/Inc/Symbol.h \
- ../Core/Inc/Variable_handler.h ../Core/Inc/Parser.h \
- ../Core/Inc/Statement.h ../Core/Inc/Lexer.h
+ ../Core/Inc/Position_counter.h ../Core/Inc/Singleton_starter_pack.h \
+ ../Core/Inc/Function_handler.h ../Core/Inc/Symbol.h \
+ ../Core/Inc/Variable_handler.h ../Core/Inc/Method_handler.h \
+ ../Core/Inc/Parser.h ../Core/Inc/Statement.h ../Core/Inc/Lexer.h
 
 ../Core/Inc/main.h:
 
@@ -97,7 +98,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 
 ../Core/Inc/Executor.h:
 
-../Core/Inc/Function_handler.h:
+../Core/Inc/Expression_calculator.h:
 
 ../Core/Inc/Expression.h:
 
@@ -111,9 +112,15 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 
 ../Core/Inc/Position_counter.h:
 
+../Core/Inc/Singleton_starter_pack.h:
+
+../Core/Inc/Function_handler.h:
+
 ../Core/Inc/Symbol.h:
 
 ../Core/Inc/Variable_handler.h:
+
+../Core/Inc/Method_handler.h:
 
 ../Core/Inc/Parser.h:
 

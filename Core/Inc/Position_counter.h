@@ -1,13 +1,13 @@
 #ifndef INC_POSITION_COUNTER_H_
 #define INC_POSITION_COUNTER_H_
 
+#include "Singleton_starter_pack.h"
 #include "stm32f7xx_hal.h"
 
 class Position_counter
 {
-	Position_counter();
-	Position_counter(Position_counter const&);
-	void operator=(Position_counter const&);
+	SINGLETON(Position_counter)
+
 public:
     int line;
     int position;

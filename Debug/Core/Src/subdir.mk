@@ -17,6 +17,7 @@ CPP_SRCS += \
 ../Core/Src/Expression_calculator.cpp \
 ../Core/Src/Function_handler.cpp \
 ../Core/Src/Lexer.cpp \
+../Core/Src/Method_handler.cpp \
 ../Core/Src/Parser.cpp \
 ../Core/Src/Position_counter.cpp \
 ../Core/Src/Statement.cpp \
@@ -41,6 +42,7 @@ OBJS += \
 ./Core/Src/Expression_calculator.o \
 ./Core/Src/Function_handler.o \
 ./Core/Src/Lexer.o \
+./Core/Src/Method_handler.o \
 ./Core/Src/Parser.o \
 ./Core/Src/Position_counter.o \
 ./Core/Src/Statement.o \
@@ -63,6 +65,7 @@ CPP_DEPS += \
 ./Core/Src/Expression_calculator.d \
 ./Core/Src/Function_handler.d \
 ./Core/Src/Lexer.d \
+./Core/Src/Method_handler.d \
 ./Core/Src/Parser.d \
 ./Core/Src/Position_counter.d \
 ./Core/Src/Statement.d \

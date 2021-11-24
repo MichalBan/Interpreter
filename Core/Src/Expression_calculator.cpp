@@ -1,5 +1,10 @@
 #include <Expression_calculator.h>
 
+Expression_calculator::Expression_calculator()
+{
+
+}
+
 Expression_calculator& Expression_calculator::get_instance()
 {
 	static Expression_calculator instance;
@@ -178,10 +183,10 @@ Symbol Expression_calculator::evaluate(Variable *var)
 
 	switch (var->type)
 	{
-	case ASSIGNMENT_LOCAL:
+	case VARIABLE_LOCAL:
 		s = Variable_handler::get_instance().get_local(var->id);
 		break;
-	case ASSIGNMENT_PAR:
+	case VARIABLE_PAR:
 		s = Variable_handler::get_instance().get_par(var->id);
 		break;
 	default:

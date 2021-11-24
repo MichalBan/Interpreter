@@ -7,6 +7,11 @@ Program::~Program()
 	delete finish;
 }
 
+Parser::Parser()
+{
+
+}
+
 While_statement* Parser::parse_while()
 {
 	auto st = new While_statement();
@@ -91,17 +96,17 @@ void Parser::parse_variable_id(std::string &id, Variable *var)
 {
 	if (id == "Arg")
 	{
-		var->type = ASSIGNMENT_ARG;
+		var->type = VARIABLE_ARG;
 		parse_member_selection_id(id);
 	}
 	else if (id == "Par")
 	{
-		var->type = ASSIGNMENT_PAR;
+		var->type = VARIABLE_PAR;
 		parse_member_selection_id(id);
 	}
 	else
 	{
-		var->type = ASSIGNMENT_LOCAL;
+		var->type = VARIABLE_LOCAL;
 	}
 
 	var->id = std::string(id);
@@ -115,12 +120,10 @@ Variable* Parser::parse_variable(std::string &id)
 	return var;
 }
 
-Assignment* Parser::parse_assignment(std::string &id)
+Assignment* Parser::parse_assignment(Variable* var)
 {
 	auto st = new Assignment();
-	st->var = parse_variable(id);
-	assert_token(TOKEN_ASSIGN, "assignment operator \"=\"");
-	get_next_token();
+	st->var = var;
 	st->value = parse_expression();
 	return st;
 }
@@ -160,13 +163,12 @@ Function_call* Parser::parse_function_call(std::string &id)
 	return f;
 }
 
-Method_call* Parser::parse_method_call(std::string &id)
+Method_call* Parser::parse_method_call(Variable* var)
 {
 	auto m = new Method_call();
-	m->vector_id = std::string(id);
-	get_next_token();
+	m->vector = var;
 	assert_token(TOKEN_IDENTIFIER, "method identifier");
-	id = std::get<std::string>(token_buffer.value);
+	std::string id = std::get<std::string>(token_buffer.value);
 	get_next_token();
 	assert_token(TOKEN_LEFT_BRACKET, "opening bracket");
 	m->call = parse_function_call(id);
@@ -182,15 +184,22 @@ void Parser::parse_identifier_statement(Statement *s)
 		s->type = STATEMENT_FUNCTION_CALL;
 		s->content = parse_function_call(id);
 	}
-	else if(token_buffer.type == TOKEN_DOT)
-	{
-		s->type = STATEMENT_METHOD_CALL;
-		s->content = parse_method_call(id);
-	}
 	else
 	{
-		s->type = STATEMENT_ASSIGNMENT;
-		s->content = parse_assignment(id);
+		auto var = parse_variable(id);
+		if(token_buffer.type == TOKEN_ASSIGN)
+		{
+			s->type = STATEMENT_ASSIGNMENT;
+			get_next_token();
+			s->content = parse_assignment(var);
+		}
+		else
+		{
+			assert_token(TOKEN_DOT, "method call or assignment");
+			s->type = STATEMENT_METHOD_CALL;
+			get_next_token();
+			s->content = parse_method_call(var);
+		}
 	}
 }
 
@@ -287,10 +296,11 @@ void Parser::parse_finish(Program *Prog)
 
 Program* Parser::parse_program()
 {
+	static Parser Par;
 	auto Prog = new Program();
-	parse_setup(Prog);
-	parse_loop(Prog);
-	parse_finish(Prog);
-	assert_token(TOKEN_END_OF_FILE, "end of file");
+	Par.parse_setup(Prog);
+	Par.parse_loop(Prog);
+	Par.parse_finish(Prog);
+	Par.assert_token(TOKEN_END_OF_FILE, "end of file");
 	return Prog;
 }

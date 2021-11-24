@@ -5,18 +5,15 @@
 #include "Transmitter.h"
 #include "Symbol.h"
 
-typedef Symbol (*function_pointer)(std::vector<Expression*>);
+typedef Symbol (*function_pointer)(arglist);
 
 #define ADD_FUNCTION(x) functions.insert({#x, &x});
 
 class Function_handler
 {
-	Function_handler();
-	Function_handler(Function_handler const&);
-	void operator=(Function_handler const&);
+	SINGLETON(Function_handler)
 
 	std::map<std::string, function_pointer> functions;
-
 public:
 	static Symbol run_function(Function_call *fcall);
 };

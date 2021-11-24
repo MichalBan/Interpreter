@@ -11,9 +11,7 @@
 
 class Expression_calculator
 {
-	Expression_calculator() = default;
-	Expression_calculator(Expression_calculator const&);
-	void operator=(Expression_calculator const&);
+	SINGLETON(Expression_calculator)
 
 	Symbol evaluate(Variable* var);
 	Symbol evaluate(Primal_expression* primal_exp);

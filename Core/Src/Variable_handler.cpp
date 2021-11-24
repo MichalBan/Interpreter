@@ -8,12 +8,22 @@ Variable_handler& Variable_handler::get_instance()
 
 Symbol& Variable_handler::get_arg(std::string name)
 {
-	return Arg[name];
+	auto search = Arg.find(name);
+	if(search == Arg.end())
+	{
+		Transmitter::report_error(std::string("Arg " + name + " not found"));
+	}
+	return search->second;
 }
 
 Symbol& Variable_handler::get_par(std::string name)
 {
-	return Par[name];
+	auto search = Par.find(name);
+	if(search == Par.end())
+	{
+		Transmitter::report_error(std::string("Par " + name + " not found"));
+	}
+	return search->second;
 }
 
 Symbol& Variable_handler::get_local(std::string name)
@@ -21,7 +31,16 @@ Symbol& Variable_handler::get_local(std::string name)
 	return local[name];
 }
 
-void Variable_handler::add_local(std::string name, Symbol)
+Symbol& Variable_handler::get_symbol(Variable var)
 {
-	local.insert({name, {}});
+	switch(var.type)
+	{
+	case VARIABLE_ARG:
+		return get_arg(var.id);
+	case VARIABLE_PAR:
+		return get_par(var.id);
+	case VARIABLE_LOCAL:
+		break;
+	}
+	return get_local(var.id);
 }

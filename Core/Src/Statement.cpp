@@ -59,6 +59,7 @@ Function_call::~Function_call()
 
 Method_call::~Method_call()
 {
+	delete vector;
 	delete call;
 }
 

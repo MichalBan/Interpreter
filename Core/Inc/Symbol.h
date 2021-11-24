@@ -8,16 +8,11 @@
 
 class Symbol;
 
-typedef std::variant<int, float, bool, std::string, std::vector<std::string>,
-		std::vector<Symbol>> symbol_value;
+typedef std::variant<int, float, bool, std::string, std::vector<Symbol>> symbol_value;
 
 typedef enum
 {
-	SYMBOL_INT,
-	SYMBOL_FLOAT,
-	SYMBOL_BOOL,
-	SYMBOL_STRING,
-	SYMBOL_CONTAINER,
+	SYMBOL_INT, SYMBOL_FLOAT, SYMBOL_BOOL, SYMBOL_STRING, SYMBOL_CONTAINER,
 } symbol_type;
 
 class Symbol
@@ -31,11 +26,10 @@ public:
 	Symbol(float value);
 	Symbol(bool value);
 	Symbol(std::string value);
-	Symbol(const char* value);
+	Symbol(const char *value);
 	Symbol(std::initializer_list<Symbol> value);
 
 	Symbol& operator[](Symbol idx);
-//	Symbol operator=(symbol_value value);
 	Symbol operator&&(Symbol other);
 	Symbol operator||(Symbol other);
 	Symbol operator!();
@@ -53,6 +47,9 @@ public:
 	Symbol operator^(Symbol other);
 	Symbol operator-();
 	void assert_types(const Symbol &other);
+
+	void assert_type(symbol_type type);
+	void resize(int size);
 };
 
 #endif /* INC_SYMBOL_H_ */

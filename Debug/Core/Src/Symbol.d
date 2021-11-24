@@ -1,5 +1,6 @@
 Core/Src/Symbol.o: ../Core/Src/Symbol.cpp ../Core/Inc/Symbol.h \
  ../Core/Inc/Transmitter.h ../Core/Inc/Position_counter.h \
+ ../Core/Inc/Singleton_starter_pack.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -34,6 +35,8 @@ Core/Src/Symbol.o: ../Core/Src/Symbol.cpp ../Core/Inc/Symbol.h \
 ../Core/Inc/Transmitter.h:
 
 ../Core/Inc/Position_counter.h:
+
+../Core/Inc/Singleton_starter_pack.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 

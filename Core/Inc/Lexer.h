@@ -9,9 +9,7 @@ class Lexer
 	char char_buffer;
 	Token product;
 
-	Lexer();
-	Lexer(Lexer const&);
-	void operator=(Lexer const&);
+	SINGLETON(Lexer)
 
 	void get_working_char();
 	bool match_single_char();
