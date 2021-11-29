@@ -5,12 +5,18 @@ Executor::Executor()
 
 }
 
+Executor& Executor::get_instance()
+{
+	static Executor instance;
+	return instance;
+}
+
 void Executor::execute(Program* p)
 {
-	static Executor exec;
-	exec.execute(p->setup);
-	exec.execute(p->loop);
-	exec.execute(p->finish);
+	this->p = p;
+	execute(p->setup);
+	execute(p->loop);
+	execute(p->finish);
 }
 
 
@@ -111,4 +117,13 @@ int Executor::check_index(Expression* exp)
 		Transmitter::report_error("index can not be negative");
 	}
 	return i;
+}
+
+void Executor::abort()
+{
+	if(p)
+	{
+		execute(p->finish);
+	}
+	Transmitter::report_error("aborted by user");
 }

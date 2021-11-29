@@ -11,6 +11,7 @@ public:
 	static char receive_code_char();
 	static void report_error(std::string message);
 	static void start_listening();
+	static void send_result(bool fin=false);
 };
 
 #endif /* INC_TRANSMITTER_H_ */

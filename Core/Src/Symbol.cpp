@@ -69,24 +69,19 @@ Symbol Symbol::operator+(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		std::get<int>(this->value) += std::get<int>(other.value);
-		break;
+		return std::get<int>(this->value) + std::get<int>(other.value);
 	case SYMBOL_FLOAT:
-		std::get<float>(this->value) += std::get<float>(other.value);
-		break;
+		return std::get<float>(this->value) + std::get<float>(other.value);
 	case SYMBOL_BOOL:
-		std::get<bool>(this->value) += std::get<bool>(other.value);
-		break;
+		return std::get<bool>(this->value) + std::get<bool>(other.value);
 	case SYMBOL_STRING:
-		std::get<std::string>(this->value) += std::get<std::string>(
+		return std::get<std::string>(this->value) + std::get<std::string>(
 				other.value);
-		break;
 	default:
 		Transmitter::report_error("invalid type for addidion");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator-(Symbol other)
@@ -96,17 +91,14 @@ Symbol Symbol::operator-(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		std::get<int>(this->value) -= std::get<int>(other.value);
-		break;
+		return std::get<int>(this->value) - std::get<int>(other.value);
 	case SYMBOL_FLOAT:
-		std::get<float>(this->value) -= std::get<float>(other.value);
-		break;
+		return std::get<float>(this->value) - std::get<float>(other.value);
 	default:
 		Transmitter::report_error("invalid type for substraction");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator&&(Symbol other)
@@ -116,10 +108,7 @@ Symbol Symbol::operator&&(Symbol other)
 		Transmitter::report_error("operator and needs boolean expressions");
 	}
 
-	std::get<bool>(this->value) = std::get<bool>(this->value)
-			&& std::get<bool>(other.value);
-
-	return *this;
+	return std::get<bool>(this->value) && std::get<bool>(other.value);
 }
 
 Symbol Symbol::operator||(Symbol other)
@@ -129,10 +118,7 @@ Symbol Symbol::operator||(Symbol other)
 		Transmitter::report_error("operator or needs boolean expressions");
 	}
 
-	std::get<bool>(this->value) = std::get<bool>(this->value)
-			|| std::get<bool>(other.value);
-
-	return *this;
+	return std::get<bool>(this->value) || std::get<bool>(other.value);
 }
 
 Symbol Symbol::operator!()
@@ -142,9 +128,7 @@ Symbol Symbol::operator!()
 		Transmitter::report_error("operator ! needs boolean expressions");
 	}
 
-	std::get<bool>(this->value) = !(std::get<bool>(this->value));
-
-	return *this;
+	return !(std::get<bool>(this->value));
 }
 
 Symbol Symbol::operator>(Symbol other)
@@ -154,17 +138,14 @@ Symbol Symbol::operator>(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) > std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) > std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) > std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) > std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for comparison");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator>=(Symbol other)
@@ -174,17 +155,14 @@ Symbol Symbol::operator>=(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) >= std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) >= std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) >= std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) >= std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for comparison");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator<(Symbol other)
@@ -194,17 +172,14 @@ Symbol Symbol::operator<(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) < std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) < std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) < std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) < std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for comparison");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator<=(Symbol other)
@@ -214,17 +189,14 @@ Symbol Symbol::operator<=(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) <= std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) <= std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) <= std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) <= std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for comparison");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator==(Symbol other)
@@ -234,20 +206,16 @@ Symbol Symbol::operator==(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) == std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) == std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) == std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) == std::get<float>(other.value));
 	case SYMBOL_BOOL:
-		this->value = (std::get<bool>(this->value) == std::get<bool>(other.value));
-		break;
+		return (std::get<bool>(this->value) == std::get<bool>(other.value));
 	default:
 		Transmitter::report_error("invalid type for comparison");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator!=(Symbol other)
@@ -257,20 +225,16 @@ Symbol Symbol::operator!=(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) != std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) != std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) != std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) != std::get<float>(other.value));
 	case SYMBOL_BOOL:
-		this->value = (std::get<bool>(this->value) != std::get<bool>(other.value));
-		break;
+		return (std::get<bool>(this->value) != std::get<bool>(other.value));
 	default:
 		Transmitter::report_error("invalid type for comparison");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator-()
@@ -278,17 +242,14 @@ Symbol Symbol::operator-()
 	switch (type)
 	{
 	case SYMBOL_INT:
-		std::get<int>(this->value) = (-std::get<int>(this->value));
-		break;
+		return (-std::get<int>(this->value));
 	case SYMBOL_FLOAT:
-		std::get<float>(this->value) = (-std::get<float>(this->value));
-		break;
+		return (-std::get<float>(this->value));
 	default:
 		Transmitter::report_error("invalid type for minus unary operator");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator*(Symbol other)
@@ -298,17 +259,14 @@ Symbol Symbol::operator*(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) * std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) * std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) * std::get<float>(other.value));
-		break;
+		return (std::get<float>(this->value) * std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator/(Symbol other)
@@ -318,17 +276,14 @@ Symbol Symbol::operator/(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) / std::get<int>(other.value));
-		break;
+		return (std::get<int>(this->value) / std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (std::get<float>(this->value) / std::get<float>(other.value));
-		break;
+		return(std::get<float>(this->value) / std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator%(Symbol other)
@@ -338,14 +293,12 @@ Symbol Symbol::operator%(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (std::get<int>(this->value) % std::get<int>(other.value));
-		break;
+		return(std::get<int>(this->value) % std::get<int>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 Symbol Symbol::operator^(Symbol other)
@@ -355,17 +308,14 @@ Symbol Symbol::operator^(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		this->value = (int)pow(std::get<int>(this->value), std::get<int>(other.value));
-		break;
+		return (int)pow(std::get<int>(this->value), std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		this->value = (float)pow(std::get<float>(this->value), std::get<float>(other.value));
-		break;
+		return (float)pow(std::get<float>(this->value), std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
-		break;
 	}
 
-	return *this;
+	return 0;
 }
 
 void Symbol::assert_types(const Symbol &other)

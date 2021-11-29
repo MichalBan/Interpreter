@@ -6,25 +6,28 @@ namespace
 
 Symbol run_single_experiment_iteration(arglist arguments = { })
 {
-	Symbol x = 5;
+	static Symbol past_y = 0;
+	static Symbol past_u = 0;
 
-	if (arguments.size() > 0)
-	{
-		x = EVALUATE(arguments[0]);
-	}
+	static Symbol past_e = 0;
+	static Symbol sum_e = 0;
+	static Symbol e = 0;
 
-	ARG(x) = 3;
-	x = ARG(x);
-	ARG(messages) = "hello";
-	x = ARG(messages);
-	ARG(messages) = 2.54f;
-	x = ARG(messages);
+	// uchyb
+	e = PAR(Yzad) - ARG(Y);
+	sum_e = sum_e + e;
 
-	ARG(messages) = { "hello", "world" };
-	Symbol m = ARG(messages);
-	Symbol h = m[0];
-	Symbol w = m[1];
-	return x;
+	//regulator
+	ARG(u) = PAR(P)*e + PAR(I)*sum_e + PAR(D)*(e - past_e);
+
+	//obiekt
+	ARG(Y) = ARG(u) - past_u*0.5f + ARG(y)*0.5f + past_y*0.25f;
+
+	past_e = e;
+	past_y = ARG(Y);
+	past_u = ARG(u);
+
+	return 0;
 }
 
 }
@@ -36,6 +39,11 @@ Function_handler::Function_handler()
 
 Variable_handler::Variable_handler()
 {
-	ADD_ARG(x);
-	ADD_ARG(messages);
+	ADD_ARG(u);
+	ADD_ARG(Y);
+
+	ADD_PAR(Yzad);
+	ADD_PAR(P);
+	ADD_PAR(I);
+	ADD_PAR(D);
 }

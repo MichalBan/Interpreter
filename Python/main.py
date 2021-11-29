@@ -1,5 +1,5 @@
+import matplotlib.pyplot as plt
 import serial
-import time
 
 if __name__ == '__main__':
 	ser = serial.Serial(
@@ -10,22 +10,63 @@ if __name__ == '__main__':
 		stopbits=serial.STOPBITS_ONE,
 		timeout=1000)
 
-	print("Let us begin")
-	print("waiting...")
-	with open("kod.txt") as f:
+	# print("Let us begin")
+	# print("waiting...")
+	# request = ser.read(1)
+	# with open("kod.txt") as f:
+	# 	while request == b'c':
+	# 		c = f.read(1)
+	# 		if not c:
+	# 			ser.write(b'\0')
+	# 			ser.write(b'\0')
+	# 			print("End of file")
+	# 			break
+	# 		print("sending: ", c)
+	# 		ser.write(c.encode('ascii'))
+	# 		request = ser.read(1)
+	#
+	# if request == b'$':
+	# 	while True:
+	# 		message = ser.read(1)
+	# 		print(message)
+
+	result = {}
+	timeline = []
+	identifiers = []
+	line = ser.readline()
+	while not line == b'fin\n':
+		iterator = 0
+		name = ""
+		value = ""
+		while line[iterator] != 10:
+			while line[iterator] != 61:
+				name = name + chr(line[iterator])
+				iterator = iterator + 1
+			if len(timeline) == 0:
+				identifiers.append(name)
+			iterator = iterator + 1
+
+			while 45 <= line[iterator] <= 57:
+				value = value + chr(line[iterator])
+				iterator = iterator + 1
+			iterator = iterator + 1
+
+			result[name] = float(value)
+			name = ""
+			value = ""
+		timeline.append(result)
+		line = ser.readline()
+
+	if line[0] == b'$':
 		while True:
-			request = ser.read(1)
-			if not request == b'c':
-				while True:
-					message = ser.read(1)
-					print(message)
-			c = f.read(1)
-			print("sending: ", c)
-			ser.write(c.encode('ascii'))
-			if not c:
-				ser.write(b'\0')
-				ser.write(b'\0')
-				print("End of file")
-				break
+			message = ser.read(1)
+			print(message)
+
+	for name in identifiers:
+		signal = [x[name] for x in timeline]
+		plt.plot(signal)
+	plt.legend(identifiers)
+	plt.show()
 
 	print("It is done")
+

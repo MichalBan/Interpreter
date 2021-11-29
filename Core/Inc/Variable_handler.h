@@ -7,7 +7,8 @@
 
 #define ADD_ARG(x) Arg.insert({#x, {}});
 #define ARG(x) Variable_handler::get_instance().get_arg(#x)
-
+#define ADD_PAR(x) Par.insert({#x, {}});
+#define PAR(x) Variable_handler::get_instance().get_par(#x)
 
 class Variable_handler
 {

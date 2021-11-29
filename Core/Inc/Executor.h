@@ -9,6 +9,7 @@
 
 class Executor
 {
+	Program* p;
 	SINGLETON(Executor)
 
 	void execute(If_statement* ifst);
@@ -21,7 +22,10 @@ class Executor
 
 	int check_index(Expression* exp);
 public:
-	static void execute(Program* p);
+	static Executor& get_instance();
+
+	void execute(Program* p);
+	void abort();
 };
 
 #endif /* INC_EXECUTOR_H_ */
