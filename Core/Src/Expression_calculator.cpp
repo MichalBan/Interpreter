@@ -16,22 +16,37 @@ Symbol Expression_calculator::evaluate(Expression *exp)
 	Position_counter::get_instance().line = exp->line;
 	Position_counter::get_instance().position = exp->position;
 
-	Symbol var = false;
-	for (And_expression *and_exp : exp->and_exps)
+	if (exp->and_exps.size() > 1)
 	{
-		var = var || evaluate(and_exp);
+		Symbol var = false; // potrzebna krótsza ścieżka
+		for (And_expression *and_exp : exp->and_exps)
+		{
+			var = var || evaluate(and_exp);
+		}
+		return var;
+
 	}
-	return var;
+	else
+	{
+		return evaluate(exp->and_exps[0]);
+	}
 }
 
 Symbol Expression_calculator::evaluate(And_expression *and_exp)
 {
-	Symbol var = false;
-	for (Compare_expression *comp_exp : and_exp->comp_exps)
+	if (and_exp->comp_exps.size() > 1)
 	{
-		var = var && evaluate(comp_exp);
+		Symbol var = true;
+		for (Compare_expression *comp_exp : and_exp->comp_exps)
+		{
+			var = var && evaluate(comp_exp);
+		}
+		return var;
 	}
-	return var;
+	else
+	{
+		return evaluate(and_exp->comp_exps[0]);
+	}
 }
 
 Symbol Expression_calculator::evaluate(Compare_expression *comp_exp)
@@ -179,20 +194,7 @@ Symbol Expression_calculator::evaluate(Primal_expression *primal_exp)
 
 Symbol Expression_calculator::evaluate(Variable *var)
 {
-	Symbol s;
-
-	switch (var->type)
-	{
-	case VARIABLE_LOCAL:
-		s = Variable_handler::get_instance().get_local(var->id);
-		break;
-	case VARIABLE_PAR:
-		s = Variable_handler::get_instance().get_par(var->id);
-		break;
-	default:
-		s = Variable_handler::get_instance().get_arg(var->id);
-		break;
-	}
+	Symbol s = Variable_handler::get_instance().get_symbol(*var); // todo do variable handlera
 
 	if (var->index)
 	{
