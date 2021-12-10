@@ -10,7 +10,7 @@ stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = 
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[7]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[3]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[4]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
-my_main.cpp:4:6:void my_main_run(UART_HandleTypeDef*)	24	static
+my_main.cpp:4:6:void my_main_run()	16	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -255,6 +255,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-my_main.cpp:22:1:void __static_initialization_and_destruction_0(int, int)	424	static
-my_main.cpp:22:1:cpp)	8	static
-my_main.cpp:22:1:cpp)	8	static
+my_main.cpp:14:1:void __static_initialization_and_destruction_0(int, int)	424	static
+my_main.cpp:14:1:cpp)	8	static
+my_main.cpp:14:1:cpp)	8	static

@@ -7,7 +7,7 @@
 #include "Variable_handler.h"
 #include <math.h>
 
-#define EVALUATE(x) Expression_calculator::get_instance().evaluate(x);
+#define EVALUATE(x) Expression_calculator::get_instance().evaluate(x)
 
 class Expression_calculator
 {

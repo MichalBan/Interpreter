@@ -24,6 +24,7 @@ public:
 	Symbol& get_par(std::string name);
 	Symbol& get_local(std::string name);
 	Symbol& get_symbol(Variable var);
+	void transmit_variables();
 };
 
 #endif /* INC_VARIABLE_HANDLER_H_ */

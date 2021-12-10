@@ -2,16 +2,15 @@
 
 namespace
 {
-	// todo dober miejsce
 
-
-	void assert_arguments(int expected, arglist arguments)
+// todo dober miejsce
+void assert_arguments(int expected, arglist arguments)
+{
+	if(arguments.size() != (unsigned int)expected)
 	{
-		if(arguments.size() != (unsigned int)expected)
-		{
-			Transmitter::report_error(std::string("expected " + std::to_string(expected) + " arguments, found " + std::to_string(arguments.size()) + "\n"));
-		}
+		Transmitter::report_error(std::string("expected " + std::to_string(expected) + " arguments, found " + std::to_string(arguments.size()) + "\n"));
 	}
+}
 
 void resize(Symbol& var, arglist arguments)
 {
@@ -22,10 +21,24 @@ void resize(Symbol& var, arglist arguments)
 	var.resize(size);
 }
 
+void round(Symbol& var, arglist arguments)
+{
+	assert_arguments(0, arguments);
+	var.round();
+}
+
+void floatify(Symbol& var, arglist arguments)
+{
+	assert_arguments(0, arguments);
+	var.floatify();
+}
+
 }
 
 Method_handler::Method_handler()
 {
+	ADD_METHOD(round);
+	ADD_METHOD(floatify);
 	ADD_METHOD(resize);
 }
 

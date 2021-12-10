@@ -11,41 +11,45 @@ variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {int, fl
 variant:1292:7:std::variant<_Types>::~variant() [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 Symbol.cpp:4:1:Symbol::Symbol(int)	16	static
 Symbol.cpp:10:1:Symbol::Symbol(float)	16	static
-Symbol.cpp:16:1:Symbol::Symbol(bool)	16	static
-Symbol.cpp:22:1:Symbol::Symbol(std::string)	16	static
-Symbol.cpp:28:1:Symbol::Symbol(const char*)	48	static
-Symbol.cpp:34:1:Symbol::Symbol(std::initializer_list<Symbol>)	40	static
+Symbol.cpp:16:1:Symbol::Symbol(double)	32	static
+Symbol.cpp:22:1:Symbol::Symbol(bool)	16	static
+Symbol.cpp:28:1:Symbol::Symbol(std::string)	16	static
+Symbol.cpp:34:1:Symbol::Symbol(const char*)	48	static
+Symbol.cpp:40:1:Symbol::Symbol(std::initializer_list<Symbol>)	40	static
 variant:1056:20:>&) [with _Tp = int; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	16	static
 variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	24	static
 variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
-Symbol.cpp:40:9:Symbol& Symbol::operator[](Symbol)	104	static
+Symbol.cpp:46:9:Symbol& Symbol::operator[](Symbol)	104	static
 Symbol.h:18:7:Symbol::~Symbol()	16	static
-Symbol.cpp:65:8:Symbol Symbol::operator+(Symbol)	96	static
-Symbol.cpp:87:8:Symbol Symbol::operator-(Symbol)	72	static
-Symbol.cpp:104:8:Symbol Symbol::operator&&(Symbol)	56	static
-Symbol.cpp:114:8:Symbol Symbol::operator||(Symbol)	56	static
-Symbol.cpp:124:8:Symbol Symbol::operator!()	48	static
-Symbol.cpp:134:8:Symbol Symbol::operator>(Symbol)	72	static
-Symbol.cpp:151:8:Symbol Symbol::operator>=(Symbol)	72	static
-Symbol.cpp:168:8:Symbol Symbol::operator<(Symbol)	72	static
-Symbol.cpp:185:8:Symbol Symbol::operator<=(Symbol)	72	static
-Symbol.cpp:202:8:Symbol Symbol::operator==(Symbol)	72	static
-Symbol.cpp:221:8:Symbol Symbol::operator!=(Symbol)	72	static
-Symbol.cpp:240:8:Symbol Symbol::operator-()	48	static
-Symbol.cpp:255:8:Symbol Symbol::operator*(Symbol)	72	static
-Symbol.cpp:272:8:Symbol Symbol::operator/(Symbol)	72	static
-Symbol.cpp:289:8:Symbol Symbol::operator%(Symbol)	64	static
+Symbol.cpp:71:8:Symbol Symbol::operator+(Symbol)	96	static
+Symbol.cpp:93:8:Symbol Symbol::operator-(Symbol)	72	static
+Symbol.cpp:110:8:Symbol Symbol::operator&&(Symbol)	56	static
+Symbol.cpp:120:8:Symbol Symbol::operator||(Symbol)	56	static
+Symbol.cpp:130:8:Symbol Symbol::operator!()	48	static
+Symbol.cpp:140:8:Symbol Symbol::operator>(Symbol)	72	static
+Symbol.cpp:157:8:Symbol Symbol::operator>=(Symbol)	72	static
+Symbol.cpp:174:8:Symbol Symbol::operator<(Symbol)	72	static
+Symbol.cpp:191:8:Symbol Symbol::operator<=(Symbol)	72	static
+Symbol.cpp:208:8:Symbol Symbol::operator==(Symbol)	72	static
+Symbol.cpp:227:8:Symbol Symbol::operator!=(Symbol)	72	static
+Symbol.cpp:246:8:Symbol Symbol::operator-()	48	static
+Symbol.cpp:261:8:Symbol Symbol::operator*(Symbol)	72	static
+Symbol.cpp:278:8:Symbol Symbol::operator/(Symbol)	72	static
+Symbol.cpp:295:8:Symbol Symbol::operator%(Symbol)	64	static
 variant:1056:20:>&) [with _Tp = float; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	16	static
 variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	24	static
 variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	24	static
 variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
-Symbol.cpp:304:8:Symbol Symbol::operator^(Symbol)	64	static
-Symbol.cpp:321:6:void Symbol::assert_types(const Symbol&)	48	static
-Symbol.cpp:329:6:void Symbol::assert_type(symbol_type)	48	static
-Symbol.cpp:337:6:void Symbol::resize(int)	32	static
+Symbol.cpp:310:8:Symbol Symbol::operator^(Symbol)	64	static
+Symbol.cpp:328:6:bool Symbol::get_bool()	16	static
+Symbol.cpp:334:6:void Symbol::assert_types(const Symbol&)	48	static
+Symbol.cpp:342:6:void Symbol::assert_type(symbol_type)	48	static
+Symbol.cpp:350:6:void Symbol::resize(int)	32	static
+Symbol.cpp:359:6:void Symbol::round()	56	static
+Symbol.cpp:377:6:void Symbol::floatify()	56	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 variant:492:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<false, int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >]	16	static
@@ -57,6 +61,7 @@ variant:686:7:constexpr std::__detail::__variant::_Variant_base<_Types>::_Varian
 variant:401:7:>::~_Variant_storage() [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = int&; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = float&; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	32	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = float; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = bool&; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	32	static
 variant:681:12:std::__detail::__variant::_Variant_base<_Types>& std::__detail::__variant::_Variant_base<_Types>::operator=(std::__detail::__variant::_Variant_base<_Types>&&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:1219:11:std::variant<_Types>& std::variant<_Types>::operator=(std::variant<_Types>&&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
@@ -81,6 +86,7 @@ variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, 
 stl_vector.h:550:7:std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	40	static
 stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	16	static
 vector.tcc:66:5:void std::vector<_Tp, _Alloc>::reserve(std::vector<_Tp, _Alloc>::size_type) [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	32	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = int; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	32	static
 basic_string.h:263:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 variant:202:2:) [with _Args = {}; _Type = int]	16	static
 variant:322:12:) [with _Args = {}; _First = int; _Rest = {float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
@@ -90,6 +96,8 @@ move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::ty
 variant:1395:2:) [with unsigned int _Np = 0; _Args = {int&}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = float&]	16	static
 variant:1395:2:) [with unsigned int _Np = 1; _Args = {float&}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = float]	16	static
+variant:1395:2:) [with unsigned int _Np = 1; _Args = {float}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	16	static
 variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	24	static
 variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 2; _Union = std::__detail::__variant::_Variadic_union<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	24	static
@@ -164,6 +172,8 @@ stl_vector.h:995:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>:
 stl_vector.h:340:7:std::_Vector_base<_Tp, _Alloc>::pointer std::_Vector_base<_Tp, _Alloc>::_M_allocate(std::size_t) [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	16	static
 stl_vector.h:462:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&) [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	48	static
 stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	24	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = int]	16	static
+variant:1395:2:) [with unsigned int _Np = 0; _Args = {int}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 variant:149:5:decltype(auto) std::__variant_cast(_Tp&&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}; _Tp = std::__detail::__variant::_Variant_storage<false, int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	16	static
 variant:948:2:__indices = {0}]	16	static
@@ -191,6 +201,7 @@ variant:1629:5:>::_M_reset_impl() [with _Types = {int, float, bool, std::__cxx11
 variant:383:22:>::_M_reset_impl() [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	24	static
 variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {int&}]	32	static
 variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {float&}]	32	static
+variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {float}]	32	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	16	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = bool]	16	static
 variant:1037:10:) [with unsigned int _Np = 2; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {bool&}]	32	static
@@ -233,6 +244,7 @@ stl_vector.h:1773:7:static std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, 
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_Tp1> >::allocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = Symbol]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Symbol; _Alloc = std::allocator<Symbol>]	24	static
 alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_Tp1> >::deallocate(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, std::allocator_traits<std::allocator<_Tp1> >::pointer, std::allocator_traits<std::allocator<_Tp1> >::size_type) [with _Tp = Symbol]	24	static
+variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {int}]	32	static
 stl_iterator_base_funcs.h:138:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char*]	24	static
 basic_string.tcc:206:7:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator, std::forward_iterator_tag) [with _FwdIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 move.h:74:5:>::_M_reset_impl() [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]::<lambda(auto:1&&)>&&]	16	static
@@ -342,9 +354,7 @@ variant:385:13:>::_M_reset_impl() [with _Types = {int, float, bool, std::__cxx11
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = __gnu_cxx::__aligned_membuf<std::__cxx11::basic_string<char> >]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Move_assign_base<false, int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = int&]	16	static
-variant:1395:2:) [with unsigned int _Np = 0; _Args = {int}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = float&]	16	static
-variant:1395:2:) [with unsigned int _Np = 1; _Args = {float}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = bool&]	16	static
 variant:1395:2:) [with unsigned int _Np = 2; _Args = {bool}; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>&]	16	static
@@ -358,10 +368,6 @@ stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = float]	16	static
 stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = bool]	16	static
 stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = std::__cxx11::basic_string<char>]	16	static
 stl_construct.h:97:5:void std::_Destroy(_Tp*) [with _Tp = std::vector<Symbol>]	16	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = int]	16	static
-variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {int}]	32	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = float]	16	static
-variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {float}]	32	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = bool]	16	static
 variant:1037:10:) [with unsigned int _Np = 2; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {bool}]	32	static
 variant:319:17:>::_Variadic_union() [with _First = int; _Rest = {float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static

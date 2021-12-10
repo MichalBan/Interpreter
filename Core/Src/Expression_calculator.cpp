@@ -194,7 +194,7 @@ Symbol Expression_calculator::evaluate(Primal_expression *primal_exp)
 
 Symbol Expression_calculator::evaluate(Variable *var)
 {
-	Symbol s = Variable_handler::get_instance().get_symbol(*var); // todo do variable handlera
+	Symbol s = Variable_handler::get_instance().get_symbol(*var);
 
 	if (var->index)
 	{

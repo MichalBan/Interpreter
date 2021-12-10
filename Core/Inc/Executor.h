@@ -19,6 +19,7 @@ class Executor
 	void execute(Assignment* assign);
 	void execute(Statement* stat);
 	void execute(Body* bod);
+	void execute_loop(Body *loop);
 
 	int check_index(Expression* exp);
 public:

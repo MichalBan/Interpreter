@@ -3,6 +3,6 @@
 
 #include "Executor.h"
 
-void my_main_run(UART_HandleTypeDef* huart);
+void my_main_run();
 
 #endif /* INC_MY_MAIN_H_ */

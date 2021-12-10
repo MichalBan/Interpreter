@@ -91,7 +91,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  my_main_run(&huart1);
+  my_main_run();
 
   /* USER CODE END 2 */
 

@@ -13,6 +13,12 @@ Symbol::Symbol(float value)
 	this->value = value;
 }
 
+Symbol::Symbol(double value)
+{
+	type = SYMBOL_FLOAT;
+	this->value = (float)value;
+}
+
 Symbol::Symbol(bool value)
 {
 	type = SYMBOL_BOOL;
@@ -318,6 +324,13 @@ Symbol Symbol::operator^(Symbol other)
 	return 0;
 }
 
+
+bool Symbol::get_bool()
+{
+	assert_type(SYMBOL_BOOL);
+	return std::get<bool>(value);
+}
+
 void Symbol::assert_types(const Symbol &other)
 {
 	if (type != other.type)
@@ -340,5 +353,41 @@ void Symbol::resize(int size)
 	if(vec.size() < (unsigned int)size)
 	{
 		vec.reserve(size);
+	}
+}
+
+void Symbol::round()
+{
+	if(type == SYMBOL_INT)
+	{
+		return;
+	}
+	else if(type == SYMBOL_FLOAT)
+	{
+		float result = std::get<float>(value);
+		type = SYMBOL_INT;
+		value = (int)result;
+	}
+	else
+	{
+		Transmitter::report_error(std::string("can not round a non float"));
+	}
+}
+
+void Symbol::floatify()
+{
+	if(type == SYMBOL_INT)
+	{
+		float result = std::get<int>(value);
+		type = SYMBOL_FLOAT;
+		value = (float)result;
+	}
+	else if(type == SYMBOL_FLOAT)
+	{
+		return;
+	}
+	else
+	{
+		Transmitter::report_error(std::string("can not floatify a non int"));
 	}
 }

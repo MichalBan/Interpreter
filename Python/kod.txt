@@ -1,19 +1,22 @@
 setup
-    Par:P = 1.0
-    Par:I = 0.0
+    max_loops = 2000.0
+    max_loops.round()
+    Par:P = 0.5
+    Par:I = 0.01
     Par:D = 0.0
-    Par:Yzad = 0.5
+    Par:yzad = 0.5
     Arg:u = 0.0
-    Arg:Y = 0.0
-    max_loops = 2000
+    Arg:y = 0.0
 
 loop
-    if loops > 500
-        Par:Yzad = -0.45
+    if loops > 1500
+        Par:yzad = 0.0
     elseif loops > 1000
-        Par:Yzad = -1
-    elseif loops > 1500
-        Par:Yzad = 0.0
+        Par:yzad = -1.0
+    elseif loops > 500
+        Par:yzad = -0.45
+    elseif loops > 1
+        Par:yzad = 0.5
     end
     run_single_experiment_iteration()
 

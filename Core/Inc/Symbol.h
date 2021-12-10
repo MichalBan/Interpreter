@@ -24,6 +24,7 @@ public:
 	Symbol() = default;
 	Symbol(int value);
 	Symbol(float value);
+	Symbol(double value);
 	Symbol(bool value);
 	Symbol(std::string value);
 	Symbol(const char *value);
@@ -46,10 +47,13 @@ public:
 	Symbol operator%(Symbol other);
 	Symbol operator^(Symbol other);
 	Symbol operator-();
+	bool get_bool();
 	void assert_types(const Symbol &other);
-
 	void assert_type(symbol_type type);
+
 	void resize(int size);
+	void round();
+	void floatify();
 };
 
 #endif /* INC_SYMBOL_H_ */

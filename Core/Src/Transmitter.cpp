@@ -2,12 +2,6 @@
 #include "Executor.h"
 
 extern UART_HandleTypeDef huart1;
-static uint8_t rx_buffer;
-
-uint8_t Transmitter::get_rx_buffer()
-{
-	return rx_buffer;
-}
 
 void Transmitter::report_error(std::string message)
 {
@@ -24,6 +18,15 @@ void Transmitter::report_error(std::string message)
 		HAL_Delay(500);
 	}
 }
+
+void Transmitter::send_string(std::string message)
+{
+	static std::string res;
+    res = message;
+	HAL_UART_Transmit(&huart1, (uint8_t*)res.c_str(), res.length(), 100);
+}
+
+static uint8_t rx_buffer;
 
 void Transmitter::start_listening()
 {
@@ -51,15 +54,4 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	default:
 		break;
 	}
-}
-
-void Transmitter::send_result(bool fin)
-{
-	static std::string res;
-    res = "x=12.2;y=56;P=2;I=1;D=0.05;\n";
-    if(fin)
-    {
-    	res = "fin\n";
-    }
-	HAL_UART_Transmit(&huart1, (uint8_t*)res.c_str(), res.length(), 100);
 }
