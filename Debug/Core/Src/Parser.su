@@ -38,7 +38,7 @@ Parser.cpp:95:6:void Parser::parse_variable_id(std::string&, Variable*)	48	stati
 identifier_classes.h:18:7:Variable::Variable()	16	static
 Parser.cpp:115:11:Variable* Parser::parse_variable(std::string&)	32	static
 Parser.cpp:123:13:Assignment* Parser::parse_assignment(Variable*)	24	static
-Parser.cpp:131:6:void Parser::assert_token(token_type, std::string)	96	static
+Parser.cpp:131:6:void Parser::assert_token(token_type, std::string)	72	static
 Parser.cpp:140:6:void Parser::parse_function_arguments(Function_call*)	32	static
 identifier_classes.h:27:7:Function_call::Function_call()	16	static
 Parser.cpp:153:16:Function_call* Parser::parse_function_call(std::string&)	80	static
@@ -94,7 +94,6 @@ stl_vector.h:128:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl::_Vector_impl() 
 variant:1056:20:>&) [with _Tp = std::__cxx11::basic_string<char>; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 basic_string.h:6175:5:bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	16	static
 basic_string.tcc:1158:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
-basic_string.h:6121:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Function_call*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Assignment*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
@@ -189,7 +188,6 @@ stl_vector.h:94:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl_data::_Vector_imp
 stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = Body*; _Alloc = std::allocator<Body*>]	24	static
 stl_vector.h:273:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = Body*; _Alloc = std::allocator<Body*>]	16	static
 variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
-move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>&]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
 variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
@@ -525,6 +523,7 @@ stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>:
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Statement*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	24	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Move_assign_base<false, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool>&]	16	static
+move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>&]	16	static
 variant:1395:2:) [with unsigned int _Np = 0; _Args = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >}; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = int&]	16	static
 variant:1395:2:) [with unsigned int _Np = 1; _Args = {int}; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static

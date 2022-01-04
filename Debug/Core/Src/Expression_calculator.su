@@ -28,7 +28,7 @@ variant:665:7:std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>::
 variant:697:7:std::__detail::__variant::_Variant_base<_Types>::_Variant_base(std::__detail::__variant::_Variant_base<_Types>&&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:1289:7:std::variant<_Types>::variant(std::variant<_Types>&&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 Symbol.h:18:7:Symbol::Symbol(Symbol&&)	16	static
-Expression_calculator.cpp:14:8:Symbol Expression_calculator::evaluate(Expression*)	144	static
+Expression_calculator.cpp:14:8:Symbol Expression_calculator::evaluate(Expression*)	136	static
 Expression_calculator.cpp:35:8:Symbol Expression_calculator::evaluate(And_expression*)	136	static
 Expression_calculator.cpp:52:8:Symbol Expression_calculator::evaluate(Compare_expression*)	216	static
 Expression_calculator.cpp:73:8:Symbol Expression_calculator::evaluate(Relation_expression*)	216	static

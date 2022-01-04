@@ -259,8 +259,8 @@ And_expression* Parser::parse_and_expression()
 Expression* Parser::parse_expression()
 {
 	auto exp = new Expression();
-	exp->line = Position_counter::get_instance().line;
-	exp->position = Position_counter::get_instance().position;
+	exp->line = Position_counter::get_instance().get_line();
+	exp->position = Position_counter::get_instance().get_position();
 	exp->and_exps.push_back(parse_and_expression());
 	while(token_buffer.type == TOKEN_OR)
 	{

@@ -132,7 +132,7 @@ void Parser::assert_token(token_type type, const std::string message)
 {
 	if (token_buffer.type != type)
 	{
-		std::string msg = "expected " + message + "\n";
+		std::string msg = "expected " + message;
 		Transmitter::report_error(msg);
 	}
 }
@@ -154,8 +154,8 @@ Function_call* Parser::parse_function_call(std::string &id)
 {
 	auto f = new Function_call();
 	f->id = std::string(id);
-	f->line = Position_counter::get_instance().line;
-	f->position = Position_counter::get_instance().position;
+	f->line = Position_counter::get_instance().get_line();
+	f->position = Position_counter::get_instance().get_position();
 	get_next_token();
 	parse_function_arguments(f);
 	assert_token(TOKEN_RIGHT_BRACKET, "closing bracket");
@@ -222,7 +222,7 @@ Statement* Parser::parse_statement() //todo refactor
 		s->content = parse_if();
 		break;
 	default:
-		Transmitter::report_error("expected statement:\nidentifier, if, while\n");
+		Transmitter::report_error("expected statement: identifier, if, while");
 		break;
 	}
 	return s;

@@ -6,12 +6,12 @@ namespace
 
 Symbol run_single_experiment_iteration(arglist arguments = { })
 {
-	static Symbol past_y = 0.0;
-	static Symbol past_u = 0.0;
+	static Symbol past_y = 0;
+	static Symbol past_u = 0;
 
-	static Symbol past_e = 0.0;
-	static Symbol sum_e = 0.0;
-	static Symbol e = 0.0;
+	static Symbol past_e = 0;
+	static Symbol sum_e = 0;
+	static Symbol e = 0;
 
 	// uchyb
 	e = PAR(yzad) - ARG(y);

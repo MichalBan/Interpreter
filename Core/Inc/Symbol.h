@@ -48,7 +48,8 @@ public:
 	Symbol operator^(Symbol other);
 	Symbol operator-();
 	bool get_bool();
-	void assert_types(const Symbol &other);
+	std::string to_string() const;
+	void align_types(Symbol &other);
 	void assert_type(symbol_type type);
 
 	void resize(int size);

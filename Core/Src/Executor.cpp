@@ -21,6 +21,7 @@ void Executor::execute_loop(Body *loop)
 		Variable_handler::get_instance().transmit_variables();
 		loops = loops + 1;
 	}
+	Transmitter::send_string("fin\n");
 }
 
 void Executor::execute(Program *p)
@@ -28,7 +29,6 @@ void Executor::execute(Program *p)
 	this->p = p;
 	execute(p->setup);
 	execute_loop(p->loop);
-	Transmitter::send_string("fin\n");
 	execute(p->finish);
 }
 
@@ -123,7 +123,17 @@ void Executor::execute(Assignment *assign)
 int Executor::check_index(Expression *exp)
 {
 	Symbol idx_symbol = EVALUATE(exp);
-	int i = std::get<int>(idx_symbol.value);
+	int i;
+	if(idx_symbol.type == SYMBOL_INT || idx_symbol.type == SYMBOL_FLOAT)
+	{
+		idx_symbol.round();
+		i = std::get<int>(idx_symbol.value);
+	}
+	else
+	{
+		Transmitter::report_error("index must be a number");
+	}
+
 	if (i < 0)
 	{
 		Transmitter::report_error("index can not be negative");

@@ -8,7 +8,7 @@ void assert_arguments(int expected, arglist arguments)
 {
 	if(arguments.size() != (unsigned int)expected)
 	{
-		Transmitter::report_error(std::string("expected " + std::to_string(expected) + " arguments, found " + std::to_string(arguments.size()) + "\n"));
+		Transmitter::report_error(std::string("expected " + std::to_string(expected) + " arguments, found " + std::to_string(arguments.size())));
 	}
 }
 
@@ -46,8 +46,8 @@ void Method_handler::run_method(Method_call *mcall)
 {
 	static Method_handler instance;
 
-	Position_counter::get_instance().line = mcall->call->line;
-	Position_counter::get_instance().position = mcall->call->position;
+	Position_counter::get_instance().set_line(mcall->call->line);
+	Position_counter::get_instance().set_position(mcall->call->position);
 
 	auto search = instance.methods.find(mcall->call->id);
 	if (search == instance.methods.end())

@@ -1,46 +1,56 @@
 import copy
-
-import matplotlib.pyplot as plt
+import msvcrt
 import serial
+import sys
+import traceback
+from plot import plot
 
-if __name__ == '__main__':
-	ser = serial.Serial(
-		port='COM4',
-		baudrate=115200,
-		bytesize=serial.EIGHTBITS,
-		parity=serial.PARITY_NONE,
-		stopbits=serial.STOPBITS_ONE,
-		timeout=1000)
 
-	print("Let us begin")
-	print("waiting...")
-	request = ser.read(1)
+def show_exception_and_exit(exc_type, exc_value, tb):
+	traceback.print_exception(exc_type, exc_value, tb)
+	print("Press any key to exit")
+	msvcrt.getch()
+	sys.exit(-1)
+
+
+def handle_error(port):
+	while True:
+		print("")
+		message = port.readline()
+		print(message, end="")
+
+
+def transmit_code(port):
+	print("waiting for MCU")
+	request = port.read(1)
+	print("sending code")
 	with open("kod.txt") as f:
 		while request == b'c':
 			c = f.read(1)
 			if not c:
-				ser.write(b'\0')
-				ser.write(b'\0')
-				print("End of file")
+				port.write(b'\0')
+				port.write(b'\0')
+				print("\nCode transmission complete")
 				break
-			print("sending: ", c)
-			ser.write(c.encode('ascii'))
-			request = ser.read(1)
+			print(c, end="")
+			port.write(c.encode('ascii'))
+			request = port.read(1)
+			if request == b'$':
+				handle_error(port)
 
-	if request == b'$':
-		while True:
-			message = ser.read(1)
-			print(message)
 
+def read_runtime_data(port):
 	result = {}
 	timeline = []
 	identifiers = []
-	ser.readline()
-	line = ser.readline()
+	port.readline()
+	line = port.readline()
 	while not line == b'fin\n':
 		iterator = 0
 		name = ""
 		value = ""
+		if line[0] == b'$':
+			handle_error(port)
 		while line[iterator] != 10:
 			while line[iterator] != 61:
 				name = name + chr(line[iterator])
@@ -58,17 +68,38 @@ if __name__ == '__main__':
 			name = ""
 			value = ""
 		timeline.append(copy.deepcopy(result))
-		line = ser.readline()
+		if msvcrt.kbhit():
+			port.write(b'e')
+			print("interrupted")
+		line = port.readline()
+	return timeline
 
-	if line[0] == b'$':
-		while True:
-			message = ser.read(1)
-			print(message)
 
-	for name in identifiers:
-		signal = [x[name] for x in timeline]
-		plt.plot(signal)
-	plt.legend(identifiers)
-	plt.show()
+def initialize_port():
+	ser = serial.Serial(
+		port='COM4',
+		baudrate=115200,
+		bytesize=serial.EIGHTBITS,
+		parity=serial.PARITY_NONE,
+		stopbits=serial.STOPBITS_ONE,
+		timeout=1000)
+	return ser
 
-	print("It is done")
+
+def main():
+	sys.excepthook = show_exception_and_exit
+	port = initialize_port()
+
+	print("Press any key to start")
+#	msvcrt.getch()
+	transmit_code(port)
+
+	print("Executing code. Press any key to interrupt")
+	timeline = read_runtime_data(port)
+
+	print("plotting")
+	plot(timeline)
+
+
+if __name__ == '__main__':
+	main()

@@ -5,17 +5,17 @@ extern UART_HandleTypeDef huart1;
 
 void Transmitter::report_error(std::string message)
 {
-	std::string line = itoa(Position_counter::get_instance().line, nullptr, 10);
-	std::string position = itoa(Position_counter::get_instance().position, nullptr, 10);
+	std::string line = std::to_string(Position_counter::get_instance().get_line());
+	std::string position = std::to_string(Position_counter::get_instance().get_position());
 
-	std::string full_message = "$" + message + "\nin line: " + line
+	std::string full_message = "$" + message + " in line: " + line
 			+ " in position: " + position + "\n";
 
 	while (1)
 	{
 		HAL_UART_Transmit(&huart1, (uint8_t*) full_message.c_str(),
 				full_message.length(), 100);
-		HAL_Delay(500);
+		HAL_Delay(5000);
 	}
 }
 

@@ -70,7 +70,7 @@ Symbol& Symbol::operator[](Symbol idx)
 
 Symbol Symbol::operator+(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -92,7 +92,7 @@ Symbol Symbol::operator+(Symbol other)
 
 Symbol Symbol::operator-(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -139,7 +139,7 @@ Symbol Symbol::operator!()
 
 Symbol Symbol::operator>(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -156,7 +156,7 @@ Symbol Symbol::operator>(Symbol other)
 
 Symbol Symbol::operator>=(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -173,7 +173,7 @@ Symbol Symbol::operator>=(Symbol other)
 
 Symbol Symbol::operator<(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -190,7 +190,7 @@ Symbol Symbol::operator<(Symbol other)
 
 Symbol Symbol::operator<=(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -207,7 +207,7 @@ Symbol Symbol::operator<=(Symbol other)
 
 Symbol Symbol::operator==(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -226,7 +226,7 @@ Symbol Symbol::operator==(Symbol other)
 
 Symbol Symbol::operator!=(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -260,7 +260,7 @@ Symbol Symbol::operator-()
 
 Symbol Symbol::operator*(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -277,7 +277,7 @@ Symbol Symbol::operator*(Symbol other)
 
 Symbol Symbol::operator/(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -294,7 +294,7 @@ Symbol Symbol::operator/(Symbol other)
 
 Symbol Symbol::operator%(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -309,7 +309,7 @@ Symbol Symbol::operator%(Symbol other)
 
 Symbol Symbol::operator^(Symbol other)
 {
-	assert_types(other);
+	align_types(other);
 
 	switch (type)
 	{
@@ -331,11 +331,48 @@ bool Symbol::get_bool()
 	return std::get<bool>(value);
 }
 
-void Symbol::assert_types(const Symbol &other)
+std::string Symbol::to_string() const
+{
+    switch(type)
+    {
+	case SYMBOL_INT:
+		return std::to_string(std::get<int>(value));
+	case SYMBOL_FLOAT:
+		return std::to_string(std::get<float>(value));
+	case SYMBOL_BOOL:
+		return std::get<bool>(value) ? "true" : "false";
+	case SYMBOL_STRING:
+		return std::get<std::string>(value);
+	default:
+	{
+		std::string temp = "";
+		for(Symbol s : std::get<std::vector<Symbol>>(value))
+		{
+			temp += s.to_string();
+			temp += ",";
+		}
+		temp.pop_back();
+		return temp;
+	}
+    }
+}
+
+void Symbol::align_types(Symbol &other)
 {
 	if (type != other.type)
 	{
-		Transmitter::report_error("types mismatch");
+		if(type == SYMBOL_INT && other.type == SYMBOL_FLOAT)
+		{
+			floatify();
+		}
+		else if(other.type == SYMBOL_INT && type == SYMBOL_FLOAT)
+		{
+			other.floatify();
+		}
+		else
+		{
+			Transmitter::report_error("types mismatch");
+		}
 	}
 }
 
@@ -343,7 +380,7 @@ void Symbol::assert_type(symbol_type type)
 {
 	if(this->type != type)
 	{
-		Transmitter::report_error(std::string("")); //todo message
+		Transmitter::report_error(std::string("invalid value for the operation"));
 	}
 }
 

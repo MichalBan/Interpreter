@@ -50,30 +50,13 @@ void Variable_handler::transmit_variables()
     std::string res = "";
 	for(auto const& [name, symbol] : Arg)
 	{
-	    res += name;
-	    res += "=";
-	    switch(symbol.type)
-	    {
-		case SYMBOL_INT:
-			res += itoa(std::get<int>(symbol.value), nullptr, 10);
-			break;
-		case SYMBOL_FLOAT:
+		if(symbol.type != SYMBOL_STRING)
 		{
-			char temp[10];
-			sprintf(temp, "%f", std::get<float>(symbol.value));
-			res += temp;
-			break;
+			res += name;
+			res += "=";
+			res += symbol.to_string();
+			res += ";";
 		}
-		case SYMBOL_BOOL:
-			res += std::get<bool>(symbol.value) ? "true" : "false";
-			break;
-		case SYMBOL_STRING:
-			res += std::get<std::string>(symbol.value);
-			break;
-		case SYMBOL_CONTAINER:
-			break;
-	    }
-	    res += ";";
 	}
 	res += '\n';
 	Transmitter::send_string(res);

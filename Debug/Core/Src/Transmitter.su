@@ -1,6 +1,7 @@
 char_traits.h:329:7:static constexpr std::size_t std::char_traits<char>::length(const char_type*)	24	static
 new:173:33:void* operator new(std::size_t, void*)	16	static
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+basic_string.h:6546:3:std::string std::__cxx11::to_string(int)	24	static
 stl_tree.h:173:5:std::_Rb_tree_header::_Rb_tree_header()	16	static
 stl_tree.h:206:5:void std::_Rb_tree_header::_M_reset()	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = token_type]	16	static
@@ -10,7 +11,7 @@ stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = 
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[7]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[3]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
 stl_pair.h:341:12:constexpr std::pair<_T1, _T2>::pair(_U1&&, _U2&&) [with _U1 = const char (&)[4]; _U2 = token_type; typename std::enable_if<(std::_PCC<true, _T1, _T2>::_MoveConstructiblePair<_U1, _U2>() && std::_PCC<true, _T1, _T2>::_ImplicitlyMoveConvertiblePair<_U1, _U2>()), bool>::type <anonymous> = true; _T1 = const std::__cxx11::basic_string<char>; _T2 = token_type]	40	static
-Transmitter.cpp:6:6:static void Transmitter::report_error(std::string)	224	static
+Transmitter.cpp:6:6:static void Transmitter::report_error(std::string)	216	static
 Transmitter.cpp:24:21:void __tcf_0()	8	static
 Transmitter.cpp:22:6:static void Transmitter::send_string(std::string)	24	static
 Transmitter.cpp:31:6:static void Transmitter::start_listening()	8	static
@@ -18,6 +19,7 @@ Transmitter.cpp:36:6:static char Transmitter::receive_code_char()	8	static
 Transmitter.cpp:47:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	16	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
+string_conversions.h:99:5:) [with _String = std::__cxx11::basic_string<char>; _CharT = char]	44	dynamic
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
 allocator.h:153:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::pair<const char, token_type>]	16	static
 stl_map.h:226:7:std::map<_Key, _Tp, _Compare, _Alloc>::map(std::initializer_list<std::pair<const _Key, _Tp> >, const _Compare&, const allocator_type&) [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	40	static
@@ -36,6 +38,7 @@ stl_map.h:226:7:std::map<_Key, _Tp, _Compare, _Alloc>::map(std::initializer_list
 basic_string.tcc:1158:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 basic_string.h:6121:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 basic_string.h:6085:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&&, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
+basic_string.h:625:9:std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(_InputIterator, _InputIterator, const _Alloc&) [with _InputIterator = char*; <template-parameter-2-2> = void; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 basic_string.h:263:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::pair<const char, token_type>]	16	static
 new_allocator.h:89:7:__gnu_cxx::new_allocator<_Tp>::~new_allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -65,6 +68,7 @@ initializer_list:75:7:constexpr const _E* std::initializer_list<_E>::begin() con
 initializer_list:79:7:constexpr const _E* std::initializer_list<_E>::end() const [with _E = std::pair<const char, double_token>]	24	static
 stl_tree.h:1109:2:std::__enable_if_t<std::is_same<_Val, typename std::iterator_traits<_InputIterator>::value_type>::value> std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_range_unique(_InputIterator, _InputIterator) [with _InputIterator = const std::pair<const char, double_token>*; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	40	static
 move.h:99:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::__cxx11::basic_string<char>&]	16	static
+basic_string.h:263:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator) [with _InIterator = char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const char, token_type>]	16	static
 allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Tp1>&) [with _Tp1 = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -99,6 +103,7 @@ stl_tree.h:538:2:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Allo
 stl_tree.h:1014:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::end() [with _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
 stl_tree.h:348:7:std::_Rb_tree_const_iterator<_Tp>::_Rb_tree_const_iterator(const iterator&) [with _Tp = std::pair<const char, double_token>]	16	static
 stl_tree.h:2248:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_unique_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::const_iterator, _Arg&&, _NodeGen&) [with _Arg = const std::pair<const char, double_token>&; _NodeGen = std::_Rb_tree<char, std::pair<const char, double_token>, std::_Select1st<std::pair<const char, double_token> >, std::less<char>, std::allocator<std::pair<const char, double_token> > >::_Alloc_node; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	56	static
+basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 stl_iterator_base_funcs.h:138:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char*]	24	static
 basic_string.tcc:206:7:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator, std::forward_iterator_tag) [with _FwdIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -139,6 +144,8 @@ stl_tree.h:2187:5:std::pair<std::_Rb_tree_node_base*, std::_Rb_tree_node_base*> 
 stl_function.h:1155:7:const typename _Pair::first_type& std::_Select1st<_Pair>::operator()(const _Pair&) const [with _Pair = std::pair<const char, double_token>]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = const std::pair<const char, double_token>&]	16	static
 stl_tree.h:1797:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::iterator std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_insert_(std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr, std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Base_ptr, _Arg&&, _NodeGen&) [with _Arg = const std::pair<const char, double_token>&; _NodeGen = std::_Rb_tree<char, std::pair<const char, double_token>, std::_Select1st<std::pair<const char, double_token> >, std::less<char>, std::allocator<std::pair<const char, double_token> > >::_Alloc_node; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	48	static
+stl_iterator_base_funcs.h:138:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = char*]	24	static
+basic_string.tcc:206:7:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator, std::forward_iterator_tag) [with _FwdIterator = char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 type_traits.h:152:5:bool __gnu_cxx::__is_null_pointer(_Type*) [with _Type = const char]	16	static
 stl_iterator_base_types.h:205:5:constexpr typename std::iterator_traits<_Iterator>::iterator_category std::__iterator_category(const _Iter&) [with _Iter = const char*]	16	static
 stl_iterator_base_funcs.h:98:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::__distance(_RandomAccessIterator, _RandomAccessIterator, std::random_access_iterator_tag) [with _RandomAccessIterator = const char*]	24	static
@@ -186,6 +193,9 @@ stl_tree.h:728:7:std::_Rb_tree_node_base*& std::_Rb_tree<_Key, _Val, _KeyOfValue
 stl_tree.h:300:7:std::_Rb_tree_iterator<_Tp>::_Self& std::_Rb_tree_iterator<_Tp>::operator--() [with _Tp = std::pair<const char, double_token>]	16	static
 stl_tree.h:285:7:std::_Rb_tree_iterator<_Tp>::_Self& std::_Rb_tree_iterator<_Tp>::operator++() [with _Tp = std::pair<const char, double_token>]	16	static
 stl_tree.h:546:4:std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const char, double_token>&; _Key = char; _Val = std::pair<const char, double_token>; _KeyOfValue = std::_Select1st<std::pair<const char, double_token> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	24	static
+type_traits.h:152:5:bool __gnu_cxx::__is_null_pointer(_Type*) [with _Type = char]	16	static
+stl_iterator_base_types.h:205:5:constexpr typename std::iterator_traits<_Iterator>::iterator_category std::__iterator_category(const _Iter&) [with _Iter = char*]	16	static
+stl_iterator_base_funcs.h:98:5:constexpr typename std::iterator_traits<_Iterator>::difference_type std::__distance(_RandomAccessIterator, _RandomAccessIterator, std::random_access_iterator_tag) [with _RandomAccessIterator = char*]	24	static
 stl_tree.h:566:7:std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Node_allocator& std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_M_get_Node_allocator() [with _Key = char; _Val = std::pair<const char, token_type>; _KeyOfValue = std::_Select1st<std::pair<const char, token_type> >; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
 stl_tree.h:234:7:_Val* std::_Rb_tree_node<_Val>::_M_valptr() [with _Val = std::pair<const char, token_type>]	16	static
 alloc_traits.h:495:2:static void std::allocator_traits<std::allocator<_CharT> >::destroy(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, _Up*) [with _Up = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static

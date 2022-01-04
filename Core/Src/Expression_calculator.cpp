@@ -13,8 +13,8 @@ Expression_calculator& Expression_calculator::get_instance()
 
 Symbol Expression_calculator::evaluate(Expression *exp)
 {
-	Position_counter::get_instance().line = exp->line;
-	Position_counter::get_instance().position = exp->position;
+	Position_counter::get_instance().set_line(exp->line);
+	Position_counter::get_instance().set_position(exp->position);
 
 	if (exp->and_exps.size() > 1)
 	{
