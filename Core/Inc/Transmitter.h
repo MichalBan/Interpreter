@@ -8,6 +8,7 @@ class Transmitter
 {
 public:
 	static char receive_code_char();
+	static char get_choice();
 	static void report_error(std::string message);
 	static void start_listening();
 	static void send_string(std::string message);

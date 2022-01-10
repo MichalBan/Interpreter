@@ -12,6 +12,7 @@ C_SRCS += \
 ../Core/Src/system_stm32f7xx.c 
 
 CPP_SRCS += \
+../Core/Src/Dialog_handler.cpp \
 ../Core/Src/Executor.cpp \
 ../Core/Src/Expression.cpp \
 ../Core/Src/Expression_calculator.cpp \
@@ -37,6 +38,7 @@ C_DEPS += \
 ./Core/Src/system_stm32f7xx.d 
 
 OBJS += \
+./Core/Src/Dialog_handler.o \
 ./Core/Src/Executor.o \
 ./Core/Src/Expression.o \
 ./Core/Src/Expression_calculator.o \
@@ -60,6 +62,7 @@ OBJS += \
 ./Core/Src/user_functions.o 
 
 CPP_DEPS += \
+./Core/Src/Dialog_handler.d \
 ./Core/Src/Executor.d \
 ./Core/Src/Expression.d \
 ./Core/Src/Expression_calculator.d \

@@ -186,7 +186,7 @@ Symbol Expression_calculator::evaluate(Primal_expression *primal_exp)
 	case PRIMAL_VARIABLE:
 		return evaluate(std::get<Variable*>(primal_exp->content));
 	case PRIMAL_FUNCTION_CALL:
-		return Function_handler::run_function(
+		return Function_handler::get_instance().run_function(
 				std::get<Function_call*>(primal_exp->content));
 	}
 	return 0;

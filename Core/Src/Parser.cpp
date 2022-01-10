@@ -175,6 +175,24 @@ Method_call* Parser::parse_method_call(Variable* var)
 	return m;
 }
 
+void Parser::parse_variable_statement(std::string id, Statement *s)
+{
+	auto var = parse_variable(id);
+	if (token_buffer.type == TOKEN_ASSIGN)
+	{
+		s->type = STATEMENT_ASSIGNMENT;
+		get_next_token();
+		s->content = parse_assignment(var);
+	}
+	else
+	{
+		assert_token(TOKEN_DOT, "method call or assignment");
+		s->type = STATEMENT_METHOD_CALL;
+		get_next_token();
+		s->content = parse_method_call(var);
+	}
+}
+
 void Parser::parse_identifier_statement(Statement *s)
 {
 	std::string id = std::get<std::string>(token_buffer.value);
@@ -186,20 +204,7 @@ void Parser::parse_identifier_statement(Statement *s)
 	}
 	else
 	{
-		auto var = parse_variable(id);
-		if(token_buffer.type == TOKEN_ASSIGN)
-		{
-			s->type = STATEMENT_ASSIGNMENT;
-			get_next_token();
-			s->content = parse_assignment(var);
-		}
-		else
-		{
-			assert_token(TOKEN_DOT, "method call or assignment");
-			s->type = STATEMENT_METHOD_CALL;
-			get_next_token();
-			s->content = parse_method_call(var);
-		}
+		parse_variable_statement(id, s);
 	}
 }
 

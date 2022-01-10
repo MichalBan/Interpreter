@@ -63,6 +63,7 @@ class Parser
 	void parse_finish(Program *Prog);
 public:
 	static Program* parse_program();
+	void parse_variable_statement(std::string id, Statement *s);
 };
 
 #endif /* PARSER_H_ */

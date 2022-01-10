@@ -43,26 +43,27 @@ Parser.cpp:140:6:void Parser::parse_function_arguments(Function_call*)	32	static
 identifier_classes.h:27:7:Function_call::Function_call()	16	static
 Parser.cpp:153:16:Function_call* Parser::parse_function_call(std::string&)	80	static
 Parser.cpp:166:14:Method_call* Parser::parse_method_call(Variable*)	112	static
-Parser.cpp:178:6:void Parser::parse_identifier_statement(Statement*)	88	static
+Parser.cpp:178:6:void Parser::parse_variable_statement(std::string, Statement*)	64	static
+Parser.cpp:196:6:void Parser::parse_identifier_statement(Statement*)	72	static
 variant:1287:7:constexpr std::variant<_Types>::variant() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 Statement.h:50:7:Statement::Statement()	16	static
-Parser.cpp:206:12:Statement* Parser::parse_statement()	64	static
-Parser.cpp:231:6:bool Parser::is_token_statement_first()	16	static
-Parser.cpp:238:6:void Parser::skip_newlines()	16	static
+Parser.cpp:211:12:Statement* Parser::parse_statement()	64	static
+Parser.cpp:236:6:bool Parser::is_token_statement_first()	16	static
+Parser.cpp:243:6:void Parser::skip_newlines()	16	static
 stl_vector.h:285:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 stl_vector.h:484:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
 Statement.h:8:7:Body::Body()	16	static
-Parser.cpp:246:7:Body* Parser::parse_body()	32	static
+Parser.cpp:251:7:Body* Parser::parse_body()	32	static
 variant:681:12:std::__detail::__variant::_Variant_base<_Types>& std::__detail::__variant::_Variant_base<_Types>::operator=(std::__detail::__variant::_Variant_base<_Types>&&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 variant:1219:11:std::variant<_Types>& std::variant<_Types>::operator=(std::variant<_Types>&&) [with _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
 Token.h:10:7:Token& Token::operator=(Token&&)	16	static
-Parser.cpp:257:6:void Parser::get_next_token()	72	static
-Parser.cpp:266:6:void Parser::parse_setup(Program*)	72	static
-Parser.cpp:277:6:void Parser::parse_loop(Program*)	72	static
-Parser.cpp:287:6:void Parser::parse_finish(Program*)	72	static
+Parser.cpp:262:6:void Parser::get_next_token()	72	static
+Parser.cpp:271:6:void Parser::parse_setup(Program*)	72	static
+Parser.cpp:282:6:void Parser::parse_loop(Program*)	72	static
+Parser.cpp:292:6:void Parser::parse_finish(Program*)	72	static
 Parser.h:18:7:Parser::~Parser()	16	static
-Parser.cpp:299:16:void __tcf_0()	8	static
-Parser.cpp:297:10:static Program* Parser::parse_program()	40	static
+Parser.cpp:304:16:void __tcf_0()	8	static
+Parser.cpp:302:10:static Program* Parser::parse_program()	40	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -95,9 +96,9 @@ variant:1056:20:>&) [with _Tp = std::__cxx11::basic_string<char>; _Types = {std:
 basic_string.h:6175:5:bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	16	static
 basic_string.tcc:1158:5:std::__cxx11::basic_string<_CharT, _Traits, _Allocator> std::operator+(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
 variant:1494:24:constexpr std::size_t std::variant<_Types>::index() const [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
-variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Function_call*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Assignment*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
 variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Method_call*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
+variant:1353:2:std::enable_if_t<((__exactly_once<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type> > && is_constructible_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>, _Tp>) && is_assignable_v<std::variant<_Types>::__accepted_type<_Tp&&, typename std::enable_if<__not_self<_Tp&&>, void>::type>&, _Tp>), std::variant<_Types>&> std::variant<_Types>::operator=(_Tp&&) [with _Tp = Function_call*; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	32	static
 variant:509:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
 variant:553:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
 variant:628:20:) [with unsigned int _Np = 0; _Args = {}][inherited from std::__detail::__variant::_Variant_storage<true, Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>]	16	static
@@ -188,12 +189,6 @@ stl_vector.h:94:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl_data::_Vector_imp
 stl_vector.h:347:7:void std::_Vector_base<_Tp, _Alloc>::_M_deallocate(std::_Vector_base<_Tp, _Alloc>::pointer, std::size_t) [with _Tp = Body*; _Alloc = std::allocator<Body*>]	24	static
 stl_vector.h:273:7:std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type& std::_Vector_base<_Tp, _Alloc>::_M_get_Tp_allocator() [with _Tp = Body*; _Alloc = std::allocator<Body*>]	16	static
 variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, float, bool}]	16	static
-variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
-variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
-variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
-variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Function_call*]	16	static
-variant:1395:2:) [with unsigned int _Np = 1; _Args = {Function_call*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 0; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
 variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
@@ -206,6 +201,12 @@ variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&
 variant:1583:5:>&) [with unsigned int _Np = 2; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Method_call*]	16	static
 variant:1395:2:) [with unsigned int _Np = 2; _Args = {Method_call*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+variant:249:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<0>, _Union&&) [with _Union = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
+variant:254:5:constexpr decltype(auto) std::__detail::__variant::__get(std::in_place_index_t<_Idx>, _Union&&) [with unsigned int _Np = 1; _Union = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:263:5:constexpr decltype(auto) std::__detail::__variant::__get(_Variant&&) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	24	static
+variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Function_call*]	16	static
+variant:1395:2:) [with unsigned int _Np = 1; _Args = {Function_call*}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:202:2:) [with _Args = {}; _Type = Assignment*]	16	static
 variant:322:12:) [with _Args = {}; _First = Assignment*; _Rest = {Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:430:12:) [with unsigned int _Np = 0; _Args = {}; _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
@@ -319,15 +320,15 @@ new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = 
 alloc_traits.h:469:7:static void std::allocator_traits<std::allocator<_CharT> >::deallocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::pointer, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Body*]	24	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
-move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
-variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Function_call*]	16	static
-variant:435:12:>::_M_reset() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
-variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Function_call*}]	32	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Assignment*]	16	static
+variant:435:12:>::_M_reset() [with _Types = {Assignment*, Function_call*, Method_call*, While_statement*, If_statement*}]	16	static
 variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Assignment*}]	32	static
+move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Function_call*, Method_call*, While_statement*, If_statement*>&]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<Method_call*, While_statement*, If_statement*>&]	16	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Method_call*]	16	static
 variant:1037:10:) [with unsigned int _Np = 2; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Method_call*}]	32	static
+variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = Function_call*]	16	static
+variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {Function_call*}]	32	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Variadic_union<While_statement*, If_statement*>&]	16	static
 variant:209:24:constexpr _Type& std::__detail::__variant::_Uninitialized<_Type, true>::_M_get() & [with _Type = While_statement*]	16	static
 variant:1037:10:) [with unsigned int _Np = 3; _Variant = std::variant<Assignment*, Function_call*, Method_call*, While_statement*, If_statement*>; _Args = {While_statement*}]	32	static
@@ -424,9 +425,9 @@ stl_iterator.h:867:7:__gnu_cxx::__normal_iterator<_Iterator, _Container> __gnu_c
 stl_iterator.h:819:7:__gnu_cxx::__normal_iterator<_Iterator, _Container>::reference __gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*() const [with _Iterator = Body**; _Container = std::vector<Body*>]	16	static
 new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = Expression*]	24	static
 new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = Body*]	24	static
-move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Function_call*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Assignment*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Method_call*]	16	static
+move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = Function_call*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = While_statement*]	16	static
 move.h:138:5:constexpr _Tp* std::addressof(_Tp&) [with _Tp = If_statement*]	16	static
 new_allocator.h:119:7:void __gnu_cxx::new_allocator<_Tp>::deallocate(__gnu_cxx::new_allocator<_Tp>::pointer, __gnu_cxx::new_allocator<_Tp>::size_type) [with _Tp = Statement*]	24	static
@@ -513,9 +514,9 @@ stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>:
 stl_vector.h:915:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::size() const [with _Tp = Body*; _Alloc = std::allocator<Body*>]	16	static
 alloc_traits.h:443:7:static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = Body*]	16	static
 stl_vector.h:450:7:static std::vector<_Tp, _Alloc>::pointer std::vector<_Tp, _Alloc>::_S_do_relocate(std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::pointer, std::vector<_Tp, _Alloc>::_Tp_alloc_type&, std::true_type) [with _Tp = Body*; _Alloc = std::allocator<Body*>]	24	static
-move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Function_call*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Assignment*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Method_call*]	16	static
+move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = Function_call*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = While_statement*]	16	static
 move.h:47:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = If_statement*]	16	static
 stl_vector.h:920:7:std::vector<_Tp, _Alloc>::size_type std::vector<_Tp, _Alloc>::max_size() const [with _Tp = Statement*; _Alloc = std::allocator<Statement*>]	16	static
@@ -661,6 +662,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Parser.cpp:306:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Parser.cpp:306:1:cpp)	8	static
-Parser.cpp:306:1:cpp)	8	static
+Parser.cpp:311:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Parser.cpp:311:1:cpp)	8	static
+Parser.cpp:311:1:cpp)	8	static

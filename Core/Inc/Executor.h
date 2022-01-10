@@ -21,7 +21,6 @@ class Executor
 	void execute(Body* bod);
 	void execute_loop(Body *loop);
 
-	int check_index(Expression* exp);
 public:
 	static Executor& get_instance();
 

@@ -16,7 +16,7 @@ Symbol::Symbol(float value)
 Symbol::Symbol(double value)
 {
 	type = SYMBOL_FLOAT;
-	this->value = (float)value;
+	this->value = (float) value;
 }
 
 Symbol::Symbol(bool value)
@@ -43,21 +43,33 @@ Symbol::Symbol(std::initializer_list<Symbol> value)
 	this->value = std::vector<Symbol>(value);
 }
 
-Symbol& Symbol::operator[](Symbol idx)
+int Symbol::validate_index(Symbol idx)
 {
-	if (idx.type != SYMBOL_INT)
+	if (idx.type != SYMBOL_INT && idx.type != SYMBOL_FLOAT)
 	{
 		Transmitter::report_error("index must be an integer");
 	}
+
+	idx.round();
 	int i = std::get<int>(idx.value);
 
 	if (i < 0)
 	{
 		Transmitter::report_error("index must be positive");
 	}
+	return i;
+}
 
+Symbol& Symbol::operator[](Symbol idx)
+{
+	int i = validate_index(idx);
 	if (type == SYMBOL_CONTAINER)
 	{
+		std::vector<Symbol> &vec = std::get<std::vector<Symbol>>(value);
+		if (vec.size() < (unsigned int) i)
+		{
+			resize(i);
+		}
 		return std::get<std::vector<Symbol>>(value)[i];
 	}
 	else
@@ -81,8 +93,8 @@ Symbol Symbol::operator+(Symbol other)
 	case SYMBOL_BOOL:
 		return std::get<bool>(this->value) + std::get<bool>(other.value);
 	case SYMBOL_STRING:
-		return std::get<std::string>(this->value) + std::get<std::string>(
-				other.value);
+		return std::get<std::string>(this->value)
+				+ std::get<std::string>(other.value);
 	default:
 		Transmitter::report_error("invalid type for addidion");
 	}
@@ -284,7 +296,7 @@ Symbol Symbol::operator/(Symbol other)
 	case SYMBOL_INT:
 		return (std::get<int>(this->value) / std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		return(std::get<float>(this->value) / std::get<float>(other.value));
+		return (std::get<float>(this->value) / std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
 	}
@@ -299,7 +311,7 @@ Symbol Symbol::operator%(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		return(std::get<int>(this->value) % std::get<int>(other.value));
+		return (std::get<int>(this->value) % std::get<int>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
 	}
@@ -314,9 +326,10 @@ Symbol Symbol::operator^(Symbol other)
 	switch (type)
 	{
 	case SYMBOL_INT:
-		return (int)pow(std::get<int>(this->value), std::get<int>(other.value));
+		return (int) pow(std::get<int>(this->value), std::get<int>(other.value));
 	case SYMBOL_FLOAT:
-		return (float)pow(std::get<float>(this->value), std::get<float>(other.value));
+		return (float) pow(std::get<float>(this->value),
+				std::get<float>(other.value));
 	default:
 		Transmitter::report_error("invalid type for multiplication");
 	}
@@ -324,48 +337,59 @@ Symbol Symbol::operator^(Symbol other)
 	return 0;
 }
 
-
 bool Symbol::get_bool()
 {
 	assert_type(SYMBOL_BOOL);
 	return std::get<bool>(value);
 }
 
+int Symbol::get_int()
+{
+	return get_float();
+}
+
+float Symbol::get_float()
+{
+	switch (type)
+	{
+	case SYMBOL_INT:
+		return std::get<int>(value);
+	case SYMBOL_FLOAT:
+		return std::get<float>(value);
+	case SYMBOL_BOOL:
+		return std::get<bool>(value);
+	default:
+		Transmitter::report_error("can not be castet to int");
+		return 0;
+	}
+}
+
 std::string Symbol::to_string() const
 {
-    switch(type)
-    {
+	switch (type)
+	{
 	case SYMBOL_INT:
 		return std::to_string(std::get<int>(value));
 	case SYMBOL_FLOAT:
 		return std::to_string(std::get<float>(value));
 	case SYMBOL_BOOL:
-		return std::get<bool>(value) ? "true" : "false";
+		return std::get<bool>(value) ? "0" : "1";
 	case SYMBOL_STRING:
 		return std::get<std::string>(value);
 	default:
-	{
-		std::string temp = "";
-		for(Symbol s : std::get<std::vector<Symbol>>(value))
-		{
-			temp += s.to_string();
-			temp += ",";
-		}
-		temp.pop_back();
-		return temp;
+		return "";
 	}
-    }
 }
 
 void Symbol::align_types(Symbol &other)
 {
 	if (type != other.type)
 	{
-		if(type == SYMBOL_INT && other.type == SYMBOL_FLOAT)
+		if (type == SYMBOL_INT && other.type == SYMBOL_FLOAT)
 		{
 			floatify();
 		}
-		else if(other.type == SYMBOL_INT && type == SYMBOL_FLOAT)
+		else if (other.type == SYMBOL_INT && type == SYMBOL_FLOAT)
 		{
 			other.floatify();
 		}
@@ -378,32 +402,51 @@ void Symbol::align_types(Symbol &other)
 
 void Symbol::assert_type(symbol_type type)
 {
-	if(this->type != type)
+	if (this->type != type)
 	{
-		Transmitter::report_error(std::string("invalid value for the operation"));
+		Transmitter::report_error(
+				std::string("invalid value for the operation"));
 	}
 }
 
-void Symbol::resize(int size)
+int Symbol::validate_size_symbol(Symbol size_symbol)
 {
-	std::vector<Symbol> vec = std::get<std::vector<Symbol>>(value);
-	if(vec.size() < (unsigned int)size)
+	size_symbol.assert_type(SYMBOL_INT);
+	int size = std::get<int>(size_symbol.value);
+	if (size < 1)
 	{
-		vec.reserve(size);
+		Transmitter::report_error("can not reseize to less than one element");
+	}
+	return size;
+}
+
+void Symbol::resize(Symbol size_symbol)
+{
+	int size = validate_size_symbol(size_symbol);
+	if (type != SYMBOL_CONTAINER)
+	{
+		value = std::vector<Symbol>(size);
+		type = SYMBOL_CONTAINER;
+		return;
+	}
+	else
+	{
+		std::vector<Symbol> &vec = std::get<std::vector<Symbol>>(value);
+		vec.resize(size);
 	}
 }
 
 void Symbol::round()
 {
-	if(type == SYMBOL_INT)
+	if (type == SYMBOL_INT)
 	{
 		return;
 	}
-	else if(type == SYMBOL_FLOAT)
+	else if (type == SYMBOL_FLOAT)
 	{
 		float result = std::get<float>(value);
 		type = SYMBOL_INT;
-		value = (int)result;
+		value = (int) result;
 	}
 	else
 	{
@@ -413,13 +456,13 @@ void Symbol::round()
 
 void Symbol::floatify()
 {
-	if(type == SYMBOL_INT)
+	if (type == SYMBOL_INT)
 	{
 		float result = std::get<int>(value);
 		type = SYMBOL_FLOAT;
-		value = (float)result;
+		value = (float) result;
 	}
-	else if(type == SYMBOL_FLOAT)
+	else if (type == SYMBOL_FLOAT)
 	{
 		return;
 	}

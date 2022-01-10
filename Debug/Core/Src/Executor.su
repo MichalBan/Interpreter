@@ -43,9 +43,8 @@ variant:636:12:std::__detail::__variant::_Move_assign_base<<anonymous>, _Types>&
 variant:681:12:std::__detail::__variant::_Variant_base<_Types>& std::__detail::__variant::_Variant_base<_Types>::operator=(const std::__detail::__variant::_Variant_base<_Types>&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 variant:1219:11:std::variant<_Types>& std::variant<_Types>::operator=(const std::variant<_Types>&) [with _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 Symbol.h:18:7:Symbol& Symbol::operator=(const Symbol&)	16	static
-Executor.cpp:104:6:void Executor::execute(Assignment*)	128	static
-Executor.cpp:123:5:int Executor::check_index(Expression*)	120	static
-Executor.cpp:144:6:void Executor::abort()	72	static
+Executor.cpp:104:6:void Executor::execute(Assignment*)	160	static
+Executor.cpp:121:6:void Executor::abort()	72	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 allocator.h:138:7:std::allocator< <template-parameter-1-1> >::allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -169,7 +168,6 @@ variant:993:7:__indices = {4}]	24	static
 variant:815:2:__rest = {}]	16	static
 variant:1629:5:) [with bool __use_index = true; bool __same_return_types = true; _Visitor = std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]::<lambda(auto:3&&, auto:4)>; _Variants = {const std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&}]	40	static
 variant:583:7:std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>& std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	24	static
-variant:1056:20:>&) [with _Tp = int; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 basic_string.h:263:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct(_InIterator, _InIterator) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	24	static
 new_allocator.h:80:7:__gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = std::pair<const char, token_type>]	16	static
 new_allocator.h:89:7:__gnu_cxx::new_allocator<_Tp>::~new_allocator() [with _Tp = std::pair<const char, token_type>]	16	static
@@ -294,7 +292,6 @@ variant:232:20:const _Type& std::__detail::__variant::_Uninitialized<_Type, fals
 invoke.h:89:5:) [with _Callable = std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]::<lambda(auto:3&&, auto:4)>; _Args = {const std::vector<Symbol, std::allocator<Symbol> >&, std::integral_constant<unsigned int, 4>}]	40	static
 variant:790:7:constexpr const _Tp& std::__detail::__variant::_Multi_array<_Tp>::_M_access() const [with _Tp = std::__detail::__variant::__variant_idx_cookie (*)(std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]::<lambda(auto:3&&, auto:4)>&&, const std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&)]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>::operator=(const std::__detail::__variant::_Copy_assign_base<<anonymous>, _Types>&) [with bool <anonymous> = false; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]::<lambda(auto:3&&, auto:4)>]	16	static
-variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 basic_string.h:243:9:void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = const char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	40	static
 new_allocator.h:83:7:__gnu_cxx::new_allocator<_Tp>::new_allocator(const __gnu_cxx::new_allocator<_Tp>&) [with _Tp = std::pair<const char, token_type>]	16	static
 allocator.h:151:2:std::allocator< <template-parameter-1-1> >::allocator(const std::allocator<_Tp1>&) [with _Tp1 = std::pair<const char, token_type>; _Tp = std::_Rb_tree_node<std::pair<const char, token_type> >]	16	static
@@ -613,6 +610,7 @@ variant:463:10:void std::__detail::__variant::__variant_construct_single(_Tp&&, 
 variant:463:10:void std::__detail::__variant::__variant_construct_single(_Tp&&, _Up&&) [with _Tp = std::__detail::__variant::_Copy_ctor_base<false, int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >&; _Up = const std::vector<Symbol>&]	32	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = int]	16	static
 variant:1037:10:) [with unsigned int _Np = 0; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {int}]	32	static
+variant:1583:5:>&) [with unsigned int _Np = 0; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
 move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = float]	16	static
 variant:1037:10:) [with unsigned int _Np = 1; _Variant = std::variant<int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> > >; _Args = {float}]	32	static
 variant:1583:5:>&) [with unsigned int _Np = 1; _Types = {int, float, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<Symbol, std::allocator<Symbol> >}]	16	static
@@ -813,6 +811,6 @@ move.h:74:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::ty
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Executor.cpp:152:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Executor.cpp:152:1:cpp)	8	static
-Executor.cpp:152:1:cpp)	8	static
+Executor.cpp:129:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Executor.cpp:129:1:cpp)	8	static
+Executor.cpp:129:1:cpp)	8	static

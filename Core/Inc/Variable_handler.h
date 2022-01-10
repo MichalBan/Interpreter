@@ -24,7 +24,12 @@ public:
 	Symbol& get_par(std::string name);
 	Symbol& get_local(std::string name);
 	Symbol& get_symbol(Variable var);
+	std::string create_symbol_message(std::string name, Symbol symbol);
 	void transmit_variables();
+	void create_symbol_message_recursively(Symbol symbol,
+			const std::string &name, std::string &res);
+	void create_symbol_message_simply(const std::string &name,
+			const Symbol &symbol, std::string &res);
 };
 
 #endif /* INC_VARIABLE_HANDLER_H_ */

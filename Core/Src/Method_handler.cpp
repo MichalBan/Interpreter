@@ -3,7 +3,6 @@
 namespace
 {
 
-// todo dober miejsce
 void assert_arguments(int expected, arglist arguments)
 {
 	if(arguments.size() != (unsigned int)expected)
@@ -16,9 +15,7 @@ void resize(Symbol& var, arglist arguments)
 {
 	assert_arguments(1, arguments);
 	Symbol size_symbol = EVALUATE(arguments[0]);
-	size_symbol.assert_type(SYMBOL_INT);
-	int size = std::get<int>(size_symbol.value);
-	var.resize(size);
+	var.resize(size_symbol);
 }
 
 void round(Symbol& var, arglist arguments)

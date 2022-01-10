@@ -1,3 +1,4 @@
+"./Core/Src/Dialog_handler.o"
 "./Core/Src/Executor.o"
 "./Core/Src/Expression.o"
 "./Core/Src/Expression_calculator.o"

@@ -47,14 +47,19 @@ public:
 	Symbol operator%(Symbol other);
 	Symbol operator^(Symbol other);
 	Symbol operator-();
+
 	bool get_bool();
+	int get_int();
+	float get_float();
 	std::string to_string() const;
 	void align_types(Symbol &other);
 	void assert_type(symbol_type type);
 
-	void resize(int size);
+	void resize(Symbol size_symbol);
 	void round();
 	void floatify();
+	int validate_index(Symbol idx);
+	int validate_size_symbol(Symbol size_symbol);
 };
 
 #endif /* INC_SYMBOL_H_ */

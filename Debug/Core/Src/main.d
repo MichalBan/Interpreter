@@ -34,7 +34,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Core/Inc/Position_counter.h ../Core/Inc/Singleton_starter_pack.h \
  ../Core/Inc/Function_handler.h ../Core/Inc/Symbol.h \
  ../Core/Inc/Variable_handler.h ../Core/Inc/Method_handler.h \
- ../Core/Inc/Parser.h ../Core/Inc/Statement.h ../Core/Inc/Lexer.h
+ ../Core/Inc/Parser.h ../Core/Inc/Statement.h ../Core/Inc/Lexer.h \
+ ../Core/Inc/Dialog_handler.h
 
 ../Core/Inc/main.h:
 
@@ -127,3 +128,5 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Core/Inc/Statement.h:
 
 ../Core/Inc/Lexer.h:
+
+../Core/Inc/Dialog_handler.h:

@@ -1,19 +1,19 @@
 setup
-    max_loops = 2000
+    max_loops = 60
     Par:P = 0.5
     Par:I = 0.05
     Par:D = 0
-    Arg:u = 0
-    Arg:y = 0
+    Arg:u.resize(2)
+    Arg:y.resize(2)
 
 loop
-    if loops < 500
+    if loops < 200
         Par:yzad = 0.5
-    elseif loops < 1000
+    elseif loops < 400
         Par:yzad = -0.45
-    elseif loops < 1500
+    elseif loops < 600
         Par:yzad = -1.0
-    elseif loops < 2000
+    else
         Par:yzad = 0.0
     end
     run_single_experiment_iteration()

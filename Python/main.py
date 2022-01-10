@@ -3,7 +3,7 @@ import msvcrt
 import serial
 import sys
 import traceback
-from plot import plot
+from plot import *
 
 
 def show_exception_and_exit(exc_type, exc_value, tb):
@@ -21,16 +21,15 @@ def handle_error(port):
 
 
 def transmit_code(port):
-	print("waiting for MCU")
+	print("")
 	request = port.read(1)
-	print("sending code")
 	with open("kod.txt") as f:
 		while request == b'c':
 			c = f.read(1)
 			if not c:
 				port.write(b'\0')
 				port.write(b'\0')
-				print("\nCode transmission complete")
+				print("\n\nCode transmission complete")
 				break
 			print(c, end="")
 			port.write(c.encode('ascii'))
@@ -40,6 +39,7 @@ def transmit_code(port):
 
 
 def read_runtime_data(port):
+	print("Press any key to interrupt")
 	result = {}
 	timeline = []
 	identifiers = []
@@ -70,7 +70,9 @@ def read_runtime_data(port):
 		timeline.append(copy.deepcopy(result))
 		if msvcrt.kbhit():
 			port.write(b'e')
+			msvcrt.getch()
 			print("interrupted")
+			return timeline
 		line = port.readline()
 	return timeline
 
@@ -86,19 +88,60 @@ def initialize_port():
 	return ser
 
 
+def mean_square(timeline):
+	names = input("which variables to calculate mean square error from? (separate variables by coma)\n")
+	names = names.replace(' ', '')
+	names = names.split(',')
+	if len(names) != 2:
+		print("exacly 2 variables needed")
+		return False
+	for name in names:
+		if name not in timeline[0]:
+			print("variable " + name + " does not exist")
+			return False
+	var0 = [x[names[0]] for x in timeline]
+	var1 = [x[names[1]] for x in timeline]
+	result = 0
+	for i in range(len(var0)):
+		result = result + (var0[i] - var1[i]) ** 2
+	print(result)
+	return True
+
+
+def read_metadata_choice(port):
+	message = "type 'm' to receive metadata or any other key to start interpretation.\n"
+	choice = input(message)
+	while choice == 'm':
+		port.write(b'm')
+		print(port.readline().decode("utf-8"))
+		choice = input(message)
+	port.write(b'r')
+
+
 def main():
 	sys.excepthook = show_exception_and_exit
 	port = initialize_port()
 
-	print("Press any key to start")
-#	msvcrt.getch()
+	print("start / restart MCU")
+	port.read(1)
+	read_metadata_choice(port)
+
+	print("sending code")
 	transmit_code(port)
 
-	print("Executing code. Press any key to interrupt")
+	print("executing code")
 	timeline = read_runtime_data(port)
 
 	print("plotting")
-	plot(timeline)
+	while not plot(timeline):
+		pass
+
+	print("calculating")
+	while not mean_square(timeline):
+		pass
+
+	print("press any key to close")
+	msvcrt.getch()
 
 
 if __name__ == '__main__':

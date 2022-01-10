@@ -98,7 +98,7 @@ void Executor::execute(Method_call *mcall)
 
 void Executor::execute(Function_call *fcall)
 {
-	Function_handler::run_function(fcall);
+	Function_handler::get_instance().run_function(fcall);
 }
 
 void Executor::execute(Assignment *assign)
@@ -109,36 +109,13 @@ void Executor::execute(Assignment *assign)
 
 	if (assign->var->index)
 	{
-		variable.type = SYMBOL_CONTAINER;
-		int idx = check_index(assign->var->index);
-		variable.resize(idx + 1);
+		Symbol idx = EVALUATE(assign->var->index);
 		variable[idx] = value;
 	}
 	else
 	{
 		variable = value;
 	}
-}
-
-int Executor::check_index(Expression *exp)
-{
-	Symbol idx_symbol = EVALUATE(exp);
-	int i;
-	if(idx_symbol.type == SYMBOL_INT || idx_symbol.type == SYMBOL_FLOAT)
-	{
-		idx_symbol.round();
-		i = std::get<int>(idx_symbol.value);
-	}
-	else
-	{
-		Transmitter::report_error("index must be a number");
-	}
-
-	if (i < 0)
-	{
-		Transmitter::report_error("index can not be negative");
-	}
-	return i;
 }
 
 void Executor::abort()

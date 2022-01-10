@@ -15,8 +15,9 @@ Transmitter.cpp:6:6:static void Transmitter::report_error(std::string)	216	stati
 Transmitter.cpp:24:21:void __tcf_0()	8	static
 Transmitter.cpp:22:6:static void Transmitter::send_string(std::string)	24	static
 Transmitter.cpp:31:6:static void Transmitter::start_listening()	8	static
-Transmitter.cpp:36:6:static char Transmitter::receive_code_char()	8	static
-Transmitter.cpp:47:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	16	static
+Transmitter.cpp:36:6:static char Transmitter::get_choice()	8	static
+Transmitter.cpp:42:6:static char Transmitter::receive_code_char()	8	static
+Transmitter.cpp:53:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	16	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
 char_traits.h:161:5:static constexpr std::size_t __gnu_cxx::char_traits<_CharT>::length(const char_type*) [with _CharT = char]	24	static
 string_conversions.h:99:5:) [with _String = std::__cxx11::basic_string<char>; _CharT = char]	44	dynamic
@@ -274,6 +275,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-Transmitter.cpp:57:1:void __static_initialization_and_destruction_0(int, int)	424	static
-Transmitter.cpp:57:1:cpp)	8	static
-Transmitter.cpp:57:1:cpp)	8	static
+Transmitter.cpp:63:1:void __static_initialization_and_destruction_0(int, int)	424	static
+Transmitter.cpp:63:1:cpp)	8	static
+Transmitter.cpp:63:1:cpp)	8	static

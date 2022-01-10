@@ -45,7 +45,7 @@ Expression_calculator.cpp:147:8:Symbol Expression_calculator::evaluate(Unary_exp
 variant:1056:20:>&) [with _Tp = Expression*; _Types = {Primal_expression*, Expression*}]	16	static
 variant:1056:20:>&) [with _Tp = Primal_expression*; _Types = {Primal_expression*, Expression*}]	16	static
 Expression_calculator.cpp:160:8:Symbol Expression_calculator::evaluate(Priority_expression*)	32	static
-Expression_calculator.cpp:174:8:Symbol Expression_calculator::evaluate(Primal_expression*)	48	static
+Expression_calculator.cpp:174:8:Symbol Expression_calculator::evaluate(Primal_expression*)	56	static
 identifier_classes.h:18:7:Variable::Variable(const Variable&)	16	static
 Expression_calculator.cpp:195:8:Symbol Expression_calculator::evaluate(Variable*)	128	static
 char_traits.h:100:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static

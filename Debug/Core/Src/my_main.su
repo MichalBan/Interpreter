@@ -255,6 +255,6 @@ new_allocator.h:132:7:__gnu_cxx::new_allocator<_Tp>::size_type __gnu_cxx::new_al
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = double_token; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, double_token> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = std::__cxx11::basic_string<char>; _Tp = token_type; _Compare = std::less<std::__cxx11::basic_string<char> >; _Alloc = std::allocator<std::pair<const std::__cxx11::basic_string<char>, token_type> >]	16	static
 stl_map.h:300:7:std::map<_Key, _Tp, _Compare, _Alloc>::~map() [with _Key = char; _Tp = token_type; _Compare = std::less<char>; _Alloc = std::allocator<std::pair<const char, token_type> >]	16	static
-my_main.cpp:14:1:void __static_initialization_and_destruction_0(int, int)	424	static
-my_main.cpp:14:1:cpp)	8	static
-my_main.cpp:14:1:cpp)	8	static
+my_main.cpp:15:1:void __static_initialization_and_destruction_0(int, int)	424	static
+my_main.cpp:15:1:cpp)	8	static
+my_main.cpp:15:1:cpp)	8	static

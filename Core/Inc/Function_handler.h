@@ -15,7 +15,10 @@ class Function_handler
 
 	std::map<std::string, function_pointer> functions;
 public:
-	static Symbol run_function(Function_call *fcall);
+	static Function_handler& get_instance();
+
+	void transmit_function_names();
+	Symbol run_function(Function_call *fcall);
 };
 
-#endif /* INC_FUNCTION_HANDLER_H_ */
+#endif

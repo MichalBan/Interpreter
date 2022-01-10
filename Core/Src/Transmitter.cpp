@@ -23,7 +23,7 @@ void Transmitter::send_string(std::string message)
 {
 	static std::string res;
     res = message;
-	HAL_UART_Transmit(&huart1, (uint8_t*)res.c_str(), res.length(), 100);
+	HAL_UART_Transmit(&huart1, (uint8_t*)res.c_str(), res.length(), 1000);
 }
 
 static uint8_t rx_buffer;
@@ -33,10 +33,16 @@ void Transmitter::start_listening()
 	HAL_UART_Receive_IT(&huart1, &rx_buffer, 1);
 }
 
+char Transmitter::get_choice()
+{
+	HAL_UART_Receive(&huart1, &rx_buffer, 1, -1);
+	return rx_buffer;
+}
+
 char Transmitter::receive_code_char()
 {
     static uint8_t tx_buffer = 'c';
-	HAL_UART_Transmit(&huart1, &tx_buffer, 1, 100);
+	HAL_UART_Transmit(&huart1, &tx_buffer, 1, 1000);
 	HAL_UART_Receive(&huart1, &rx_buffer, 1, -1);
 
 	Position_counter::get_instance().update_position(rx_buffer);
